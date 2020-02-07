@@ -59,6 +59,19 @@ class ViewController: UIViewController {
             self?.view.layoutIfNeeded()
         }, completion: nil)
     }
+    
+    // MARK: BUTTON CLICKED EVENTS
+    @IBAction func alreadyhaveanAccountButtonClicked(_ sender: Any) {
+        faceBookButtonTopConstraint.constant += view.bounds.height
+        googleButtonTopConstraint.constant += view.bounds.height
+        instagramButtonTopConstraint.constant += view.bounds.height
+        googleButtonTopConstraint.constant += view.bounds.height
+        alreadyHaveAnAccountTopConstraint.constant += view.bounds.height
+        loginButtonCenterConstraint.constant -= view.bounds.width
+        createAccountButtonCenterConstraint.constant += view.bounds.width
+        prepareAlreadyHaveAccount()
+    }
+    
 
     @IBAction func createAccountButtonClicked(_ sender: Any) {
         prepareCreateAccount()
@@ -116,6 +129,27 @@ class ViewController: UIViewController {
                         animations: { [weak self] in
                         self?.view.layoutIfNeeded()
             }, completion: nil)
+    }
+    
+    func prepareAlreadyHaveAccount(){
+        emailTextField.isHidden = false
+        passwordTextField.isHidden = false
+        loginButton.isHidden = false
+        createAccountButton.isHidden = false
+        orLabel.isHidden = false
+        
+        createAccountUsingLabel.isHidden = true
+        facebookButton.isHidden = true
+        instagramButton.isHidden = true
+        googleButton.isHidden = true
+        emailButton.isHidden = true
+        alreadyHaveAnAccountButton.isHidden = true
+        
+        loginButtonCenterConstraint.constant = 0
+        createAccountButtonCenterConstraint.constant = 0
+        UIView.animate(withDuration: 1) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
     }
     
     func customizeButton(){

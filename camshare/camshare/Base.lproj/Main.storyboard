@@ -124,6 +124,9 @@
                                     <constraint firstAttribute="width" constant="180" id="fal-xF-kf7"/>
                                 </constraints>
                                 <state key="normal" title="Already have an account ?"/>
+                                <connections>
+                                    <action selector="alreadyhaveanAccountButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xDb-SN-A8l"/>
+                                </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create account using" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKR-Rq-Nwp">
                                 <rect key="frame" x="57" y="541" width="300" height="32"/>
@@ -194,6 +197,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-270" y="66"/>
+        </scene>
+        <!--Photos-->
+        <scene sceneID="amG-Fb-SIz">
+            <objects>
+                <viewController id="E9x-85-z3l" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4rh-yf-bje">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="GpF-eR-skI"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Photos" id="bXY-rH-cLv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8rr-gf-Yck" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1483" y="66"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="n7J-Us-8o8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kkk-rf-3ts" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="nw8-J0-bE2">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="35"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="E9x-85-z3l" kind="relationship" relationship="rootViewController" id="273-af-Qge"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zxg-FF-wFR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="681" y="66"/>
         </scene>
     </scenes>
     <resources>
