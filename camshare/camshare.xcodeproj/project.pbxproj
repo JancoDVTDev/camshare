@@ -17,6 +17,8 @@
 		61F601DC23ED1DAB008323F1 /* camshareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F601DB23ED1DAB008323F1 /* camshareUITests.swift */; };
 		61F601EA23ED1E7C008323F1 /* ColorConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F601E923ED1E7C008323F1 /* ColorConstraints.swift */; };
 		61F601EC23ED1EC5008323F1 /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F601EB23ED1EC5008323F1 /* UIViewExtentions.swift */; };
+		61F601EE23ED4561008323F1 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F601ED23ED4561008323F1 /* PhotoAlbumViewController.swift */; };
+		61F601F023ED4FF6008323F1 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F601EF23ED4FF6008323F1 /* CreateAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		61F601DD23ED1DAB008323F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61F601E923ED1E7C008323F1 /* ColorConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstraints.swift; sourceTree = "<group>"; };
 		61F601EB23ED1EC5008323F1 /* UIViewExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtentions.swift; sourceTree = "<group>"; };
+		61F601ED23ED4561008323F1 /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
+		61F601EF23ED4FF6008323F1 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				61F601B923ED1DA9008323F1 /* AppDelegate.swift */,
 				61F601BB23ED1DA9008323F1 /* SceneDelegate.swift */,
 				61F601BD23ED1DA9008323F1 /* ViewController.swift */,
+				61F601ED23ED4561008323F1 /* PhotoAlbumViewController.swift */,
+				61F601EF23ED4FF6008323F1 /* CreateAccountViewController.swift */,
 				61F601BF23ED1DA9008323F1 /* Main.storyboard */,
 				61F601E923ED1E7C008323F1 /* ColorConstraints.swift */,
 				61F601EB23ED1EC5008323F1 /* UIViewExtentions.swift */,
@@ -265,11 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61F601F023ED4FF6008323F1 /* CreateAccountViewController.swift in Sources */,
 				61F601EA23ED1E7C008323F1 /* ColorConstraints.swift in Sources */,
 				61F601EC23ED1EC5008323F1 /* UIViewExtentions.swift in Sources */,
 				61F601BE23ED1DA9008323F1 /* ViewController.swift in Sources */,
 				61F601BA23ED1DA9008323F1 /* AppDelegate.swift in Sources */,
 				61F601BC23ED1DA9008323F1 /* SceneDelegate.swift in Sources */,
+				61F601EE23ED4561008323F1 /* PhotoAlbumViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
