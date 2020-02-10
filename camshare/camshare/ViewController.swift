@@ -37,33 +37,97 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        faceBookButtonTopConstraint.constant += view.bounds.height
-        googleButtonTopConstraint.constant += view.bounds.height
-        instagramButtonTopConstraint.constant += view.bounds.height
-        googleButtonTopConstraint.constant += view.bounds.height
-        alreadyHaveAnAccountTopConstraint.constant += view.bounds.height
-        customizeButton()
-        // Do any additional setup after loading the view.
+        if let fbConstraint = faceBookButtonTopConstraint{
+            fbConstraint.constant += view.bounds.height
+        }
+        if let gConstraint = googleButtonTopConstraint{
+            gConstraint.constant += view.bounds.height
+        }
+        if let instContraint = instagramButtonTopConstraint{
+            instContraint.constant += view.bounds.height
+        }
+        if let eContraint = emailButtonTopConstraint{
+            eContraint.constant += view.bounds.height
+        }
+        if let alreadyConstraint = alreadyHaveAnAccountTopConstraint{
+            alreadyConstraint.constant += view.bounds.height
+        }
+        // MARK: 111 Changes because of fatal error - revert back
+        //faceBookButtonTopConstraint.constant += view.bounds.height
+//        googleButtonTopConstraint.constant += view.bounds.height
+//        instagramButtonTopConstraint.constant += view.bounds.height
+//        googleButtonTopConstraint.constant += view.bounds.height
+//        alreadyHaveAnAccountTopConstraint.constant += view.bounds.height
+        //customizeButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loginButtonCenterConstraint.constant -= view.bounds.width
-        createAccountButtonCenterConstraint.constant += view.bounds.width
+        if let loginContraint = loginButtonCenterConstraint{
+            loginContraint.constant -= view.bounds.width
+        }
+
+        if let createContraint = createAccountButtonCenterConstraint{
+            createContraint.constant += view.bounds.width
+        }
+        
+        // MARK: 111 Changes
+//        loginButtonCenterConstraint.constant -= view.bounds.width
+//        createAccountButtonCenterConstraint.constant += view.bounds.width
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        loginButtonCenterConstraint.constant = 0
-        createAccountButtonCenterConstraint.constant = 0
+        //MARK: 111 Changes
+        if let lgButton = loginButtonCenterConstraint{
+            lgButton.constant = 0
+        }
+        
+        if let crButton = createAccountButtonCenterConstraint{
+            crButton.constant = 0
+        }
+//        loginButtonCenterConstraint.constant = 0
+//        createAccountButtonCenterConstraint.constant = 0
         UIView.animate(withDuration: 0.5, delay: 0.3, options: [], animations:{ [weak self] in
             self?.view.layoutIfNeeded()
         }, completion: nil)
     }
+    
+    // MARK: BUTTON CLICKED EVENTS
+    @IBAction func alreadyhaveanAccountButtonClicked(_ sender: Any) {
+        if let fbConstraint = faceBookButtonTopConstraint{
+            fbConstraint.constant += view.bounds.height
+        }
+        if let gConstraint = googleButtonTopConstraint{
+            gConstraint.constant += view.bounds.height
+        }
+        if let instContraint = instagramButtonTopConstraint{
+            instContraint.constant += view.bounds.height
+        }
+        if let eContraint = emailButtonTopConstraint{
+            eContraint.constant += view.bounds.height
+        }
+        if let alreadyConstraint = alreadyHaveAnAccountTopConstraint{
+            alreadyConstraint.constant += view.bounds.height
+        }
+        // MARK: 111 Changes
+//        faceBookButtonTopConstraint?.constant += view.bounds.height
+//        googleButtonTopConstraint.constant += view.bounds.height
+//        instagramButtonTopConstraint.constant += view.bounds.height
+//        googleButtonTopConstraint.constant += view.bounds.height
+//        alreadyHaveAnAccountTopConstraint.constant += view.bounds.height
+        loginButtonCenterConstraint.constant -= view.bounds.width
+        createAccountButtonCenterConstraint.constant += view.bounds.width
+        prepareAlreadyHaveAccount()
+    }
+    
 
     @IBAction func createAccountButtonClicked(_ sender: Any) {
         prepareCreateAccount()
     }
     
+    @IBAction func albumButtonClicked(_ sender: Any) {
+        performSegue(withIdentifier: "goToAlbum", sender: self)
+    }
     //MARK: FUNCTIONS
     
     func prepareCreateAccount() {
@@ -79,72 +143,98 @@ class ViewController: UIViewController {
         googleButton.isHidden = false
         emailButton.isHidden = false
         alreadyHaveAnAccountButton.isHidden = false
+        let duration = 0.8
         
-        faceBookButtonTopConstraint.constant = 121
-        UIView.animate(withDuration: 1) { [weak self] in
+        faceBookButtonTopConstraint!.constant = 121
+        UIView.animate(withDuration: duration) { [weak self] in
             self?.view.layoutIfNeeded()
         }
         
+        
         instagramButtonTopConstraint.constant = 8
-        UIView.animate(withDuration: 0.5,
-                        delay: 0.3,
+        UIView.animate(withDuration: duration,
+                       delay: 0.3,
                         options: [],
                         animations: { [weak self] in
                         self?.view.layoutIfNeeded()
         }, completion: nil)
         
         googleButtonTopConstraint.constant = 8
-            UIView.animate(withDuration: 0.5,
-                            delay: 0.3,
+            UIView.animate(withDuration: duration,
+                           delay: 0.6,
                             options: [],
                             animations: { [weak self] in
                             self?.view.layoutIfNeeded()
             }, completion: nil)
         
         emailButtonTopConstraint.constant = 8
-            UIView.animate(withDuration: 0.5,
-                            delay: 0.3,
+            UIView.animate(withDuration: duration,
+                           delay: 0.9,
                             options: [],
                             animations: { [weak self] in
                             self?.view.layoutIfNeeded()
                 }, completion: nil)
         
         alreadyHaveAnAccountTopConstraint.constant = 8
-        UIView.animate(withDuration: 0.5,
-                        delay: 0.3,
+        UIView.animate(withDuration: duration,
+                       delay: 1.2,
                         options: [],
                         animations: { [weak self] in
                         self?.view.layoutIfNeeded()
             }, completion: nil)
     }
     
+    func prepareAlreadyHaveAccount(){
+        emailTextField.isHidden = false
+        passwordTextField.isHidden = false
+        loginButton.isHidden = false
+        createAccountButton.isHidden = false
+        orLabel.isHidden = false
+        
+        createAccountUsingLabel.isHidden = true
+        facebookButton.isHidden = true
+        instagramButton.isHidden = true
+        googleButton.isHidden = true
+        emailButton.isHidden = true
+        alreadyHaveAnAccountButton.isHidden = true
+        
+        loginButtonCenterConstraint.constant = 0
+        createAccountButtonCenterConstraint.constant = 0
+        UIView.animate(withDuration: 1) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
+    }
+    
     func customizeButton(){
-        loginButton.layer.cornerRadius = loginButton.frame.size.height/2
+        if let lgButton = loginButton{
+            lgButton.layer.cornerRadius = loginButton.frame.size.height/2
+        }
+        //loginButton.layer.cornerRadius = loginButton.frame.size.height/2
         loginButton.layer.masksToBounds = true
         loginButton.setTitleColor(UIColor.white, for: .normal)
         loginButton.setGradientBackground(colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
         
-        createAccountButton.layer.cornerRadius = loginButton.frame.size.height/2
+        //createAccountButton.layer.cornerRadius = loginButton.frame.size.height/2
         createAccountButton.layer.masksToBounds = true
         createAccountButton.setTitleColor(UIColor.white, for: .normal)
         createAccountButton.setGradientBackground(colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
         
-        facebookButton.layer.cornerRadius = facebookButton.frame.size.height/2
+        //facebookButton.layer.cornerRadius = facebookButton.frame.size.height/2
         facebookButton.layer.masksToBounds = true
         facebookButton.setTitleColor(UIColor.white, for: .normal)
         facebookButton.setGradientBackground(colorOne: Colors.csFacebook, colorTwo: Colors.csLighFacebook)
         
-        instagramButton.layer.cornerRadius = facebookButton.frame.size.height/2
+        //instagramButton.layer.cornerRadius = facebookButton.frame.size.height/2
         instagramButton.layer.masksToBounds = true
         instagramButton.setTitleColor(UIColor.white, for: .normal)
         instagramButton.setGradientBackground(colorOne: Colors.csInstagram, colorTwo: Colors.csInstagramLight)
         
-        googleButton.layer.cornerRadius = googleButton.frame.size.height/2
+        //googleButton.layer.cornerRadius = googleButton.frame.size.height/2
         googleButton.layer.masksToBounds = true
         googleButton.setTitleColor(UIColor.white, for: .normal)
         googleButton.setGradientBackground(colorOne: Colors.csGoogle, colorTwo: Colors.csLightGoogle)
         
-        emailButton.layer.cornerRadius = emailButton.frame.size.height/2
+        //emailButton.layer.cornerRadius = emailButton.frame.size.height/2
         emailButton.layer.masksToBounds = true
         emailButton.setTitleColor(UIColor.white, for: .normal)
         emailButton.setGradientBackground(colorOne: Colors.csBlack, colorTwo: Colors.csGrey)
