@@ -8,9 +8,9 @@
 
 import XCTest
 @testable import camshare
-
+//swiftlint:disable all
 class camshareTests: XCTestCase {
-
+//swiftlint:enable all
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
