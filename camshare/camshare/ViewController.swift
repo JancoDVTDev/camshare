@@ -48,13 +48,7 @@ class ViewController: UIViewController {
         if let alreadyConstraint = alreadyHaveAnAccountTopConstraint {
             alreadyConstraint.constant += view.bounds.height
         }
-        // MARK: 111 Changes because of fatal error - revert back
-        //faceBookButtonTopConstraint.constant += view.bounds.height
-//        googleButtonTopConstraint.constant += view.bounds.height
-//        instagramButtonTopConstraint.constant += view.bounds.height
-//        googleButtonTopConstraint.constant += view.bounds.height
-//        alreadyHaveAnAccountTopConstraint.constant += view.bounds.height
-        //customizeButton()
+        customizeButton()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -87,27 +81,21 @@ class ViewController: UIViewController {
     }
     // MARK: BUTTON CLICKED EVENTS
     @IBAction func alreadyhaveanAccountButtonClicked(_ sender: Any) {
-        if let fbConstraint = faceBookButtonTopConstraint {
-            fbConstraint.constant += view.bounds.height
+        if let faceBookButtonTopConstraint = faceBookButtonTopConstraint {
+            faceBookButtonTopConstraint.constant += view.bounds.height
         }
-        if let gConstraint = googleButtonTopConstraint {
-            gConstraint.constant += view.bounds.height
+        if let googleButtonTopConstraint = googleButtonTopConstraint {
+            googleButtonTopConstraint.constant += view.bounds.height
         }
-        if let instContraint = instagramButtonTopConstraint {
-            instContraint.constant += view.bounds.height
+        if let instagramButtonTopConstraint = instagramButtonTopConstraint {
+            instagramButtonTopConstraint.constant += view.bounds.height
         }
-        if let eContraint = emailButtonTopConstraint {
-            eContraint.constant += view.bounds.height
+        if let emailButtonTopConstraint = emailButtonTopConstraint {
+            emailButtonTopConstraint.constant += view.bounds.height
         }
-        if let alreadyConstraint = alreadyHaveAnAccountTopConstraint {
-            alreadyConstraint.constant += view.bounds.height
+        if let alreadyHaveAnAccountTopConstraint = alreadyHaveAnAccountTopConstraint {
+            alreadyHaveAnAccountTopConstraint.constant += view.bounds.height
         }
-        // MARK: 111 Changes
-//        faceBookButtonTopConstraint?.constant += view.bounds.height
-//        googleButtonTopConstraint.constant += view.bounds.height
-//        instagramButtonTopConstraint.constant += view.bounds.height
-//        googleButtonTopConstraint.constant += view.bounds.height
-//        alreadyHaveAnAccountTopConstraint.constant += view.bounds.height
         loginButtonCenterConstraint.constant -= view.bounds.width
         createAccountButtonCenterConstraint.constant += view.bounds.width
         prepareAlreadyHaveAccount()
@@ -185,38 +173,28 @@ class ViewController: UIViewController {
             self?.view.layoutIfNeeded()
         }
     }
-    func customizeButton() {
-        if let lgButton = loginButton {
-            lgButton.layer.cornerRadius = loginButton.frame.size.height/2
+
+    func paintButton(button: UIButton?, colorOne: UIColor, colorTwo: UIColor) {
+        if let button = button {
+            button.layer.cornerRadius = button.frame.size.height/2
+            button.layer.masksToBounds = true
+            button.setTitleColor(UIColor.white, for: .normal)
+            button.setGradientBackground(colorOne: colorOne, colorTwo: colorTwo)
         }
-        //loginButton.layer.cornerRadius = loginButton.frame.size.height/2
-        loginButton.layer.masksToBounds = true
-        loginButton.setTitleColor(UIColor.white, for: .normal)
-        loginButton.setGradientBackground(colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
+    }
 
-        //createAccountButton.layer.cornerRadius = loginButton.frame.size.height/2
-        createAccountButton.layer.masksToBounds = true
-        createAccountButton.setTitleColor(UIColor.white, for: .normal)
-        createAccountButton.setGradientBackground(colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
-
-        //facebookButton.layer.cornerRadius = facebookButton.frame.size.height/2
-        facebookButton.layer.masksToBounds = true
-        facebookButton.setTitleColor(UIColor.white, for: .normal)
-        facebookButton.setGradientBackground(colorOne: Colors.csFacebook, colorTwo: Colors.csLighFacebook)
-
-        //instagramButton.layer.cornerRadius = facebookButton.frame.size.height/2
-        instagramButton.layer.masksToBounds = true
-        instagramButton.setTitleColor(UIColor.white, for: .normal)
-        instagramButton.setGradientBackground(colorOne: Colors.csInstagram, colorTwo: Colors.csInstagramLight)
-
-        //googleButton.layer.cornerRadius = googleButton.frame.size.height/2
-        googleButton.layer.masksToBounds = true
-        googleButton.setTitleColor(UIColor.white, for: .normal)
-        googleButton.setGradientBackground(colorOne: Colors.csGoogle, colorTwo: Colors.csLightGoogle)
-
-        //emailButton.layer.cornerRadius = emailButton.frame.size.height/2
-        emailButton.layer.masksToBounds = true
-        emailButton.setTitleColor(UIColor.white, for: .normal)
-        emailButton.setGradientBackground(colorOne: Colors.csBlack, colorTwo: Colors.csGrey)
+    func customizeButton() {
+        paintButton(button: loginButton, colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
+        paintButton(button: createAccountButton, colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
+        paintButton(button: facebookButton, colorOne: Colors.csFacebook, colorTwo: Colors.csLighFacebook)
+        paintButton(button: instagramButton, colorOne: Colors.csInstagram, colorTwo: Colors.csInstagramLight)
+        paintButton(button: googleButton, colorOne: Colors.csGoogle, colorTwo: Colors.csLightGoogle)
+        paintButton(button: emailButton, colorOne: Colors.csBlack, colorTwo: Colors.csGrey)
+//        if let loginButton = loginButton {
+//            loginButton.layer.cornerRadius = loginButton.frame.size.height/2
+//            loginButton.layer.masksToBounds = true
+//            loginButton.setTitleColor(UIColor.white, for: .normal)
+//            loginButton.setGradientBackground(colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
+//        }
     }
 }
