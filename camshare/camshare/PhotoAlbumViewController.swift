@@ -11,6 +11,7 @@ import UIKit
 class PhotoAlbumViewController: ViewController {
     // MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var selectedImageView: UIImageView!
 
     // MARK: Properties
     var images = [UIImage(named: "image-1"), UIImage(named: "Image2"), UIImage(named: "Image3"),
@@ -49,8 +50,17 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
         //swiftlint:disable all
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
         //swiftlint:enable all
-        let image = images[indexPath.item]
-        cell.imageView.image = image
-        return cell
-    }
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PhotoAlbumViewController.tap(_:)))
+            cell.imageView.isUserInteractionEnabled = true
+            cell.imageView.tag = indexPath.row
+            cell.imageView.addGestureRecognizer(tapGestureRecognizer)
+            let image = images[indexPath.item]
+            cell.imageView.image = image
+            return cell
+        }
+        
+        @IBAction func tap(_ sender:AnyObject){
+            print("ViewController tap() Clicked Item: \(sender.view.tag)")
+            selectedImageView.image = images[sender.view.tag]
+        }
 }

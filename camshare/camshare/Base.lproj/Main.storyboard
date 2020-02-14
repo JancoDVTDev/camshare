@@ -237,7 +237,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GkB-RT-2En">
-                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="500"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="5" id="lyS-Ob-rxv">
                                     <size key="itemSize" width="278" height="232"/>
@@ -287,19 +287,30 @@
                                     <outlet property="delegate" destination="E9x-85-z3l" id="kvC-lE-1A9"/>
                                 </connections>
                             </collectionView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tNQ-4c-emu">
+                                <rect key="frame" x="16" y="589" width="382" height="219"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="219" id="Tg2-fS-0Fa"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="GkB-RT-2En" firstAttribute="trailing" secondItem="GpF-eR-skI" secondAttribute="trailing" id="3rb-wX-nyq"/>
                             <constraint firstItem="GkB-RT-2En" firstAttribute="top" secondItem="GpF-eR-skI" secondAttribute="top" id="4fO-IY-7Cc"/>
                             <constraint firstItem="GkB-RT-2En" firstAttribute="leading" secondItem="GpF-eR-skI" secondAttribute="leading" id="71c-nP-ivo"/>
-                            <constraint firstItem="GkB-RT-2En" firstAttribute="bottom" secondItem="GpF-eR-skI" secondAttribute="bottom" id="HrQ-pU-dqb"/>
+                            <constraint firstItem="tNQ-4c-emu" firstAttribute="leading" secondItem="GpF-eR-skI" secondAttribute="leading" constant="16" id="K8c-3V-Gws"/>
+                            <constraint firstItem="tNQ-4c-emu" firstAttribute="bottom" secondItem="GpF-eR-skI" secondAttribute="bottom" id="Sd6-nX-ZN8"/>
+                            <constraint firstItem="tNQ-4c-emu" firstAttribute="top" secondItem="GkB-RT-2En" secondAttribute="bottom" constant="33" id="Wtr-b7-Bme"/>
+                            <constraint firstItem="tNQ-4c-emu" firstAttribute="centerX" secondItem="4rh-yf-bje" secondAttribute="centerX" id="YMz-pG-3zB"/>
+                            <constraint firstItem="GpF-eR-skI" firstAttribute="trailing" secondItem="tNQ-4c-emu" secondAttribute="trailing" constant="16" id="mSI-zq-rKB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GpF-eR-skI"/>
                     </view>
                     <navigationItem key="navigationItem" title="Photos" id="bXY-rH-cLv"/>
                     <connections>
                         <outlet property="collectionView" destination="GkB-RT-2En" id="hU9-5P-zSk"/>
+                        <outlet property="selectedImageView" destination="tNQ-4c-emu" id="pX8-xq-Loa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8rr-gf-Yck" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

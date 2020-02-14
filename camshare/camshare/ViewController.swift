@@ -175,7 +175,7 @@ class ViewController: UIViewController {
         }
     }
 
-    func paintButton(button: UIButton?, colorOne: UIColor, colorTwo: UIColor) {
+    func styleButton(button: UIButton?, colorOne: UIColor, colorTwo: UIColor) {
         if let button = button {
             button.layer.cornerRadius = button.frame.size.height/2
             button.layer.masksToBounds = true
@@ -185,12 +185,12 @@ class ViewController: UIViewController {
     }
 
     func customizeButton() {
-        paintButton(button: loginButton, colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
-        paintButton(button: createAccountButton, colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
-        paintButton(button: facebookButton, colorOne: Colors.csFacebook, colorTwo: Colors.csLighFacebook)
-        paintButton(button: instagramButton, colorOne: Colors.csInstagram, colorTwo: Colors.csInstagramLight)
-        paintButton(button: googleButton, colorOne: Colors.csGoogle, colorTwo: Colors.csLightGoogle)
-        paintButton(button: emailButton, colorOne: Colors.csBlack, colorTwo: Colors.csGrey)
+        styleButton(button: loginButton, colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
+        styleButton(button: createAccountButton, colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
+        styleButton(button: facebookButton, colorOne: Colors.csFacebook, colorTwo: Colors.csLighFacebook)
+        styleButton(button: instagramButton, colorOne: Colors.csInstagram, colorTwo: Colors.csInstagramLight)
+        styleButton(button: googleButton, colorOne: Colors.csGoogle, colorTwo: Colors.csLightGoogle)
+        styleButton(button: emailButton, colorOne: Colors.csBlack, colorTwo: Colors.csGrey)
 //        if let loginButton = loginButton {
 //            loginButton.layer.cornerRadius = loginButton.frame.size.height/2
 //            loginButton.layer.masksToBounds = true
