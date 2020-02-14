@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6181543E23F55D8900FCFD60 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6181543D23F55D8900FCFD60 /* PhotoCell.swift */; };
 		61F601BA23ED1DA9008323F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F601B923ED1DA9008323F1 /* AppDelegate.swift */; };
 		61F601BC23ED1DA9008323F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F601BB23ED1DA9008323F1 /* SceneDelegate.swift */; };
 		61F601BE23ED1DA9008323F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F601BD23ED1DA9008323F1 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6181543D23F55D8900FCFD60 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		61F601B623ED1DA9008323F1 /* camshare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = camshare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61F601B923ED1DA9008323F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61F601BB23ED1DA9008323F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6181543C23F55D5100FCFD60 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6181543D23F55D8900FCFD60 /* PhotoCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		61F601AD23ED1DA9008323F1 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +117,7 @@
 		61F601B823ED1DA9008323F1 /* camshare */ = {
 			isa = PBXGroup;
 			children = (
+				6181543C23F55D5100FCFD60 /* Views */,
 				61F601B923ED1DA9008323F1 /* AppDelegate.swift */,
 				61F601BB23ED1DA9008323F1 /* SceneDelegate.swift */,
 				61F601BD23ED1DA9008323F1 /* ViewController.swift */,
@@ -150,6 +161,7 @@
 				61F601B223ED1DA9008323F1 /* Sources */,
 				61F601B323ED1DA9008323F1 /* Frameworks */,
 				61F601B423ED1DA9008323F1 /* Resources */,
+				61DADB6023F3D8C5009E06E6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -266,6 +278,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		61DADB6023F3D8C5009E06E6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		61F601B223ED1DA9008323F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -275,6 +307,7 @@
 				61F601EA23ED1E7C008323F1 /* ColorConstraints.swift in Sources */,
 				61F601EC23ED1EC5008323F1 /* UIViewExtentions.swift in Sources */,
 				61F601BE23ED1DA9008323F1 /* ViewController.swift in Sources */,
+				6181543E23F55D8900FCFD60 /* PhotoCell.swift in Sources */,
 				61F601BA23ED1DA9008323F1 /* AppDelegate.swift in Sources */,
 				61F601BC23ED1DA9008323F1 /* SceneDelegate.swift in Sources */,
 				61F601EE23ED4561008323F1 /* PhotoAlbumViewController.swift in Sources */,
