@@ -8,16 +8,14 @@
 
 import UIKit
 
+var selectedImageIndex: Int = 0
+
 class PhotoAlbumViewController: ViewController {
     // MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var selectedImageView: UIImageView!
 
     // MARK: Properties
-    var images = [UIImage(named: "image-1"), UIImage(named: "Image2"), UIImage(named: "Image3"),
-    UIImage(named: "Image4"), UIImage(named: "Image5"), UIImage(named: "Image6"),
-    UIImage(named: "Image7"), UIImage(named: "Image8"), UIImage(named: "Image9"),
-    UIImage(named: "Image10"), UIImage(named: "Image11"), UIImage(named: "Image12")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +48,8 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
         //swiftlint:disable all
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
         //swiftlint:enable all
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PhotoAlbumViewController.tap(_:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                          action: #selector(PhotoAlbumViewController.tap(_:)))
             cell.imageView.isUserInteractionEnabled = true
             cell.imageView.tag = indexPath.row
             cell.imageView.addGestureRecognizer(tapGestureRecognizer)
@@ -58,9 +57,11 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
             cell.imageView.image = image
             return cell
         }
-        
-        @IBAction func tap(_ sender:AnyObject){
+
+        @IBAction func tap(_ sender: AnyObject) {
             print("ViewController tap() Clicked Item: \(sender.view.tag)")
-            selectedImageView.image = images[sender.view.tag]
+            selectedImageIndex = sender.view.tag
+            performSegue(withIdentifier: "loadPhoto", sender: self)
+//            selectedImageView.image = images[sender.view.tag]
         }
 }
