@@ -3,6 +3,11 @@
 ## About
 Camshare is a mobile application developed for iOS devices. The purpose of the app is to give users a platform to make groups with their friends to share photos. Camshare is equipped with a camera that allows a user to add photos to a group by directly taking pictures with the built in camera.
 
+## Users and Accounts
+Users will be able to create new accounts using google firebase as the account provider OR sign up/sign in with their facebook or gmail accounts.
+
+Each user will have the ability to create groups, ivite their friends or join another group by reading a QR code or accepting an ivitation link shared via Whatsapp email or any other messaging platform.
+
 **Expected Features:**
 - Camera that allows realtime editing.
 - Viewing Albums as a collection.
