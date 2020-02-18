@@ -149,7 +149,7 @@
                                     <constraint firstAttribute="width" constant="300" id="xPj-tT-XF6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Google"/>
+                                <state key="normal" title="Gmail"/>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R77-fa-gID">
                                 <rect key="frame" x="57" y="707" width="300" height="50"/>
@@ -370,12 +370,6 @@
                                     <constraint firstAttribute="width" secondItem="eHE-6h-U7d" secondAttribute="height" multiplier="138:89" id="NDI-5M-rx4"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZTT-X9-uVa">
-                                <rect key="frame" x="0.0" y="758" width="414" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="LWK-yu-yH9"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="fxg-mq-gzc"/>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
