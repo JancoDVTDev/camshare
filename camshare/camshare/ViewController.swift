@@ -219,11 +219,5 @@ class ViewController: UIViewController, UITextFieldDelegate {
         styleButton(button: facebookButton, colorOne: Colors.csFacebook, colorTwo: Colors.csLighFacebook)
         styleButton(button: googleButton, colorOne: Colors.csGoogle, colorTwo: Colors.csLightGoogle)
         styleButton(button: emailButton, colorOne: Colors.csBlack, colorTwo: Colors.csGrey)
-//        if let loginButton = loginButton {
-//            loginButton.layer.cornerRadius = loginButton.frame.size.height/2
-//            loginButton.layer.masksToBounds = true
-//            loginButton.setTitleColor(UIColor.white, for: .normal)
-//            loginButton.setGradientBackground(colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
-//        }
     }
 }

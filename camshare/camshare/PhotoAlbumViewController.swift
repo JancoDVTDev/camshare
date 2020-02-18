@@ -19,8 +19,14 @@ class PhotoAlbumViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(addTapped))
 
         // Do any additional setup after loading the view.
+    }
+    @objc func addTapped() {
+        performSegue(withIdentifier: "Logout", sender: self)
+        print("App will now logout")
     }
 }
 // MARK: Flow layout delegate
@@ -28,7 +34,7 @@ class PhotoAlbumViewController: ViewController {
 extension PhotoAlbumViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let numberOfColumns: CGFloat = 5
+        let numberOfColumns: CGFloat = 2
         let width = collectionView.frame.size.width
         let xInsets: CGFloat = 5
         let cellSpacing: CGFloat = 10
