@@ -8,20 +8,26 @@
 
 import UIKit
 
+var selectedImageIndex: Int = 0
+
 class PhotoAlbumViewController: ViewController {
     // MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var imageView: UIImageView!
+    
 
     // MARK: Properties
-    var images = [UIImage(named: "image-1"), UIImage(named: "Image2"), UIImage(named: "Image3"),
-    UIImage(named: "Image4"), UIImage(named: "Image5"), UIImage(named: "Image6"),
-    UIImage(named: "Image7"), UIImage(named: "Image8"), UIImage(named: "Image9"),
-    UIImage(named: "Image10"), UIImage(named: "Image11"), UIImage(named: "Image12")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(addTapped))
 
         // Do any additional setup after loading the view.
+    }
+    @objc func addTapped() {
+        performSegue(withIdentifier: "Logout", sender: self)
+        print("App will now logout")
     }
 }
 // MARK: Flow layout delegate
@@ -29,7 +35,7 @@ class PhotoAlbumViewController: ViewController {
 extension PhotoAlbumViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let numberOfColumns: CGFloat = 3
+        let numberOfColumns: CGFloat = 2
         let width = collectionView.frame.size.width
         let xInsets: CGFloat = 5
         let cellSpacing: CGFloat = 10
@@ -49,8 +55,20 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
         //swiftlint:disable all
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
         //swiftlint:enable all
-        let image = images[indexPath.item]
-        cell.imageView.image = image
-        return cell
-    }
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                          action: #selector(PhotoAlbumViewController.tap(_:)))
+            cell.imageView.isUserInteractionEnabled = true
+            cell.imageView.tag = indexPath.row
+            cell.imageView.addGestureRecognizer(tapGestureRecognizer)
+            let image = images[indexPath.item]
+            cell.imageView.image = image
+            return cell
+        }
+
+        @IBAction func tap(_ sender: AnyObject) {
+            print("ViewController tap() Clicked Item: \(sender.view.tag)")
+            selectedImageIndex = sender.view.tag
+            performSegue(withIdentifier: "loadPhoto", sender: self)
+//            selectedImageView.image = images[sender.view.tag]
+        }
 }

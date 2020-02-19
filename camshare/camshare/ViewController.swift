@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
+    // comment to commit and push
     // MARK: LOGIN VIEW OBJECTS
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -33,6 +34,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var alreadyHaveAnAccountTopConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
+        //emailTextField.delegate = self
+        //passwordTextField.delegate = self
         if let fbConstraint = faceBookButtonTopConstraint {
             fbConstraint.constant += view.bounds.height
         }
@@ -60,9 +63,24 @@ class ViewController: UIViewController {
             createContraint.constant += view.bounds.width
         }
 
+        // Listen for keyboard events
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)),
+                                               name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+
         // MARK: 111 Changes
 //        loginButtonCenterConstraint.constant -= view.bounds.width
 //        createAccountButtonCenterConstraint.constant += view.bounds.width
+    }
+    deinit {
+        //Stop listening for keyboard hide/show events
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification,
+                                                  object: nil)
     }
     override func viewDidAppear(_ animated: Bool) {
         // MARK: 111 Changes
@@ -110,6 +128,27 @@ class ViewController: UIViewController {
     }
 
     // MARK: FUNCTIONS
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        hideKeyboard()
+        return true
+    }
+    @objc func keyboardWillChange(notification: Notification) {
+        // getting size of keyboard height - UserInfo is a dictionary with values that we ca use
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as?
+            NSValue)?.cgRectValue else {
+            return
+        }
+        if notification.name == UIResponder.keyboardWillShowNotification ||
+            notification.name == UIResponder.keyboardWillChangeFrameNotification {
+            view.frame.origin.y = -keyboardRect.height
+        } else {
+            view.frame.origin.y = 0
+        }
+    }
+    func hideKeyboard() { // Reuse this function for exMPLE ON A BUTTON TO HIDE THE KEYBOARD
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
     func prepareCreateAccount() {
         emailTextField.isHidden = true
         passwordTextField.isHidden = true
@@ -118,36 +157,28 @@ class ViewController: UIViewController {
         orLabel.isHidden = true
         createAccountUsingLabel.isHidden = false
         facebookButton.isHidden = false
-        instagramButton.isHidden = false
         googleButton.isHidden = false
         emailButton.isHidden = false
         alreadyHaveAnAccountButton.isHidden = false
         let duration = 0.8
-        faceBookButtonTopConstraint!.constant = 121
+        faceBookButtonTopConstraint.constant = 30
         UIView.animate(withDuration: duration) { [weak self] in
             self?.view.layoutIfNeeded()
         }
-        instagramButtonTopConstraint.constant = 8
-        UIView.animate(withDuration: duration,
-                       delay: 0.3,
-                        options: [],
-                        animations: { [weak self] in
-                        self?.view.layoutIfNeeded()
-        }, completion: nil)
 
         googleButtonTopConstraint.constant = 8
-            UIView.animate(withDuration: duration, delay: 0.6, options: [], animations: { [weak self] in
+            UIView.animate(withDuration: duration, delay: 0.3, options: [], animations: { [weak self] in
                             self?.view.layoutIfNeeded()
             }, completion: nil)
 
         emailButtonTopConstraint.constant = 8
-            UIView.animate(withDuration: duration, delay: 0.9, options: [], animations: { [weak self] in
+            UIView.animate(withDuration: duration, delay: 0.6, options: [], animations: { [weak self] in
                             self?.view.layoutIfNeeded()
                 }, completion: nil)
 
-        alreadyHaveAnAccountTopConstraint.constant = 8
+        alreadyHaveAnAccountTopConstraint.constant = 60
         UIView.animate(withDuration: duration,
-                       delay: 1.2,
+                       delay: 0.9,
                         options: [],
                         animations: { [weak self] in
                         self?.view.layoutIfNeeded()
@@ -162,7 +193,6 @@ class ViewController: UIViewController {
 
         createAccountUsingLabel.isHidden = true
         facebookButton.isHidden = true
-        instagramButton.isHidden = true
         googleButton.isHidden = true
         emailButton.isHidden = true
         alreadyHaveAnAccountButton.isHidden = true
@@ -174,7 +204,7 @@ class ViewController: UIViewController {
         }
     }
 
-    func paintButton(button: UIButton?, colorOne: UIColor, colorTwo: UIColor) {
+    func styleButton(button: UIButton?, colorOne: UIColor, colorTwo: UIColor) {
         if let button = button {
             button.layer.cornerRadius = button.frame.size.height/2
             button.layer.masksToBounds = true
@@ -184,17 +214,10 @@ class ViewController: UIViewController {
     }
 
     func customizeButton() {
-        paintButton(button: loginButton, colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
-        paintButton(button: createAccountButton, colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
-        paintButton(button: facebookButton, colorOne: Colors.csFacebook, colorTwo: Colors.csLighFacebook)
-        paintButton(button: instagramButton, colorOne: Colors.csInstagram, colorTwo: Colors.csInstagramLight)
-        paintButton(button: googleButton, colorOne: Colors.csGoogle, colorTwo: Colors.csLightGoogle)
-        paintButton(button: emailButton, colorOne: Colors.csBlack, colorTwo: Colors.csGrey)
-//        if let loginButton = loginButton {
-//            loginButton.layer.cornerRadius = loginButton.frame.size.height/2
-//            loginButton.layer.masksToBounds = true
-//            loginButton.setTitleColor(UIColor.white, for: .normal)
-//            loginButton.setGradientBackground(colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
-//        }
+        styleButton(button: loginButton, colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
+        styleButton(button: createAccountButton, colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
+        styleButton(button: facebookButton, colorOne: Colors.csFacebook, colorTwo: Colors.csLighFacebook)
+        styleButton(button: googleButton, colorOne: Colors.csGoogle, colorTwo: Colors.csLightGoogle)
+        styleButton(button: emailButton, colorOne: Colors.csBlack, colorTwo: Colors.csGrey)
     }
 }
