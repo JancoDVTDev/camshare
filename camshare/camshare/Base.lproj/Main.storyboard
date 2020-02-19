@@ -280,11 +280,11 @@
             <objects>
                 <viewController id="ydl-Du-Uuj" customClass="StartUpViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PY7-km-ZW2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Vzc-xs-K7g">
-                                <rect key="frame" x="40" y="627.5" width="334" height="140.5"/>
+                                <rect key="frame" x="40" y="681.5" width="334" height="140.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pvl-OV-lCk">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -317,7 +317,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CamShare_Cobined" translatesAutoresizingMaskIntoConstraints="NO" id="hOy-lF-rxV">
-                                <rect key="frame" x="100" y="40" width="214" height="300"/>
+                                <rect key="frame" x="100" y="180" width="214" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hOy-lF-rxV" secondAttribute="height" multiplier="107:147" constant="-4.3673469387755119" id="GSH-T0-t6M"/>
                                 </constraints>
@@ -353,7 +353,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wpO-0k-ijX">
-                                <rect key="frame" x="40" y="279" width="334" height="306.5"/>
+                                <rect key="frame" x="40" y="375" width="334" height="306.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k0I-u5-2Hg">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
@@ -383,7 +383,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
-                                            <segue destination="53b-uV-1Sz" kind="show" id="4qR-IE-6hF"/>
+                                            <action selector="signUpButtonTapped:" destination="53D-tM-qVt" eventType="touchUpInside" id="w2O-AZ-fL0"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bil-sR-fUc">
@@ -395,7 +395,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="95f-0t-nKe">
-                                <rect key="frame" x="40" y="635.5" width="334" height="120"/>
+                                <rect key="frame" x="40" y="731.5" width="334" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTr-NM-68P">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -416,7 +416,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camSHARE_Name - DVT" translatesAutoresizingMaskIntoConstraints="NO" id="Use-6T-zYI">
-                                <rect key="frame" x="57" y="84" width="300" height="115"/>
+                                <rect key="frame" x="57" y="180" width="300" height="115"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="Jna-OW-PAA"/>
                                     <constraint firstAttribute="height" constant="115" id="LrL-mL-Lhm"/>
@@ -457,11 +457,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="E9x-85-z3l" customClass="PhotoAlbumViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4rh-yf-bje">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GkB-RT-2En">
-                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="5" id="lyS-Ob-rxv">
                                     <size key="itemSize" width="278" height="232"/>
@@ -546,11 +546,11 @@
             <objects>
                 <viewController id="J5F-La-Zu0" customClass="SelectedPhotoViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aku-ki-7qA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="eHE-6h-U7d">
-                                <rect key="frame" x="0.0" y="287.5" width="414" height="267"/>
+                                <rect key="frame" x="0.0" y="314.5" width="414" height="267"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eHE-6h-U7d" secondAttribute="height" multiplier="138:89" id="NDI-5M-rx4"/>
                                 </constraints>
@@ -577,7 +577,7 @@
         <!--Navigation Controller-->
         <scene sceneID="4Ih-hl-NKK">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="53b-uV-1Sz" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeVC" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="53b-uV-1Sz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ZsZ-hQ-puX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="spi-jy-lK4">
@@ -605,7 +605,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DIj-Ri-zw6">
-                                <rect key="frame" x="40" y="279" width="334" height="198.5"/>
+                                <rect key="frame" x="40" y="375" width="334" height="198.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="avj-xw-KpM">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
@@ -624,6 +624,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="loginButtonTapped:" destination="DSc-Tq-4CO" eventType="touchUpInside" id="uv8-Qs-owX"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCH-bm-ba6">
                                         <rect key="frame" x="0.0" y="178" width="334" height="20.5"/>
@@ -634,7 +637,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camSHARE_Name - DVT" translatesAutoresizingMaskIntoConstraints="NO" id="8js-vQ-oFX">
-                                <rect key="frame" x="57" y="84" width="300" height="115"/>
+                                <rect key="frame" x="57" y="180" width="300" height="115"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="bSW-lt-wDK"/>
                                     <constraint firstAttribute="height" constant="115" id="rbZ-Hj-0Po"/>
