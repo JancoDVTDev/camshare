@@ -13,7 +13,8 @@ var selectedImageIndex: Int = 0
 class PhotoAlbumViewController: ViewController {
     // MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var selectedImageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
+    
 
     // MARK: Properties
 

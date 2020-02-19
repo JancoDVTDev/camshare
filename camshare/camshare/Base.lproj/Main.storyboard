@@ -373,7 +373,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9rs-gN-hKS">
                                         <rect key="frame" x="0.0" y="162" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeE-bw-HuP">
                                         <rect key="frame" x="0.0" y="216" width="334" height="50"/>
@@ -457,7 +457,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="E9x-85-z3l" customClass="PhotoAlbumViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4rh-yf-bje">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GkB-RT-2En">
@@ -477,6 +477,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="278" height="232"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Holiday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1P-lW-6Ds">
+                                                    <rect key="frame" x="106" y="104" width="66.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JAy-sp-vxU">
                                                     <rect key="frame" x="-11" y="-34" width="300" height="300"/>
                                                     <subviews>
@@ -492,7 +498,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="JAy-sp-vxU" firstAttribute="centerY" secondItem="7cR-JV-iFY" secondAttribute="centerY" id="Ejd-fs-Jec"/>
+                                                <constraint firstItem="c1P-lW-6Ds" firstAttribute="centerY" secondItem="7cR-JV-iFY" secondAttribute="centerY" id="Zwa-sf-v7r"/>
                                                 <constraint firstItem="JAy-sp-vxU" firstAttribute="centerX" secondItem="7cR-JV-iFY" secondAttribute="centerX" id="xNd-6L-vl0"/>
+                                                <constraint firstItem="c1P-lW-6Ds" firstAttribute="centerX" secondItem="7cR-JV-iFY" secondAttribute="centerX" id="zfx-KU-v1W"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="278" height="232"/>
@@ -607,7 +615,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mNE-rB-gM2">
                                         <rect key="frame" x="0.0" y="54" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKa-2K-TcL">
                                         <rect key="frame" x="0.0" y="108" width="334" height="50"/>
@@ -658,13 +666,15 @@
         <!--Navigation Controller-->
         <scene sceneID="Arh-id-HfQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WkH-NO-3X2" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="WkH-NO-3X2" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nrW-Zw-iIL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iBC-ZW-oyu">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="ydl-Du-Uuj" kind="relationship" relationship="rootViewController" id="LvX-L6-UMt"/>
                     </connections>
