@@ -14,20 +14,24 @@ class PhotoAlbumViewController: ViewController {
     // MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var imageView: UIImageView!
-    
-
     // MARK: Properties
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(addTapped))
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style:
+        //.plain, target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop,
+                                                            target: self, action: #selector(logoutTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
+        target: self, action: #selector(searchTapped))
 
         // Do any additional setup after loading the view.
     }
-    @objc func addTapped() {
+    @objc func logoutTapped() {
         performSegue(withIdentifier: "Logout", sender: self)
-        print("App will now logout")
+    }
+    @objc func searchTapped() {
+        performSegue(withIdentifier: "Search", sender: self)
     }
 }
 // MARK: Flow layout delegate

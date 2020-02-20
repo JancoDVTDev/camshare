@@ -20,21 +20,21 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var facebookSignUp: UIButton!
     @IBOutlet weak var gmailSignUp: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.alpha = 0
         customizeButtons()
         // Do any additional setup after loading the view.
     }
-    
+
     @IBAction func signUpButtonTapped(_ sender: Any) {
             //Validate Fields
             let error = validateFields()
-            
+
             if error != nil {
                 showError(error!)
-            }else {
+            } else {
                 //Create cleaned versions of the data
                 let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                 let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -46,11 +46,14 @@ class SignUpViewController: UIViewController {
                     if err != nil {
                         //There was error creating the user
                         self.showError("Error creating user")
-                    }else {
+                    } else {
                         //User was created succesfull
-                        let db = Firestore.firestore()
-                        db.collection("users").addDocument(data: ["firstName": firstName, "lastName": lastName, "uid": result!.user.uid]) { (errOne) in
-                            if errOne != nil{
+                        let firebaseDb = Firestore.firestore()
+                        firebaseDb.collection("users").addDocument(data: [
+                            "firstName": firstName,
+                            "lastName": lastName,
+                            "uid": result!.user.uid]) { (errOne) in
+                            if errOne != nil {
                                 self.showError("User couldn't be saved")
                             }
                         }
@@ -69,10 +72,10 @@ class SignUpViewController: UIViewController {
                 passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
                 return "Please fill in all fields"
             }
-            
+
             let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             if Utilities.isPasswordValid(cleanedPassword) == false {
-                return "Please make sure your password is at least 8 characters, contains special characters and a number"
+                return "Please make sure your password is at least 8 characters"
             }
             return nil
         }
@@ -80,9 +83,10 @@ class SignUpViewController: UIViewController {
             errorLabel.text = message
             errorLabel.alpha = 1
         }
-    
+
         func transitionToHome() {
-            let photoAlbumViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? UINavigationController
+            let photoAlbumViewController = storyboard?.instantiateViewController(identifier:
+                Constants.Storyboard.homeViewController) as? UINavigationController
             view.window?.rootViewController = photoAlbumViewController
             view.window?.makeKeyAndVisible()
         }

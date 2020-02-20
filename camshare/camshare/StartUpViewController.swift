@@ -9,7 +9,7 @@
 import UIKit
 
 class StartUpViewController: UIViewController {
-    
+
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
 
@@ -18,7 +18,7 @@ class StartUpViewController: UIViewController {
         customizeButtons()
         // Do any additional setup after loading the view.
     }
-    
+
     func styleButton(button: UIButton?, colorOne: UIColor, colorTwo: UIColor) {
         if let button = button {
             button.layer.cornerRadius = button.frame.size.height/2
@@ -32,6 +32,5 @@ class StartUpViewController: UIViewController {
         styleButton(button: signUpButton, colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
         styleButton(button: loginButton, colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
     }
-    
 
 }
