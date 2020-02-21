@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 @IBDesignable class ShowtimeResultOptions: UIStackView {
 
@@ -19,13 +20,41 @@ import UIKit
         super.init(coder: coder)
         setupButtons()
     }
+    var playing: Bool = false
+    let musicPlayer = MPMusicPlayerApplicationController.applicationQueuePlayer // Get the music player.
     // MARK: Button Action
     @objc func playButtonTapped(button: UIButton) {
-        print("Play Button pressed")
+        // musicPlayer.setQueue(with: .songs()) // Add a playback queue containing all songs on the device.
+        let albumTitleFilter =
+            MPMediaPropertyPredicate(value: "Voel Jy Die Genade",
+                                     forProperty: MPMediaItemPropertyAlbumTitle,
+                                     comparisonType: .equalTo)
+
+        let songTitleFilter =
+            MPMediaPropertyPredicate(value: "Bitter",
+                                     forProperty: MPMediaItemPropertyTitle,
+                                     comparisonType: .contains)
+        
+        let filterSet = Set([albumTitleFilter, songTitleFilter])
+        
+        let query = MPMediaQuery(filterPredicates: filterSet)
+        //musicPlayer.setQueue(with: query)
+        
+        if !playing {
+            playing = true
+            //musicPlayer.play()
+            print("Song playing")
+            
+        } else {
+            playing = false
+            //musicPlayer.stop()
+            print("Song stopped")
+        }
     }
 
     @objc func addButtonTapped(button: UIButton) {
-        print("Add Button pressed")
+        print(musicPlayer.nowPlayingItem?.title)
+        musicPlayer.skipToNextItem()
     }
 
     @objc func albumButtonTapped(button: UIButton) {

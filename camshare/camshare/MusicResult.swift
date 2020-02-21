@@ -20,6 +20,9 @@ struct ArtistInfo: Decodable {
     var artistName: String
     var collectionName: String
     var trackName: String
-    var artworkUrl60: String
+    var trackViewUrl: String
+//    var artworkUrl30: String
+//    var artworkUrl60: String
+    var artworkUrl100: String
     var primaryGenreName: String
 }

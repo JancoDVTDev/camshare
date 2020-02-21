@@ -15,6 +15,7 @@
 		6165BDB723FE6C7A008C1D72 /* ResultingClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165BDB623FE6C7A008C1D72 /* ResultingClass.swift */; };
 		6165BDB923FEA950008C1D72 /* MusicResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165BDB823FEA950008C1D72 /* MusicResult.swift */; };
 		6165BDBB23FEACB0008C1D72 /* MusicRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165BDBA23FEACB0008C1D72 /* MusicRequest.swift */; };
+		6165BDBD23FF9AB7008C1D72 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6165BDBC23FF9AB7008C1D72 /* MediaPlayer.framework */; };
 		6181543E23F55D8900FCFD60 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6181543D23F55D8900FCFD60 /* PhotoCell.swift */; };
 		61B90B3223FE468B00FB4AC4 /* ShowtimeResultOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B90B3123FE468B00FB4AC4 /* ShowtimeResultOptions.swift */; };
 		61F1FB7023FBE10400A30934 /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F1FB6F23FBE10400A30934 /* StartUpViewController.swift */; };
@@ -67,6 +68,7 @@
 		6165BDB623FE6C7A008C1D72 /* ResultingClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultingClass.swift; sourceTree = "<group>"; };
 		6165BDB823FEA950008C1D72 /* MusicResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicResult.swift; sourceTree = "<group>"; };
 		6165BDBA23FEACB0008C1D72 /* MusicRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRequest.swift; sourceTree = "<group>"; };
+		6165BDBC23FF9AB7008C1D72 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		6181543D23F55D8900FCFD60 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		61B90B3123FE468B00FB4AC4 /* ShowtimeResultOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowtimeResultOptions.swift; sourceTree = "<group>"; };
 		61F1FB6F23FBE10400A30934 /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6165BDBD23FF9AB7008C1D72 /* MediaPlayer.framework in Frameworks */,
 				459E41BE212BBFE22A77657A /* Pods_camshare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +135,7 @@
 		143A4E9836D8D15FE6B176DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6165BDBC23FF9AB7008C1D72 /* MediaPlayer.framework */,
 				57773C39E42CE4602A73859E /* Pods_camshare.framework */,
 				F1CB376663925DF46F1D62F6 /* Pods_camshare_camshareUITests.framework */,
 				632DF0003CFACC0894E68E1B /* Pods_camshareTests.framework */,
@@ -696,6 +700,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M2339JB6L8;
 				INFOPLIST_FILE = camshare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -715,6 +720,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M2339JB6L8;
 				INFOPLIST_FILE = camshare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

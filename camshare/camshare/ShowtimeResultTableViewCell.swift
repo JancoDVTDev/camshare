@@ -9,7 +9,7 @@
 import UIKit
 
 class ShowtimeResultTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var optionsStackView: ShowtimeResultOptions!

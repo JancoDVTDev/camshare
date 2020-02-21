@@ -19,6 +19,7 @@ struct MusicRequest {
     
     init(request: String) {
         let resourceString = "https://itunes.apple.com/search?term=\(request)"
+        //let //cleanedResourceString = resourceString.replacingOccurrences(of: " ", with: "%20")
         guard let resourceURL = URL(string: resourceString) else {fatalError()}
         
         self.resourceURL = resourceURL

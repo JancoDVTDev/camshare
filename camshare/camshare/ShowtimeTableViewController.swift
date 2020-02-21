@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class ShowtimeTableViewController: UITableViewController {
-    
+
     @IBOutlet weak var searchBar: UISearchBar!
     // MARK: Properties
 
     var results = [ResultingClass]()
-    
+    let musicPlayer = MPMusicPlayerApplicationController.applicationQueuePlayer
     var listOfResults = [ArtistInfo]() {
         didSet {
             DispatchQueue.main.async {
@@ -23,7 +24,8 @@ class ShowtimeTableViewController: UITableViewController {
             }
         }
     }
-    
+    var playing: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSampleResults()
@@ -47,24 +49,55 @@ class ShowtimeTableViewController: UITableViewController {
         return listOfResults.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "ShowtimeResultTableViewCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,
                                                        for: indexPath) as? ShowtimeResultTableViewCell  else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
-        
+
         let result = listOfResults[indexPath.row]
-        
+
         cell.descriptionLabel.text = result.trackName
-        //cell.profileImage.image = result.
+        guard let imageURL = URL(string: listOfResults[indexPath.row].artworkUrl100) else {return cell}
+
+        DispatchQueue.global().async {
+            guard let imageData = try? Data(contentsOf: imageURL) else {return}
+            let image = UIImage(data: imageData)
+            DispatchQueue.main.async {
+                cell.profileImage.image = image
+            }
+        }
 
         // Configure the cell...
 
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCellIndex = indexPath.row
+        let musicResults = listOfResults
+        
+        let albumTitleFilter = MPMediaPropertyPredicate(value: listOfResults[selectedCellIndex].collectionName,
+                                                        forProperty: MPMediaItemPropertyAlbumTitle, comparisonType: .contains)
+        let trackTitleFilter = MPMediaPropertyPredicate(value: listOfResults[selectedCellIndex].trackName,
+                                                        forProperty: MPMediaItemPropertyTitle, comparisonType: .contains)
+        let filterSet = Set([albumTitleFilter, trackTitleFilter])
+        let query = MPMediaQuery(filterPredicates: filterSet)
+        musicPlayer.setQueue(with: query)
+
+        if !playing {
+            playing = true
+            musicPlayer.play()
+            print("Song playing")
+
+        } else {
+            playing = false
+            musicPlayer.stop()
+            print("Song stopped")
+        }
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -109,24 +142,24 @@ class ShowtimeTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    //MARK: Private Methods
-    
+
+    // MARK: Private Methods
+
     private func loadSampleResults() {
         let photo1 = UIImage(named: "pfImage1")
         let photo2 = UIImage(named: "pfImage2")
         let photo3 = UIImage(named: "pfImage3")
-        
-        guard let result1 = ResultingClass(description: "Something about these two", photo: photo1) else{
+
+        guard let result1 = ResultingClass(description: "Something about these two", photo: photo1) else {
             fatalError("Unable to instantiate result1")
         }
-        guard let result2 = ResultingClass(description: "Be in the spirit", photo: photo2) else{
+        guard let result2 = ResultingClass(description: "Be in the spirit", photo: photo2) else {
             fatalError("Unable to instantiate result1")
         }
-        guard let result3 = ResultingClass(description: "Walking with you", photo: photo3) else{
+        guard let result3 = ResultingClass(description: "Walking with you", photo: photo3) else {
             fatalError("Unable to instantiate result1")
         }
-        
+
         results += [result1, result2, result3]
     }
 
