@@ -10,13 +10,24 @@ import UIKit
 
 class ShowtimeTableViewController: UITableViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     // MARK: Properties
 
-    var results = [Result]()
+    var results = [ResultingClass]()
+    
+    var listOfResults = [ArtistInfo]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.navigationItem.title = "\(self.listOfResults.count) Results"
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSampleResults()
+        searchBar.delegate = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -33,7 +44,7 @@ class ShowtimeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return results.count
+        return listOfResults.count
     }
 
     
@@ -44,10 +55,10 @@ class ShowtimeTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
-        let result = results[indexPath.row]
+        let result = listOfResults[indexPath.row]
         
-        cell.descriptionLabel.text = result.description
-        cell.profileImage.image = result.photo
+        cell.descriptionLabel.text = result.trackName
+        //cell.profileImage.image = result.
 
         // Configure the cell...
 
@@ -106,17 +117,32 @@ class ShowtimeTableViewController: UITableViewController {
         let photo2 = UIImage(named: "pfImage2")
         let photo3 = UIImage(named: "pfImage3")
         
-        guard let result1 = Result(description: "Something about these two", photo: photo1) else{
+        guard let result1 = ResultingClass(description: "Something about these two", photo: photo1) else{
             fatalError("Unable to instantiate result1")
         }
-        guard let result2 = Result(description: "Be in the spirit", photo: photo2) else{
+        guard let result2 = ResultingClass(description: "Be in the spirit", photo: photo2) else{
             fatalError("Unable to instantiate result1")
         }
-        guard let result3 = Result(description: "Walking with you", photo: photo3) else{
+        guard let result3 = ResultingClass(description: "Walking with you", photo: photo3) else{
             fatalError("Unable to instantiate result1")
         }
         
         results += [result1, result2, result3]
     }
 
+}
+
+extension ShowtimeTableViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchBarText = searchBar.text else {return}
+        let musicRequest = MusicRequest(request: searchBarText)
+        musicRequest.getMusicFromiTunes { [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let music):
+                self?.listOfResults = music
+            }
+        }
+    }
 }

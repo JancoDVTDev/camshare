@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Result {
+class ResultingClass {
     // MARK: Properties
     
     var description: String
