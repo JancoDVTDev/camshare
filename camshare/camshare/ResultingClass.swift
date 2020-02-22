@@ -10,7 +10,7 @@ import UIKit
 
 class ResultingClass {
     // MARK: Properties
-    
+
     var description: String
     var photo: UIImage?
 
@@ -18,7 +18,7 @@ class ResultingClass {
         if description.isEmpty {
             return nil
         }
-        
+
         self.description = description
         self.photo = photo
     }

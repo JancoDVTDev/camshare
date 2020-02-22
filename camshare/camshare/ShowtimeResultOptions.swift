@@ -25,6 +25,7 @@ import MediaPlayer
     // MARK: Button Action
     @objc func playButtonTapped(button: UIButton) {
         // musicPlayer.setQueue(with: .songs()) // Add a playback queue containing all songs on the device.
+        /*
         let albumTitleFilter =
             MPMediaPropertyPredicate(value: "Voel Jy Die Genade",
                                      forProperty: MPMediaItemPropertyAlbumTitle,
@@ -34,17 +35,18 @@ import MediaPlayer
             MPMediaPropertyPredicate(value: "Bitter",
                                      forProperty: MPMediaItemPropertyTitle,
                                      comparisonType: .contains)
-        
-        let filterSet = Set([albumTitleFilter, songTitleFilter])
-        
-        let query = MPMediaQuery(filterPredicates: filterSet)
+
+        //let filterSet = Set([albumTitleFilter, songTitleFilter])
+
+        //let query = MPMediaQuery(filterPredicates: filterSet)
         //musicPlayer.setQueue(with: query)
-        
+        */
+
         if !playing {
             playing = true
             //musicPlayer.play()
             print("Song playing")
-            
+
         } else {
             playing = false
             //musicPlayer.stop()
@@ -53,7 +55,7 @@ import MediaPlayer
     }
 
     @objc func addButtonTapped(button: UIButton) {
-        print(musicPlayer.nowPlayingItem?.title)
+        //print(musicPlayer.nowPlayingItem?.title)
         musicPlayer.skipToNextItem()
     }
 
