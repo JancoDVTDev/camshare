@@ -43,6 +43,5 @@ struct MusicRequest {
             }
         }
         dataTask.resume()
-        LibTesting.test()
     }
 }
