@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FuncLibrary //- Import your library name
 
 enum MusicError: Error {
     case noDataAvailable
@@ -42,5 +43,6 @@ struct MusicRequest {
             }
         }
         dataTask.resume()
+        LibTesting.test()
     }
 }
