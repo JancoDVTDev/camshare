@@ -12,6 +12,8 @@ class ShowtimeResultTableViewCell: UITableViewCell {
 
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var albumNameLabel: UILabel!
+    @IBOutlet weak var songLengthLabel: UILabel!
     @IBOutlet weak var optionsStackView: ShowtimeResultOptions!
 
     override func awakeFromNib() {

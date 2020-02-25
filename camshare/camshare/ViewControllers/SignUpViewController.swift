@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 
 class SignUpViewController: UIViewController {
 
@@ -74,7 +75,7 @@ class SignUpViewController: UIViewController {
             }
 
             let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            if Utilities.isPasswordValid(cleanedPassword) == false {
+            if  Utilities.isPasswordValid(cleanedPassword) == false {
                 return "Please make sure your password is at least 8 characters"
             }
             return nil
@@ -102,7 +103,8 @@ class SignUpViewController: UIViewController {
 
     func customizeButtons() {
         styleButton(button: signUpButton, colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
-        styleButton(button: facebookSignUp, colorOne: Colors.csFacebook, colorTwo: Colors.csLighFacebook)
+        styleButton(button: facebookSignUp, colorOne: Colors.csFacebook,
+                                       colorTwo: Colors.csLighFacebook)
         styleButton(button: gmailSignUp, colorOne: Colors.csGoogle, colorTwo: Colors.csLightGoogle)
     }
 }
