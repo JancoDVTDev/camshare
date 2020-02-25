@@ -22,4 +22,5 @@ struct ArtistInfo: Decodable {
     var trackName: String
     var artworkUrl100: String
     var primaryGenreName: String
+    var trackTimeMillis: Int
 }

@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
-import FuncLibrary
 
 class SignUpViewController: UIViewController {
 
@@ -76,10 +75,6 @@ class SignUpViewController: UIViewController {
             }
 
             let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-//            if FrameWorkUtilities.isPasswordValid(cleanedPassword) {
-//                return "Please make sure your password is at least 8 characters"
-//            }
-
             if  Utilities.isPasswordValid(cleanedPassword) == false {
                 return "Please make sure your password is at least 8 characters"
             }

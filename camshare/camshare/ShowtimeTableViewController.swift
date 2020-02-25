@@ -14,6 +14,7 @@ class ShowtimeTableViewController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     // MARK: Properties
 
+    @IBOutlet weak var songLengthLabel: UILabel!
     var results = [ResultingClass]()
     let musicPlayer = MPMusicPlayerApplicationController.applicationQueuePlayer
     var listOfResults = [ArtistInfo]() {
@@ -59,6 +60,7 @@ class ShowtimeTableViewController: UITableViewController {
         let result = listOfResults[indexPath.row]
 
         cell.descriptionLabel.text = result.trackName
+        cell.albumNameLabel.text = result.collectionName
         guard let imageURL = URL(string: listOfResults[indexPath.row].artworkUrl100) else {return cell}
 
         DispatchQueue.global().async {
