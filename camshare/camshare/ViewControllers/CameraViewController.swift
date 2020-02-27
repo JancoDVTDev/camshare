@@ -11,7 +11,7 @@ import UIKit
 class CameraViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
-    
+
     var takenPhoto: UIImage?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class CameraViewController: UIViewController {
             imageView.image = availableImage
         }
     }
-    
+
     @IBAction func goBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
