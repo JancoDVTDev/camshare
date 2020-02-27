@@ -10,7 +10,7 @@ target 'camshare' do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Core'
 	pod 'Firebase/Firestore'
-	#pod 'FuncLibrary', :path => '/Users/jerasmus/Desktop/iOSDev/camshare/camshare/FuncLibrary'
+	pod 'camPod', :path => '/Users/jerasmus/Desktop/camshareFramework/camPod'
 
   target 'camshareTests' do
     inherit! :search_paths
