@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nb9-Yz-x0c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H2t-jv-oAO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -789,7 +789,7 @@
         <!--Albums-->
         <scene sceneID="ZuZ-7f-gpR">
             <objects>
-                <viewController id="3Ik-ox-FSO" sceneMemberID="viewController">
+                <viewController id="3Ik-ox-FSO" customClass="AlbumsViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rbs-wz-bSS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -839,7 +839,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QZR-Kp-OSA"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Albums" id="xOb-v7-ycW"/>
+                    <navigationItem key="navigationItem" title="Albums" id="xOb-v7-ycW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="bLd-3R-YbE">
+                            <connections>
+                                <action selector="cameraBarItemTapped:" destination="3Ik-ox-FSO" id="PGV-qe-tKj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="yoW-lc-cyS" kind="show" id="Xfo-qO-ORq"/>
                     </connections>
@@ -851,7 +857,7 @@
         <!--Selected Album Photos-->
         <scene sceneID="lM8-me-w5h">
             <objects>
-                <viewController id="yoW-lc-cyS" sceneMemberID="viewController">
+                <viewController id="yoW-lc-cyS" customClass="SelectedAlbumViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d1I-xq-g0m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -899,7 +905,11 @@
                         <viewLayoutGuide key="safeArea" id="MpB-SY-zlG"/>
                     </view>
                     <navigationItem key="navigationItem" title="Selected Album Photos" id="Z4n-pN-gVh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="PUy-Ij-CjI"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="PUy-Ij-CjI">
+                            <connections>
+                                <action selector="cameraBarItemTapped:" destination="yoW-lc-cyS" id="FU3-QY-tOr"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="1SO-oj-SzB" kind="show" id="sh6-TJ-nxM"/>
