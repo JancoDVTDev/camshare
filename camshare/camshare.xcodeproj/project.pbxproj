@@ -10,6 +10,7 @@
 		047F2BE6FB89678871AE3760 /* Pods_camshareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632DF0003CFACC0894E68E1B /* Pods_camshareTests.framework */; };
 		459E41BE212BBFE22A77657A /* Pods_camshare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57773C39E42CE4602A73859E /* Pods_camshare.framework */; };
 		6115149B23F8044900FEFD17 /* SelectedPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6115149A23F8044900FEFD17 /* SelectedPhotoViewController.swift */; };
+		614674222406513900197127 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614674212406513900197127 /* CameraViewController.swift */; };
 		6165BDB323FE655A008C1D72 /* ShowtimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165BDB223FE655A008C1D72 /* ShowtimeTableViewController.swift */; };
 		6165BDB523FE668A008C1D72 /* ShowtimeResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165BDB423FE668A008C1D72 /* ShowtimeResultTableViewCell.swift */; };
 		6165BDB723FE6C7A008C1D72 /* ResultingClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165BDB623FE6C7A008C1D72 /* ResultingClass.swift */; };
@@ -63,6 +64,7 @@
 		4E724485D3489AD9BF110F2F /* Pods-camshareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camshareTests.release.xcconfig"; path = "Target Support Files/Pods-camshareTests/Pods-camshareTests.release.xcconfig"; sourceTree = "<group>"; };
 		57773C39E42CE4602A73859E /* Pods_camshare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_camshare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6115149A23F8044900FEFD17 /* SelectedPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPhotoViewController.swift; sourceTree = "<group>"; };
+		614674212406513900197127 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		6165BDB223FE655A008C1D72 /* ShowtimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowtimeTableViewController.swift; sourceTree = "<group>"; };
 		6165BDB423FE668A008C1D72 /* ShowtimeResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowtimeResultTableViewCell.swift; sourceTree = "<group>"; };
 		6165BDB623FE6C7A008C1D72 /* ResultingClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultingClass.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				61F1FB7323FBE34E00A30934 /* LoginViewController.swift */,
 				61F601ED23ED4561008323F1 /* PhotoAlbumViewController.swift */,
 				61FD8D5323FD6417006841EF /* ShowtimeMusicViewController.swift */,
+				614674212406513900197127 /* CameraViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				61F601F023ED4FF6008323F1 /* CreateAccountViewController.swift in Sources */,
 				61F601EA23ED1E7C008323F1 /* ColorConstraints.swift in Sources */,
 				61F601EC23ED1EC5008323F1 /* UIViewExtentions.swift in Sources */,
+				614674222406513900197127 /* CameraViewController.swift in Sources */,
 				61B90B3223FE468B00FB4AC4 /* ShowtimeResultOptions.swift in Sources */,
 				61FD8D5123FD2175006841EF /* Constants.swift in Sources */,
 				61F601BE23ED1DA9008323F1 /* ViewController.swift in Sources */,
