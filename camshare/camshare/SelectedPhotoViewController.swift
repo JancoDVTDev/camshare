@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import camPod
 
 class SelectedPhotoViewController: UIViewController {
 
     @IBOutlet weak var selectedPhotoImageView: UIImageView!
+    
+    let albumViewModel = AlbumViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedPhotoImageView.image = images[selectedImageIndex]
+        selectedPhotoImageView.image = albumViewModel.getSingleImage(selectedAlbum: selectedAlbumIndex, index: selectedImageIndex)
         // Do any additional setup after loading the view.
     }
     /*
