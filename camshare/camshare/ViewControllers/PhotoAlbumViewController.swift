@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import camPod
 
-var selectedImageIndex: Int = 0
+var selectedAlbumIndex: Int = 0
 
 class PhotoAlbumViewController: ViewController {
     // MARK: OUTLETS
@@ -16,6 +17,7 @@ class PhotoAlbumViewController: ViewController {
     @IBOutlet weak var imageView: UIImageView!
     // MARK: Properties
 
+    let albumViewModel = AlbumViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style:
@@ -39,7 +41,7 @@ class PhotoAlbumViewController: ViewController {
 extension PhotoAlbumViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let numberOfColumns: CGFloat = 2
+        let numberOfColumns: CGFloat = 3
         let width = collectionView.frame.size.width
         let xInsets: CGFloat = 5
         let cellSpacing: CGFloat = 10
@@ -51,28 +53,28 @@ extension PhotoAlbumViewController: UICollectionViewDelegateFlowLayout {
 // MARK: DATASOURCE
 extension PhotoAlbumViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return albumViewModel.getCount()//images.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //swiftlint:disable all
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCell", for: indexPath) as! AlbumCell
         //swiftlint:enable all
         let tapGestureRecognizer = UITapGestureRecognizer(target: self,
                                                           action: #selector(PhotoAlbumViewController.tap(_:)))
             cell.imageView.isUserInteractionEnabled = true
             cell.imageView.tag = indexPath.row
             cell.imageView.addGestureRecognizer(tapGestureRecognizer)
-            let image = images[indexPath.item]
+        let image = albumViewModel.getThumbnail(index: indexPath.item)//images[indexPath.item]
             cell.imageView.image = image
             return cell
         }
 
         @IBAction func tap(_ sender: AnyObject) {
             print("ViewController tap() Clicked Item: \(sender.view.tag)")
-            selectedImageIndex = sender.view.tag
-            performSegue(withIdentifier: "loadPhoto", sender: self)
+            selectedAlbumIndex = sender.view.tag
+            performSegue(withIdentifier: "loadAlbum", sender: self)
 //            selectedImageView.image = images[sender.view.tag]
         }
 }
