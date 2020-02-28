@@ -6,7 +6,7 @@ target 'camshare' do
   use_frameworks!
 
   # Pods for camshare
-	pod 'camPod', :path => '/Users/jerasmus/Desktop/camshareFramework/camPod'
+	pod 'camPod', :git => 'https://github.com/JancoDVTDev/camPod.git'
 
   target 'camshareTests' do
     inherit! :search_paths
