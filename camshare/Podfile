@@ -6,10 +6,6 @@ target 'camshare' do
   use_frameworks!
 
   # Pods for camshare
-	pod 'Firebase/Analytics'
-	pod 'Firebase/Auth'
-	pod 'Firebase/Core'
-	pod 'Firebase/Firestore'
 	pod 'camPod', :path => '/Users/jerasmus/Desktop/camshareFramework/camPod'
 
   target 'camshareTests' do
