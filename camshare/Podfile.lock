@@ -164,7 +164,11 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.3):
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
-  - camPod (1.0.0)
+  - camPod (1.0.0):
+    - Firebase/Analytics
+    - Firebase/Auth
+    - Firebase/Database
+    - Firebase/Firestore
   - Firebase/Analytics (6.18.0):
     - Firebase/Core
   - Firebase/Auth (6.18.0):
@@ -175,6 +179,9 @@ PODS:
     - FirebaseAnalytics (= 6.3.0)
   - Firebase/CoreOnly (6.18.0):
     - FirebaseCore (= 6.6.3)
+  - Firebase/Database (6.18.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (~> 6.1.4)
   - Firebase/Firestore (6.18.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 1.11.0)
@@ -206,6 +213,10 @@ PODS:
     - GoogleUtilities/Logger (~> 6.5)
     - nanopb (~> 0.3.901)
   - FirebaseCoreDiagnosticsInterop (1.2.0)
+  - FirebaseDatabase (6.1.4):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 6.0)
+    - leveldb-library (~> 1.22)
   - FirebaseFirestore (1.11.0):
     - abseil/algorithm (= 0.20190808)
     - abseil/base (= 0.20190808)
@@ -278,10 +289,6 @@ PODS:
 
 DEPENDENCIES:
   - camPod (from `/Users/jerasmus/Desktop/camshareFramework/camPod`)
-  - Firebase/Analytics
-  - Firebase/Auth
-  - Firebase/Core
-  - Firebase/Firestore
 
 SPEC REPOS:
   trunk:
@@ -294,6 +301,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseCoreDiagnosticsInterop
+    - FirebaseDatabase
     - FirebaseFirestore
     - FirebaseInstallations
     - GoogleAppMeasurement
@@ -314,7 +322,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
-  camPod: 14f9200bb67e64eee5cc7b79752a6b765ad77c32
+  camPod: d313a8155c66fa6deec0a397c83738ebb4489d1c
   Firebase: 0490eca762a72e4f1582319539153897f1508dee
   FirebaseAnalytics: 058d71e714a1a6804d9e0f25e3bb18e377a51579
   FirebaseAuth: 5ce2b03a3d7fe56b7a6e4c5ec7ff1522890b1d6f
@@ -322,6 +330,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 78276943ad85e616dfa54dafa6c89512987d9d60
   FirebaseCoreDiagnostics: 2109d10c35e8289b1ee6cabf44d9ffb055620194
   FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
+  FirebaseDatabase: 0144e0706a4761f1b0e8679572eba8095ddb59be
   FirebaseFirestore: a23d596ae3a8c13d3b8353b565d2adfb690f9032
   FirebaseInstallations: 575cd32f2aec0feeb0e44f5d0110a09e5e60b47b
   GoogleAppMeasurement: 39ecba10918b21c83877d392246157f65db351cf
@@ -335,6 +344,6 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
 
-PODFILE CHECKSUM: 7a260445ea7ff33ae1fc897ffc2d63a8e43e5df8
+PODFILE CHECKSUM: a14f1bf1818949a6bc95d7c470edaef6dcfbbb05
 
 COCOAPODS: 1.8.4
