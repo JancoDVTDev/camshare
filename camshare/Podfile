@@ -5,8 +5,8 @@ target 'camshare' do
   # Comment the next line if you don't want to use dynamic frameworks
 
   # Pods for camshare
-	pod 'camPod', :git => 'https://github.com/JancoDVTDev/camPod.git'
-	#pod 'camPod', :path => '/Users/jerasmus/Desktop/camshareFramework/camPod'
+	#pod 'camPod', :git => 'https://github.com/JancoDVTDev/camPod.git'
+	pod 'camPod', :path => '/Users/jerasmus/Desktop/camshareFramework/camPod'
 
   target 'camshareTests' do
     inherit! :search_paths
