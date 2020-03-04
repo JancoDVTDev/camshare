@@ -15,6 +15,7 @@ class SingleAlbumViewController: ViewController, UIImagePickerControllerDelegate
 
     @IBOutlet weak var myCollectionView: UICollectionView!
     let albumViewModel = AlbumViewModel()
+    let cameraBehavViewModel = CameraBehaviourViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,7 @@ class SingleAlbumViewController: ViewController, UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let takenPhoto = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            //albumViewModel.appendToAlbum(albumIndex: selectedAlbumIndex, image: takenPhoto)
+            cameraBehavViewModel.saveTakenImage(image: takenPhoto)
 
         }
         picker.dismiss(animated: true, completion: nil)
@@ -80,10 +81,10 @@ extension SingleAlbumViewController: UICollectionViewDataSource {
         cell.imageView.image = image
         return cell
     }
-    
+
     @IBAction func imageTapped(_ sender: AnyObject) {
         selectedImageIndex = sender.view.tag
         performSegue(withIdentifier: "loadPhoto", sender: self)
     }
-    
+
 }

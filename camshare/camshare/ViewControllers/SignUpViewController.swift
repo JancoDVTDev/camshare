@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import camPod
 
 class SignUpViewController: UIViewController {
 
@@ -19,6 +21,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var facebookSignUp: UIButton!
     @IBOutlet weak var gmailSignUp: UIButton!
+    
+    let userViewModel = UserSignUpLoginViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,30 +40,13 @@ class SignUpViewController: UIViewController {
             } else {
                 //Create cleaned versions of the data
                 let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                let surname = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                 let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                 let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                //Create User
-                Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
-                    //check for errors
-                    if err != nil {
-                        //There was error creating the user
-                        self.showError("Error creating user")
-                    } else {
-                        //User was created succesfull
-                        let firebaseDb = Firestore.firestore()
-                        firebaseDb.collection("users").addDocument(data: [
-                            "firstName": firstName,
-                            "lastName": lastName,
-                            "uid": result!.user.uid]) { (errOne) in
-                            if errOne != nil {
-                                self.showError("User couldn't be saved")
-                            }
-                        }
-                        // Transition to the home screen
-                        self.transitionToHome()
-                    }
-                }
+                
+                userViewModel.signUp(name: firstName, and: surname, with: email, and: password)
+                transitionToHome()
+        
             }
         }
 
