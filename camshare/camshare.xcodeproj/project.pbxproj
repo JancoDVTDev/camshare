@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0967A0E31C49B7F7D9AF6CD1 /* libPods-camshare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D64F7A5FCF882F9E445F1EF6 /* libPods-camshare.a */; };
 		6115149B23F8044900FEFD17 /* SelectedPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6115149A23F8044900FEFD17 /* SelectedPhotoViewController.swift */; };
 		614674222406513900197127 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614674212406513900197127 /* CameraViewController.swift */; };
 		6165BDB323FE655A008C1D72 /* ShowtimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165BDB223FE655A008C1D72 /* ShowtimeTableViewController.swift */; };
@@ -41,8 +40,9 @@
 		61FD8D5123FD2175006841EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FD8D4F23FD2175006841EF /* Constants.swift */; };
 		61FD8D5223FD2175006841EF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FD8D5023FD2175006841EF /* Utilities.swift */; };
 		61FD8D5423FD6417006841EF /* ShowtimeMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FD8D5323FD6417006841EF /* ShowtimeMusicViewController.swift */; };
-		8AA815C6A42588503719FCC2 /* libPods-camshare-camshareUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B03B58878EEE8DD4286154F /* libPods-camshare-camshareUITests.a */; };
-		C6668D428425ECB9C133E9F3 /* libPods-camshareTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE94D7B1F45FB7E213D720B4 /* libPods-camshareTests.a */; };
+		89883099095C74CFAACBE445 /* libPods-camshare-camshareUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E483F45D083EEBD0A659822 /* libPods-camshare-camshareUITests.a */; };
+		B1E3465319284CAD1852DAE4 /* libPods-camshareTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2386C04A0B85D62CE6F4397E /* libPods-camshareTests.a */; };
+		D0445E15D20260773CD19ADD /* libPods-camshare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2100AE65512A973ED2A321 /* libPods-camshare.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,12 +63,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B03B58878EEE8DD4286154F /* libPods-camshare-camshareUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-camshare-camshareUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E2706D69919A2A58A65EACE /* Pods-camshare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camshare.release.xcconfig"; path = "Target Support Files/Pods-camshare/Pods-camshare.release.xcconfig"; sourceTree = "<group>"; };
-		3C20E1D84BA906ADFE1C32F0 /* Pods-camshare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camshare.debug.xcconfig"; path = "Target Support Files/Pods-camshare/Pods-camshare.debug.xcconfig"; sourceTree = "<group>"; };
-		4E724485D3489AD9BF110F2F /* Pods-camshareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camshareTests.release.xcconfig"; path = "Target Support Files/Pods-camshareTests/Pods-camshareTests.release.xcconfig"; sourceTree = "<group>"; };
+		2386C04A0B85D62CE6F4397E /* libPods-camshareTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-camshareTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36271F32E106BBFA01C16091 /* Pods-camshareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camshareTests.release.xcconfig"; path = "Target Support Files/Pods-camshareTests/Pods-camshareTests.release.xcconfig"; sourceTree = "<group>"; };
+		4E2100AE65512A973ED2A321 /* libPods-camshare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-camshare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5457AD2442FE7FC1EC25D78D /* Pods-camshare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camshare.release.xcconfig"; path = "Target Support Files/Pods-camshare/Pods-camshare.release.xcconfig"; sourceTree = "<group>"; };
 		6115149A23F8044900FEFD17 /* SelectedPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPhotoViewController.swift; sourceTree = "<group>"; };
 		614674212406513900197127 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		6158CEE8240E1D1D005B28CC /* libFirebaseAuth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseAuth.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6158CEEA240E1D24005B28CC /* libFirebaseCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6165BDB223FE655A008C1D72 /* ShowtimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowtimeTableViewController.swift; sourceTree = "<group>"; };
 		6165BDB423FE668A008C1D72 /* ShowtimeResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowtimeResultTableViewCell.swift; sourceTree = "<group>"; };
 		6165BDB623FE6C7A008C1D72 /* ResultingClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultingClass.swift; sourceTree = "<group>"; };
@@ -106,11 +108,11 @@
 		61FD8D4F23FD2175006841EF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		61FD8D5023FD2175006841EF /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		61FD8D5323FD6417006841EF /* ShowtimeMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowtimeMusicViewController.swift; sourceTree = "<group>"; };
-		AE94D7B1F45FB7E213D720B4 /* libPods-camshareTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-camshareTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4A58D5CCDD923E95E37BD1D /* Pods-camshare-camshareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camshare-camshareUITests.release.xcconfig"; path = "Target Support Files/Pods-camshare-camshareUITests/Pods-camshare-camshareUITests.release.xcconfig"; sourceTree = "<group>"; };
-		D64F7A5FCF882F9E445F1EF6 /* libPods-camshare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-camshare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB19211AF5D21A1A697CCDD9 /* Pods-camshare-camshareUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camshare-camshareUITests.debug.xcconfig"; path = "Target Support Files/Pods-camshare-camshareUITests/Pods-camshare-camshareUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		F52025F40DB007E6E3FA6671 /* Pods-camshareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camshareTests.debug.xcconfig"; path = "Target Support Files/Pods-camshareTests/Pods-camshareTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7E483F45D083EEBD0A659822 /* libPods-camshare-camshareUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-camshare-camshareUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A45C47A103E58B3710F554AA /* Pods-camshare-camshareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camshare-camshareUITests.release.xcconfig"; path = "Target Support Files/Pods-camshare-camshareUITests/Pods-camshare-camshareUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A656E5F8E56DC2E3A7E63BC2 /* Pods-camshare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camshare.debug.xcconfig"; path = "Target Support Files/Pods-camshare/Pods-camshare.debug.xcconfig"; sourceTree = "<group>"; };
+		AAEACE3553127AC2BFC751CD /* Pods-camshare-camshareUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camshare-camshareUITests.debug.xcconfig"; path = "Target Support Files/Pods-camshare-camshareUITests/Pods-camshare-camshareUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D364F816AC8F6DA624078796 /* Pods-camshareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camshareTests.debug.xcconfig"; path = "Target Support Files/Pods-camshareTests/Pods-camshareTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6165BDBD23FF9AB7008C1D72 /* MediaPlayer.framework in Frameworks */,
-				0967A0E31C49B7F7D9AF6CD1 /* libPods-camshare.a in Frameworks */,
+				D0445E15D20260773CD19ADD /* libPods-camshare.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,7 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6668D428425ECB9C133E9F3 /* libPods-camshareTests.a in Frameworks */,
+				B1E3465319284CAD1852DAE4 /* libPods-camshareTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AA815C6A42588503719FCC2 /* libPods-camshare-camshareUITests.a in Frameworks */,
+				89883099095C74CFAACBE445 /* libPods-camshare-camshareUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,10 +147,12 @@
 		143A4E9836D8D15FE6B176DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6158CEEA240E1D24005B28CC /* libFirebaseCore.a */,
+				6158CEE8240E1D1D005B28CC /* libFirebaseAuth.a */,
 				6165BDBC23FF9AB7008C1D72 /* MediaPlayer.framework */,
-				D64F7A5FCF882F9E445F1EF6 /* libPods-camshare.a */,
-				0B03B58878EEE8DD4286154F /* libPods-camshare-camshareUITests.a */,
-				AE94D7B1F45FB7E213D720B4 /* libPods-camshareTests.a */,
+				4E2100AE65512A973ED2A321 /* libPods-camshare.a */,
+				7E483F45D083EEBD0A659822 /* libPods-camshare-camshareUITests.a */,
+				2386C04A0B85D62CE6F4397E /* libPods-camshareTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -250,12 +254,12 @@
 		EAC7155943D56AA88FE9670A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3C20E1D84BA906ADFE1C32F0 /* Pods-camshare.debug.xcconfig */,
-				1E2706D69919A2A58A65EACE /* Pods-camshare.release.xcconfig */,
-				DB19211AF5D21A1A697CCDD9 /* Pods-camshare-camshareUITests.debug.xcconfig */,
-				C4A58D5CCDD923E95E37BD1D /* Pods-camshare-camshareUITests.release.xcconfig */,
-				F52025F40DB007E6E3FA6671 /* Pods-camshareTests.debug.xcconfig */,
-				4E724485D3489AD9BF110F2F /* Pods-camshareTests.release.xcconfig */,
+				A656E5F8E56DC2E3A7E63BC2 /* Pods-camshare.debug.xcconfig */,
+				5457AD2442FE7FC1EC25D78D /* Pods-camshare.release.xcconfig */,
+				AAEACE3553127AC2BFC751CD /* Pods-camshare-camshareUITests.debug.xcconfig */,
+				A45C47A103E58B3710F554AA /* Pods-camshare-camshareUITests.release.xcconfig */,
+				D364F816AC8F6DA624078796 /* Pods-camshareTests.debug.xcconfig */,
+				36271F32E106BBFA01C16091 /* Pods-camshareTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -267,12 +271,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61F601E023ED1DAB008323F1 /* Build configuration list for PBXNativeTarget "camshare" */;
 			buildPhases = (
-				A5E4C3F1AE65296686C2631D /* [CP] Check Pods Manifest.lock */,
+				0E62F8B4A7A7C099F81AED9F /* [CP] Check Pods Manifest.lock */,
 				61F601B223ED1DA9008323F1 /* Sources */,
 				61F601B323ED1DA9008323F1 /* Frameworks */,
 				61F601B423ED1DA9008323F1 /* Resources */,
 				61DADB6023F3D8C5009E06E6 /* ShellScript */,
-				1B7D6EE2334B089D51BDEAB7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -287,7 +290,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61F601E323ED1DAB008323F1 /* Build configuration list for PBXNativeTarget "camshareTests" */;
 			buildPhases = (
-				FEEBBAC19876B5AEB5F8D00A /* [CP] Check Pods Manifest.lock */,
+				F94D1BC85C54E46E08183838 /* [CP] Check Pods Manifest.lock */,
 				61F601C823ED1DAB008323F1 /* Sources */,
 				61F601C923ED1DAB008323F1 /* Frameworks */,
 				61F601CA23ED1DAB008323F1 /* Resources */,
@@ -306,11 +309,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61F601E623ED1DAB008323F1 /* Build configuration list for PBXNativeTarget "camshareUITests" */;
 			buildPhases = (
-				96F4D3BE71E6DA9ACCFC0FF9 /* [CP] Check Pods Manifest.lock */,
+				11EA2F43096B9022F4BC1678 /* [CP] Check Pods Manifest.lock */,
 				61F601D323ED1DAB008323F1 /* Sources */,
 				61F601D423ED1DAB008323F1 /* Frameworks */,
 				61F601D523ED1DAB008323F1 /* Resources */,
-				A3D95023121EACAFA86B241A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -394,80 +396,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1B7D6EE2334B089D51BDEAB7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-camshare/Pods-camshare-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-camshare/Pods-camshare-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-camshare/Pods-camshare-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		61DADB6023F3D8C5009E06E6 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		96F4D3BE71E6DA9ACCFC0FF9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-camshare-camshareUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A3D95023121EACAFA86B241A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-camshare-camshareUITests/Pods-camshare-camshareUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-camshare-camshareUITests/Pods-camshare-camshareUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-camshare-camshareUITests/Pods-camshare-camshareUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A5E4C3F1AE65296686C2631D /* [CP] Check Pods Manifest.lock */ = {
+		0E62F8B4A7A7C099F81AED9F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -489,7 +418,46 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FEEBBAC19876B5AEB5F8D00A /* [CP] Check Pods Manifest.lock */ = {
+		11EA2F43096B9022F4BC1678 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-camshare-camshareUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61DADB6023F3D8C5009E06E6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		F94D1BC85C54E46E08183838 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -714,7 +682,7 @@
 		};
 		61F601E123ED1DAB008323F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C20E1D84BA906ADFE1C32F0 /* Pods-camshare.debug.xcconfig */;
+			baseConfigurationReference = A656E5F8E56DC2E3A7E63BC2 /* Pods-camshare.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -734,7 +702,7 @@
 		};
 		61F601E223ED1DAB008323F1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E2706D69919A2A58A65EACE /* Pods-camshare.release.xcconfig */;
+			baseConfigurationReference = 5457AD2442FE7FC1EC25D78D /* Pods-camshare.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -754,7 +722,7 @@
 		};
 		61F601E423ED1DAB008323F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F52025F40DB007E6E3FA6671 /* Pods-camshareTests.debug.xcconfig */;
+			baseConfigurationReference = D364F816AC8F6DA624078796 /* Pods-camshareTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -777,7 +745,7 @@
 		};
 		61F601E523ED1DAB008323F1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E724485D3489AD9BF110F2F /* Pods-camshareTests.release.xcconfig */;
+			baseConfigurationReference = 36271F32E106BBFA01C16091 /* Pods-camshareTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -800,7 +768,7 @@
 		};
 		61F601E723ED1DAB008323F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB19211AF5D21A1A697CCDD9 /* Pods-camshare-camshareUITests.debug.xcconfig */;
+			baseConfigurationReference = AAEACE3553127AC2BFC751CD /* Pods-camshare-camshareUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -821,7 +789,7 @@
 		};
 		61F601E823ED1DAB008323F1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4A58D5CCDD923E95E37BD1D /* Pods-camshare-camshareUITests.release.xcconfig */;
+			baseConfigurationReference = A45C47A103E58B3710F554AA /* Pods-camshare-camshareUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
