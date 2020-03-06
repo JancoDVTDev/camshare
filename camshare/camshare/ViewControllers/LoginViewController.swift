@@ -33,11 +33,16 @@ class LoginViewController: UIViewController {
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
 
         // Signing in the user
-        loginViewModel.login(email: email, password: password) { (_ val) in
+        loginViewModel.login(email: email, password: password) { (val) in
             if val {
                 self.transitionToHome()
             }
         }
+//        loginViewModel.login(email: email, password: password) { (_ val) in
+//            if val {
+//                self.transitionToHome()
+//            }
+//        }
 
     }
     func styleButton(button: UIButton?, colorOne: UIColor, colorTwo: UIColor) {
