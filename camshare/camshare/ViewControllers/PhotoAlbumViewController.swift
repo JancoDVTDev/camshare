@@ -8,6 +8,7 @@
 
 import UIKit
 import camPod
+import FirebaseAuth
 
 var selectedAlbumIndex: Int = 0
 
@@ -18,16 +19,36 @@ class PhotoAlbumViewController: ViewController {
     // MARK: Properties
 
     let albumViewModel = AlbumViewModel()
+    let allUserAlbums = ShowingAllUserAlbumsViewModel()
+    var userAlbumNames = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        _ = allUserAlbums.getUserAlbumsArray { (array) in
+            self.userAlbumNames = array
+            print("Loaded Albums in PhotoAlbumViewController \(self.userAlbumNames)")
+        }
+
         //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style:
         //.plain, target: self, action: #selector(addTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop,
                                                             target: self, action: #selector(logoutTapped))
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
         target: self, action: #selector(searchTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                            target: self, action: #selector(addTapped))
 
         // Do any additional setup after loading the view.
+    }
+    @objc func addTapped() {
+        let alert = UIAlertController(title: "Add New Album", message: "Enter album name", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = Auth.auth().currentUser?.uid
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let albumName = alert?.textFields![0].text
+            self.allUserAlbums.addNewAlbum(newAlbumName: albumName!)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     @objc func logoutTapped() {
         performSegue(withIdentifier: "Logout", sender: self)
@@ -53,7 +74,7 @@ extension PhotoAlbumViewController: UICollectionViewDelegateFlowLayout {
 // MARK: DATASOURCE
 extension PhotoAlbumViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return albumViewModel.getCount()//images.count
+        return albumViewModel.getCount() // For implementation: userAlbumNAmes.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
