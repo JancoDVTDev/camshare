@@ -38,7 +38,7 @@ class SingleAlbumViewController: ViewController, UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let takenPhoto = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            cameraBehavViewModel.saveTakenImage(image: takenPhoto)
+            cameraBehavViewModel.saveTakenImage(image: takenPhoto, albumPath: "", albumName: "")
 
         }
         picker.dismiss(animated: true, completion: nil)
@@ -51,10 +51,10 @@ class SingleAlbumViewController: ViewController, UIImagePickerControllerDelegate
 extension SingleAlbumViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let numberOfColumns: CGFloat = 5
+        let numberOfColumns: CGFloat = 4
         let width = myCollectionView.frame.size.width
-        let xInsets: CGFloat = 5
-        let cellSpacing: CGFloat = 10
+        let xInsets: CGFloat = 2
+        let cellSpacing: CGFloat = 2
         return CGSize(width: (width/numberOfColumns) - (xInsets + cellSpacing), height: (width/numberOfColumns) -
             (xInsets + cellSpacing))
     }
