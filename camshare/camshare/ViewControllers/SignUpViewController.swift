@@ -44,7 +44,7 @@ class SignUpViewController: UIViewController {
                 let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                 let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
 
-                userViewModel.signUp(name: firstName, and: surname, with: email, and: password) { (_ val) in
+                userViewModel.signUp(name: firstName, and: surname, with: email, and: password) { (val) in
                     if val {
                         self.transitionToHome()
                     }

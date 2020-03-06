@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>22</integer>
 		</dict>
+		<key>camshareTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>23</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>61F601B523ED1DA9008323F1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>61F601CB23ED1DAB008323F1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>61F601D623ED1DAB008323F1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

@@ -15,7 +15,7 @@ class SingleAlbumViewController: ViewController, UIImagePickerControllerDelegate
 
     @IBOutlet weak var myCollectionView: UICollectionView!
     let albumViewModel = AlbumViewModel()
-    let cameraBehavViewModel = CameraBehaviourViewModel()
+    let cameraBehaveViewModel = CameraBehaviourViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class SingleAlbumViewController: ViewController, UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let takenPhoto = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            cameraBehavViewModel.saveTakenImage(image: takenPhoto, albumPath: "", albumName: "")
+            cameraBehaveViewModel.saveTakenImage(image: takenPhoto, albumPath: "", albumName: "")
 
         }
         picker.dismiss(animated: true, completion: nil)
