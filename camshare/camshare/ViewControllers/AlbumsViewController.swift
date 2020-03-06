@@ -48,7 +48,7 @@ extension AlbumsViewController: UICollectionViewDataSource {
         //swiftlint:enable all
 
         //let image = UIImage(named: "placeholder")//albumViewModel.getThumbnail(index: indexPath.item)
-        
+
         //cell.imageView.image = image
         return cell
     }

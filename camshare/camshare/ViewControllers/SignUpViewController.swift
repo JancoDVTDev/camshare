@@ -21,7 +21,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var facebookSignUp: UIButton!
     @IBOutlet weak var gmailSignUp: UIButton!
-    
+
     let userViewModel = UserSignUpLoginViewModel()
 
     override func viewDidLoad() {
@@ -43,10 +43,12 @@ class SignUpViewController: UIViewController {
                 let surname = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                 let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                 let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                
-                userViewModel.signUp(name: firstName, and: surname, with: email, and: password)
-                transitionToHome()
-        
+
+                userViewModel.signUp(name: firstName, and: surname, with: email, and: password) { (_ val) in
+                    if val {
+                        self.transitionToHome()
+                    }
+                }
             }
         }
 

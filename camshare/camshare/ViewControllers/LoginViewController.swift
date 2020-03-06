@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
-    
+
     let loginViewModel = UserSignUpLoginViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,17 +33,12 @@ class LoginViewController: UIViewController {
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
 
         // Signing in the user
-        loginViewModel.login(email: email, password: password)
-        self.transitionToHome()
-//        Auth.auth().signIn(withEmail: email, password: password) { (_, err) in //result
-//            if err != nil {
-//                self.errorLabel.text = err?.localizedDescription
-//                self.errorLabel.alpha = 1
-//            } else {
-//                //User signed in succesfully
-//                self.transitionToHome()
-//            }
-//        }
+        loginViewModel.login(email: email, password: password) { (_ val) in
+            if val {
+                self.transitionToHome()
+            }
+        }
+
     }
     func styleButton(button: UIButton?, colorOne: UIColor, colorTwo: UIColor) {
         if let button = button {
