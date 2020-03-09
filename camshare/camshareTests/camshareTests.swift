@@ -29,16 +29,17 @@ class camshareTests: XCTestCase {
 
     func testGivenANewAlbumThenGenerateAUniqiueAlbumID() {
         let uniqueID = systemUnderTest.generateUniqueAlbumID()
-        var flag: Bool = false
-        
+        var isCreated: Bool = false
         if uniqueID.count == 25 {
-            flag = true
-        }else {
-            flag = false
+            isCreated = true
         }
-        
-        XCTAssert(flag)
-        //XCTAssertEqual(uniqueID, uniqueID)
+        XCTAssert(isCreated)
+    }
+
+    func testGivenUniqueAlbumIDExistsWhenGeneratingNewAlbumID() {
+        let uniqueID = "1"
+        let result = systemUnderTest.isIDUnique(generatedID: uniqueID)
+        XCTAssert(result)
     }
 
     func testPerformanceExample() {

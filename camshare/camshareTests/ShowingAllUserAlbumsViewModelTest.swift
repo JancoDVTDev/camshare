@@ -15,9 +15,9 @@ class ShowingAllUserAlbumsViewModelTest: XCTestCase {
     override class func setUp() {
         //systemUnderTest = ShowingAllUserAlbumsViewModel()
     }
-    
+
     override func tearDown() {
-        
+
     }
-    
+
 }
