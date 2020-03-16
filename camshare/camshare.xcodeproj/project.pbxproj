@@ -11,6 +11,10 @@
 		61335EE624161D75004B6303 /* UserModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61335EE524161D75004B6303 /* UserModelMock.swift */; };
 		61335EEA241620CA004B6303 /* SignUpLoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61335EE9241620CA004B6303 /* SignUpLoginViewModelTests.swift */; };
 		61335EEC241630BD004B6303 /* ShowingAllUserAlbumsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61335EEB241630BD004B6303 /* ShowingAllUserAlbumsViewModelTest.swift */; };
+		613783E0241F40C40061FD36 /* camshareTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613783DF241F40C40061FD36 /* camshareTestCase.swift */; };
+		613783E2241F44710061FD36 /* camshareTestEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613783E1241F44710061FD36 /* camshareTestEnvironment.swift */; };
+		613783E7241F4A4C0061FD36 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613783E6241F4A4C0061FD36 /* LoginUser.swift */; };
+		613783E9241F4F3F0061FD36 /* SignUpUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613783E8241F4F3F0061FD36 /* SignUpUser.swift */; };
 		614674222406513900197127 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614674212406513900197127 /* CameraViewController.swift */; };
 		6165BDB323FE655A008C1D72 /* ShowtimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165BDB223FE655A008C1D72 /* ShowtimeTableViewController.swift */; };
 		6165BDB523FE668A008C1D72 /* ShowtimeResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165BDB423FE668A008C1D72 /* ShowtimeResultTableViewCell.swift */; };
@@ -74,6 +78,10 @@
 		61335EE524161D75004B6303 /* UserModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelMock.swift; sourceTree = "<group>"; };
 		61335EE9241620CA004B6303 /* SignUpLoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLoginViewModelTests.swift; sourceTree = "<group>"; };
 		61335EEB241630BD004B6303 /* ShowingAllUserAlbumsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingAllUserAlbumsViewModelTest.swift; sourceTree = "<group>"; };
+		613783DF241F40C40061FD36 /* camshareTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = camshareTestCase.swift; sourceTree = "<group>"; };
+		613783E1241F44710061FD36 /* camshareTestEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = camshareTestEnvironment.swift; sourceTree = "<group>"; };
+		613783E6241F4A4C0061FD36 /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
+		613783E8241F4F3F0061FD36 /* SignUpUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUser.swift; sourceTree = "<group>"; };
 		614674212406513900197127 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		6158CEE8240E1D1D005B28CC /* libFirebaseAuth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseAuth.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6158CEEA240E1D24005B28CC /* libFirebaseCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +169,24 @@
 				2386C04A0B85D62CE6F4397E /* libPods-camshareTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		613783DE241F40740061FD36 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				613783DF241F40C40061FD36 /* camshareTestCase.swift */,
+				613783E1241F44710061FD36 /* camshareTestEnvironment.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		613783E3241F49D60061FD36 /* Scenarios */ = {
+			isa = PBXGroup;
+			children = (
+				613783E6241F4A4C0061FD36 /* LoginUser.swift */,
+				613783E8241F4F3F0061FD36 /* SignUpUser.swift */,
+			);
+			path = Scenarios;
 			sourceTree = "<group>";
 		};
 		6181543C23F55D5100FCFD60 /* Views */ = {
@@ -254,6 +280,8 @@
 		61F601DA23ED1DAB008323F1 /* camshareUITests */ = {
 			isa = PBXGroup;
 			children = (
+				613783E3241F49D60061FD36 /* Scenarios */,
+				613783DE241F40740061FD36 /* Helpers */,
 				61F601DB23ED1DAB008323F1 /* camshareUITests.swift */,
 				61F601DD23ED1DAB008323F1 /* Info.plist */,
 			);
@@ -539,7 +567,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				613783E9241F4F3F0061FD36 /* SignUpUser.swift in Sources */,
 				61F601DC23ED1DAB008323F1 /* camshareUITests.swift in Sources */,
+				613783E7241F4A4C0061FD36 /* LoginUser.swift in Sources */,
+				613783E2241F44710061FD36 /* camshareTestEnvironment.swift in Sources */,
+				613783E0241F40C40061FD36 /* camshareTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
