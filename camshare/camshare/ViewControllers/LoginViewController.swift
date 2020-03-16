@@ -38,13 +38,8 @@ class LoginViewController: UIViewController {
                 self.transitionToHome()
             }
         }
-//        loginViewModel.login(email: email, password: password) { (_ val) in
-//            if val {
-//                self.transitionToHome()
-//            }
-//        }
-
     }
+
     func styleButton(button: UIButton?, colorOne: UIColor, colorTwo: UIColor) {
         if let button = button {
             button.layer.cornerRadius = button.frame.size.height/2

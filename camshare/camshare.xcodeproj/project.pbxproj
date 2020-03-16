@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6115149B23F8044900FEFD17 /* SelectedPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6115149A23F8044900FEFD17 /* SelectedPhotoViewController.swift */; };
+		61335EE624161D75004B6303 /* UserModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61335EE524161D75004B6303 /* UserModelMock.swift */; };
+		61335EEA241620CA004B6303 /* SignUpLoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61335EE9241620CA004B6303 /* SignUpLoginViewModelTests.swift */; };
+		61335EEC241630BD004B6303 /* ShowingAllUserAlbumsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61335EEB241630BD004B6303 /* ShowingAllUserAlbumsViewModelTest.swift */; };
 		614674222406513900197127 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614674212406513900197127 /* CameraViewController.swift */; };
 		6165BDB323FE655A008C1D72 /* ShowtimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165BDB223FE655A008C1D72 /* ShowtimeTableViewController.swift */; };
 		6165BDB523FE668A008C1D72 /* ShowtimeResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165BDB423FE668A008C1D72 /* ShowtimeResultTableViewCell.swift */; };
@@ -21,7 +24,6 @@
 		6176C61024091359008A8269 /* SingleAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6176C60F24091359008A8269 /* SingleAlbumViewController.swift */; };
 		6181543E23F55D8900FCFD60 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6181543D23F55D8900FCFD60 /* PhotoCell.swift */; };
 		61B90B3223FE468B00FB4AC4 /* ShowtimeResultOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B90B3123FE468B00FB4AC4 /* ShowtimeResultOptions.swift */; };
-		61BB1E452414BD56007B3F83 /* ShowingAllUserAlbumsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB1E442414BD56007B3F83 /* ShowingAllUserAlbumsViewModelTest.swift */; };
 		61F1FB7023FBE10400A30934 /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F1FB6F23FBE10400A30934 /* StartUpViewController.swift */; };
 		61F1FB7223FBE34100A30934 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F1FB7123FBE34100A30934 /* SignUpViewController.swift */; };
 		61F1FB7423FBE34E00A30934 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F1FB7323FBE34E00A30934 /* LoginViewController.swift */; };
@@ -69,6 +71,9 @@
 		4E2100AE65512A973ED2A321 /* libPods-camshare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-camshare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5457AD2442FE7FC1EC25D78D /* Pods-camshare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camshare.release.xcconfig"; path = "Target Support Files/Pods-camshare/Pods-camshare.release.xcconfig"; sourceTree = "<group>"; };
 		6115149A23F8044900FEFD17 /* SelectedPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPhotoViewController.swift; sourceTree = "<group>"; };
+		61335EE524161D75004B6303 /* UserModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelMock.swift; sourceTree = "<group>"; };
+		61335EE9241620CA004B6303 /* SignUpLoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLoginViewModelTests.swift; sourceTree = "<group>"; };
+		61335EEB241630BD004B6303 /* ShowingAllUserAlbumsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingAllUserAlbumsViewModelTest.swift; sourceTree = "<group>"; };
 		614674212406513900197127 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		6158CEE8240E1D1D005B28CC /* libFirebaseAuth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseAuth.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6158CEEA240E1D24005B28CC /* libFirebaseCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,7 +89,6 @@
 		6176C60F24091359008A8269 /* SingleAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAlbumViewController.swift; sourceTree = "<group>"; };
 		6181543D23F55D8900FCFD60 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		61B90B3123FE468B00FB4AC4 /* ShowtimeResultOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowtimeResultOptions.swift; sourceTree = "<group>"; };
-		61BB1E442414BD56007B3F83 /* ShowingAllUserAlbumsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingAllUserAlbumsViewModelTest.swift; sourceTree = "<group>"; };
 		61F1FB6F23FBE10400A30934 /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
 		61F1FB7123FBE34100A30934 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		61F1FB7323FBE34E00A30934 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -240,7 +244,9 @@
 			children = (
 				61F601D023ED1DAB008323F1 /* camshareTests.swift */,
 				61F601D223ED1DAB008323F1 /* Info.plist */,
-				61BB1E442414BD56007B3F83 /* ShowingAllUserAlbumsViewModelTest.swift */,
+				61335EE524161D75004B6303 /* UserModelMock.swift */,
+				61335EE9241620CA004B6303 /* SignUpLoginViewModelTests.swift */,
+				61335EEB241630BD004B6303 /* ShowingAllUserAlbumsViewModelTest.swift */,
 			);
 			path = camshareTests;
 			sourceTree = "<group>";
@@ -522,8 +528,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61335EEA241620CA004B6303 /* SignUpLoginViewModelTests.swift in Sources */,
+				61335EEC241630BD004B6303 /* ShowingAllUserAlbumsViewModelTest.swift in Sources */,
+				61335EE624161D75004B6303 /* UserModelMock.swift in Sources */,
 				61F601D123ED1DAB008323F1 /* camshareTests.swift in Sources */,
-				61BB1E452414BD56007B3F83 /* ShowingAllUserAlbumsViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
