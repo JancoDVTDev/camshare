@@ -21,7 +21,6 @@ class SingleAlbumViewController: ViewController, UIImagePickerControllerDelegate
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera,
                                                             target: self, action: #selector(cameraTapped))
-        // Do any additional setup after loading the view.
     }
 
     @objc func cameraTapped() {
