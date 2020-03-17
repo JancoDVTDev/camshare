@@ -17,7 +17,9 @@ class PhotoAlbumViewController: ViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var imageView: UIImageView!
     // MARK: Properties
-
+    
+    var user: camPod.User!
+    
     let albumViewModel = AlbumViewModel()
     let allUserAlbums = ShowingAllUserAlbumsViewModel()
     var userAlbumNames = [String]()
@@ -27,6 +29,7 @@ class PhotoAlbumViewController: ViewController {
             self.userAlbumNames = array
             print("Loaded Albums in PhotoAlbumViewController \(self.userAlbumNames)")
         }
+        
 
         //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style:
         //.plain, target: self, action: #selector(addTapped))
