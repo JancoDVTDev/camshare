@@ -802,12 +802,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DIj-Ri-zw6">
                                 <rect key="frame" x="40" y="375" width="334" height="198.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="avj-xw-KpM">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="au@test.com" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="avj-xw-KpM">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mNE-rB-gM2">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Pass1234!" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mNE-rB-gM2">
                                         <rect key="frame" x="0.0" y="54" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -855,6 +855,7 @@
                         <outlet property="errorLabel" destination="dCH-bm-ba6" id="5MI-2h-lAa"/>
                         <outlet property="loginButton" destination="mKa-2K-TcL" id="j5U-cI-64I"/>
                         <outlet property="passwordTextField" destination="mNE-rB-gM2" id="ttN-pY-knT"/>
+                        <segue destination="53b-uV-1Sz" kind="presentation" identifier="loginToAlbums" id="mXJ-zW-NKB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZf-fU-Tno" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -889,6 +890,7 @@
         <image name="placeholder" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="mXJ-zW-NKB"/>
         <segue reference="9p4-8K-lfN"/>
     </inferredMetricsTieBreakers>
 </document>
