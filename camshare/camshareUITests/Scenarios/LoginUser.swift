@@ -18,7 +18,6 @@ class LoginUser: camshareTestCase {
         completeUserLoginInDetails()
         application.buttons["Login"].tap()
         sleep(2)
-
         XCTAssert(application.navigationBars["My Albums"].buttons["Add"].exists)
     }
 

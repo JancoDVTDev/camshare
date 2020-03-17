@@ -42,7 +42,7 @@ class PhotoAlbumViewController: ViewController {
     @objc func addTapped() {
         let alert = UIAlertController(title: "Add New Album", message: "Enter album name", preferredStyle: .alert)
         alert.addTextField { (textField) in
-            textField.placeholder = Auth.auth().currentUser?.uid
+            textField.placeholder = "UI Test"//Auth.auth().currentUser?.uid
         }
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let albumName = alert?.textFields![0].text
