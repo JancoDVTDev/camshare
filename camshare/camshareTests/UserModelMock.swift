@@ -20,7 +20,7 @@ public class UserModelMock {
 }
 
 extension UserModelMock: UserSignUpLoginViewModelProtocol {
-    public func login(email: String, password: String, completion: @escaping (Bool) -> ()) {
+    public func login(email: String, password: String, completion: @escaping (Bool) -> Void) {
         //do some validation with username and password
         if email == "jancoera@gmail.com" && password == "Pass1234!" {
             print("User logged in")
@@ -30,9 +30,9 @@ extension UserModelMock: UserSignUpLoginViewModelProtocol {
             completion(false)
         }
     }
-    
-    public func signUp(name: String, and surname: String, with email: String,
-                and password: String, _ completion: @escaping (Bool) -> ()) {
+
+    public func signUp(name: String, and surname: String, with email: String, and password: String,
+                       _ completion: @escaping (Bool) -> Void) {
         if name == "Janco" && surname == "Erasmus" && email == "jancoera@gmail.com" && password == "Pass1234!" {
             print("User logged in")
              completion(true)

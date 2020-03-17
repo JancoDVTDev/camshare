@@ -9,37 +9,9 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "61F601B523ED1DA9008323F1"
-               BuildableName = "camshare.app"
-               BlueprintName = "camshare"
-               ReferencedContainer = "container:camshare.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "YES"
+            buildForProfiling = "NO"
             buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "61F601CB23ED1DAB008323F1"
-               BuildableName = "camshareTests.xctest"
-               BlueprintName = "camshareTests"
-               ReferencedContainer = "container:camshare.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "YES"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "61F601D623ED1DAB008323F1"
@@ -57,16 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       codeCoverageEnabled = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "61F601CB23ED1DAB008323F1"
-               BuildableName = "camshareTests.xctest"
-               BlueprintName = "camshareTests"
-               ReferencedContainer = "container:camshare.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
@@ -89,16 +51,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "61F601B523ED1DA9008323F1"
-            BuildableName = "camshare.app"
-            BlueprintName = "camshare"
-            ReferencedContainer = "container:camshare.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -106,16 +58,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "61F601B523ED1DA9008323F1"
-            BuildableName = "camshare.app"
-            BlueprintName = "camshare"
+            BlueprintIdentifier = "61F601D623ED1DAB008323F1"
+            BuildableName = "camshareUITests.xctest"
+            BlueprintName = "camshareUITests"
             ReferencedContainer = "container:camshare.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
