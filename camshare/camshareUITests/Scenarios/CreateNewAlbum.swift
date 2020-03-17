@@ -16,7 +16,7 @@ class CreateNewAlbum: camshareTestCase {
         let loginButton = application.buttons["Login"]
         let plusAlbumNavButton = application.navigationBars["My Albums"].buttons["Add"]
         let elementQuery = application.alerts["Add New Album"].scrollViews.otherElements
-        let alertOKButton = elementQuery.buttons["OK"]
+        //let alertOKButton = elementQuery.buttons["OK"]
         let addNewAlbumTextField = elementQuery.collectionViews.textFields["UI Test"]
 
         loginButton.tap()
@@ -35,7 +35,7 @@ class CreateNewAlbum: camshareTestCase {
 //        application.keys["t"].tap()
 //        
 //        alertOKButton.tap()
-        
+
         XCTAssert(addNewAlbumTextField.exists)
     }
 

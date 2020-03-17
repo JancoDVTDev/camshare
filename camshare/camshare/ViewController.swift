@@ -184,6 +184,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         self?.view.layoutIfNeeded()
             }, completion: nil)
     }
+
     func prepareAlreadyHaveAccount() {
         emailTextField.isHidden = false
         passwordTextField.isHidden = false
