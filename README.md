@@ -9,18 +9,18 @@ Users will be able to create new accounts using google firebase as the account p
 Each user will have the ability to create groups, ivite their friends or join another group by reading a QR code or accepting an ivitation link shared via Whatsapp email or any other messaging platform.
 
 **Expected Features:**
-- Camera that allows realtime editing.
-- Viewing Albums as a collection.
-- Allowing Camshare to create video presentations of an album with music backgrounds within the app.
-- Spotifi API to accomodate video presentations
+-  Camera that allows realtime editing.
+-  Viewing Albums as a collection.
+-  Allowing Camshare to create video presentations of an album with music backgrounds within the app.
+-  Spotifi API to accomodate video presentations
 
 **Background Operations:**
-- The github repository is added to Bitrise, this will allow the app to be build and tested by the bitrise build server.
-- A Workflow is setup in bitrise with a slackbot to send a message to a slack account of all changes that are made in the repository.
-- The slackbot will also send an appropriate message if the build was succesful or failed.
-- The github repository is also added to Codacy, which will Evalute the quality of the code and make you aware of certain issues in the code.
+-  The github repository is added to Bitrise, this will allow the app to be build and tested by the bitrise build server.
+-  A Workflow is setup in bitrise with a slackbot to send a message to a slack account of all changes that are made in the repository.
+-  The slackbot will also send an appropriate message if the build was succesful or failed.
+-  The github repository is also added to Codacy, which will Evalute the quality of the code and make you aware of certain issues in the code.
 
-## Extra
+### Extra
 ###### Badges
 
 [![Build Status](https://app.bitrise.io/app/f5ef16cbcd43fa3b/status.svg?token=l9zpYE6QPNcmWmfvOyNAAg)](https://app.bitrise.io/app/f5ef16cbcd43fa3b)
