@@ -12,11 +12,11 @@ import XCTest
 
 class SignUpLoginViewModelTests: XCTestCase {
     var systemUnderTest: UserSignUpLoginViewModel!
-
+    weak var repo: UserModelProtocol!
     let userModelMock = UserModelMock()
 
     override func setUp() {
-        systemUnderTest = UserSignUpLoginViewModel()
+        systemUnderTest = UserSignUpLoginViewModel(repo: repo)
     }
 
     // MARK: Login Tests

@@ -16,14 +16,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
-    
-    var currentUser: camPod.User!
 
     //let loginViewModel = UserSignUpLoginViewModel()
-    lazy var viewModel: UserSignUpLoginViewModel = {
+    lazy var userViewModel: UserSignUpLoginViewModel = {
         return UserSignUpLoginViewModel(repo: UserModel())
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.alpha = 0
@@ -39,20 +37,12 @@ class LoginViewController: UIViewController {
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
 
         // MARK: NEW Model Login
-        viewModel.login(with: email, and: password) { (success, user) in
+        // MARK: Revise - no need to send back user, user is fetched somwhere else
+        userViewModel.login(with: email, and: password) { (success, _) in //user is sent back from closure
             if success {
-                //self.transitionToHome()
-                // MARK: Data Transfer
-                // https://learnappmaking.com/pass-data-between-view-controllers-swift-how-to/
-                self.currentUser = user
-                self.performSegue(withIdentifier: "loginToAlbums", sender: self)
+                self.transitionToHome()
             }
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! PhotoAlbumViewController
-        vc.user = self.currentUser
     }
 
     func styleButton(button: UIButton?, colorOne: UIColor, colorTwo: UIColor) {
@@ -74,5 +64,4 @@ class LoginViewController: UIViewController {
         view.window?.rootViewController = photoAlbumViewController
         view.window?.makeKeyAndVisible()
     }
-
 }

@@ -19,7 +19,15 @@ public class UserModelMock {
     public var password = "Pass1234!"
 }
 
-extension UserModelMock: UserSignUpLoginViewModelProtocol {
+extension UserModelMock: UserModelProtocol {
+    public func login(email: String, password: String, _ completion: @escaping (Bool, User?) -> Void) {
+        
+    }
+    
+    public func signUp(firstName: String, lastName: String, email: String, password: String, _ completion: @escaping (User?) -> Void) {
+        
+    }
+    
     public func login(email: String, password: String, completion: @escaping (Bool) -> Void) {
         //do some validation with username and password
         if email == "jancoera@gmail.com" && password == "Pass1234!" {
