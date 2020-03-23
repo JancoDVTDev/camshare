@@ -38,9 +38,12 @@ class LoginViewController: UIViewController {
 
         // MARK: NEW Model Login
         // MARK: Revise - no need to send back user, user is fetched somwhere else
-        userViewModel.login(with: email, and: password) { (success, _) in //user is sent back from closure
+        userViewModel.login(with: email, and: password) { (success, error, _) in //user is sent back from closure
             if success {
                 self.transitionToHome()
+            } else {
+                self.errorLabel.text = error
+                self.errorLabel.alpha = 1
             }
         }
     }
