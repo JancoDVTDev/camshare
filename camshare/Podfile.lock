@@ -126,7 +126,7 @@ EXTERNAL SOURCES:
     :path: "/Users/jerasmus/Desktop/camshareFramework/camPod"
 
 SPEC CHECKSUMS:
-  camPod: 3ee44d6e23cbfc582bfbce9ab43e6c6c0265706f
+  camPod: 5c83a03e28dfe2619b7192caab3b666b400ffd8e
   Firebase: fe7f74012742ab403451dd283e6909b8f1fb348a
   FirebaseAnalytics: 572e467f3d977825266e8ccd52674aa3e6f47eac
   FirebaseAuth: 648892fd0afeb27ef97c1d2e667329855f1004bc
