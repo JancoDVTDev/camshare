@@ -20,11 +20,21 @@ public class UserModelMock {
 }
 
 extension UserModelMock: UserModelProtocol {
+    public func login(email: String, password: String, _ completion: @escaping (Bool, User?) -> Void) {
+        
+    }
+
+    public func signUp(firstName: String, lastName: String, email: String,
+                       password: String, _ completion: @escaping (User?) -> Void) {
+        
+    }
+    
 //    public func login(email: String, password: String, _ completion: @escaping (Bool, User?) -> Void) {
 //        
 //    }
 //    
-//    public func signUp(firstName: String, lastName: String, email: String, password: String, _ completion: @escaping (User?) -> Void) {
+//    public func signUp(firstName: String, lastName: String, email: String,
+//                       password: String, _ completion: @escaping (User?) -> Void) {
 //        
 //    }
 //    
