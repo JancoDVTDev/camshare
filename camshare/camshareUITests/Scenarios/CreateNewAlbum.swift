@@ -9,7 +9,7 @@
 import XCTest
 
 class CreateNewAlbum: camshareTestCase {
-    func testCreateNewAlbumWhenUserClickOnPlusIcon() {
+//    func testCreateNewAlbumWhenUserClickOnPlusIcon() {
 //        application.launch()
 //        environment.setUpWith(username: "au@test.com", password: "Pass1234!")
 //
@@ -37,9 +37,9 @@ class CreateNewAlbum: camshareTestCase {
 //        alertOKButton.tap()
 //
 //        XCTAssert(addNewAlbumTextField.exists)
-    }
-
-    func testRecord() {
-
-    }
+//    }
+//
+//    func testRecord() {
+//
+//    }
 }

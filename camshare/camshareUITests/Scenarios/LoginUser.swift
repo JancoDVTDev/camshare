@@ -10,7 +10,7 @@ import XCTest
 
 class LoginUser: camshareTestCase {
 
-    func testUserLogin() {
+//    func testUserLogin() {
 //        application.launch()
 //        environment.setUpWith(username: "au@test.com", password: "Pass1234!")
 //
@@ -19,9 +19,9 @@ class LoginUser: camshareTestCase {
 //        application.buttons["Login"].tap()
 //        sleep(2)
 //        XCTAssert(application.navigationBars["My Albums"].buttons["Add"].exists)
-    }
-
-    func testRecord() {
-
-    }
+//    }
+//
+//    func testRecord() {
+//
+//    }
 }
