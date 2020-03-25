@@ -13,6 +13,7 @@ import FirebaseAuth
 var selectedAlbumIndex: Int = 0
 
 class PhotoAlbumViewController: ViewController {
+
     // MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var imageView: UIImageView!
