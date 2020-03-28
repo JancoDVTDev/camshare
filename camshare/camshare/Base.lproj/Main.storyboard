@@ -550,13 +550,13 @@
         <!--Single Album-->
         <scene sceneID="7Mr-bQ-bDW">
             <objects>
-                <viewController storyboardIdentifier="SingleAlbumView" id="q5y-a5-OTE" customClass="SingleAlbumObjCViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SingleAlbumView" modalPresentationStyle="fullScreen" id="q5y-a5-OTE" customClass="SingleAlbumObjCViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EXb-Fq-anp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="47N-6H-H1U">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="779"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="2" minimumInteritemSpacing="2" id="j8Q-sl-kKu">
                                     <size key="itemSize" width="240" height="240"/>
@@ -606,23 +606,28 @@
                                     <outlet property="delegate" destination="q5y-a5-OTE" id="RWh-oh-HcK"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Does Show" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqa-na-fyD">
-                                <rect key="frame" x="164" y="787" width="86.5" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="xGD-RJ-5kj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kzv-aw-8i6">
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem image="square.and.arrow.up" catalog="system" width="221" id="GC6-OS-tij">
+                                        <connections>
+                                            <action selector="shareTapped:" destination="q5y-a5-OTE" id="n6o-mx-ObT"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="trash" catalog="system" width="182" id="NGJ-4K-vCS">
+                                        <connections>
+                                            <action selector="deleteTapped:" destination="q5y-a5-OTE" id="K6f-Ey-sJo"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="47N-6H-H1U" firstAttribute="bottom" secondItem="9Cn-IM-FOy" secondAttribute="bottom" constant="-39" id="29B-ZL-XKX"/>
-                            <constraint firstItem="oqa-na-fyD" firstAttribute="bottom" secondItem="9Cn-IM-FOy" secondAttribute="bottom" id="3I9-jr-nTt"/>
                             <constraint firstItem="47N-6H-H1U" firstAttribute="leading" secondItem="9Cn-IM-FOy" secondAttribute="leading" id="3Mb-v9-HEs"/>
                             <constraint firstItem="47N-6H-H1U" firstAttribute="trailing" secondItem="9Cn-IM-FOy" secondAttribute="trailing" id="Fs5-iA-7BU"/>
-                            <constraint firstItem="oqa-na-fyD" firstAttribute="centerX" secondItem="EXb-Fq-anp" secondAttribute="centerX" id="SU9-YY-ba7"/>
                             <constraint firstItem="47N-6H-H1U" firstAttribute="top" secondItem="9Cn-IM-FOy" secondAttribute="top" id="h93-yR-l7O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Cn-IM-FOy"/>
@@ -630,19 +635,20 @@
                     <navigationItem key="navigationItem" title="Single Album" id="Coh-Lx-5Mt"/>
                     <connections>
                         <outlet property="myCollectionView" destination="47N-6H-H1U" id="Fet-wb-VIr"/>
+                        <outlet property="toolBar" destination="Kzv-aw-8i6" id="l7X-Sr-ldJ"/>
                         <segue destination="J5F-La-Zu0" kind="show" identifier="loadPhoto" id="xok-Vr-xQo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tN4-vN-N1k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4251" y="1163"/>
+            <point key="canvasLocation" x="4250.7246376811599" y="1162.5"/>
         </scene>
         <!--Showtime Table View Controller-->
         <scene sceneID="Ipq-oF-wex">
             <objects>
                 <tableViewController id="3ku-18-xAu" customClass="ShowtimeTableViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="90T-Yq-yIj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="212-4d-6KO">
@@ -739,13 +745,13 @@
         <!--Selected Photo View Controller-->
         <scene sceneID="3su-jZ-lA8">
             <objects>
-                <viewController id="J5F-La-Zu0" customClass="SelectedPhotoViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="J5F-La-Zu0" customClass="SelectedPhotoViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aku-ki-7qA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="eHE-6h-U7d">
-                                <rect key="frame" x="0.0" y="287.5" width="414" height="267"/>
+                                <rect key="frame" x="0.0" y="314.5" width="414" height="267"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eHE-6h-U7d" secondAttribute="height" multiplier="138:89" id="NDI-5M-rx4"/>
                                 </constraints>
@@ -891,5 +897,7 @@
         <image name="camSHARE - DVT" width="1500" height="1500"/>
         <image name="camSHARE_Name - DVT" width="1500" height="500"/>
         <image name="placeholder" width="300" height="300"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
     </resources>
 </document>

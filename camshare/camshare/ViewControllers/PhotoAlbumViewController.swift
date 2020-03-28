@@ -74,26 +74,71 @@ class PhotoAlbumViewController: ViewController {
     }
 
     @objc func addTapped() {
-        let alert = UIAlertController(title: "Add New Album", message: "Enter album name", preferredStyle: .alert)
-        alert.addTextField { (textField) in
-            textField.placeholder = "UI Test"//Auth.auth().currentUser?.uid
-        }
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-            let albumName = alert?.textFields![0].text
-            //self.allUserAlbums.addNewAlbum(newAlbumName: albumName!)
-            if let albumName = albumName {
-                self.albumViewModel.addNewAlbum(albumName: albumName) { (_) in //newAlbum is sent back from completion
-                    print("Album succesfully added - View should now update")
-                    self.reloadAlbums { (success) in
-                        if success {
-                            self.collectionView.collectionViewLayout.invalidateLayout()
-                            self.collectionView.reloadData()
+        // Action Sheet: Create New OR Add Existing OR Scan QR Code
+
+        let actionSheet = UIAlertController(title: "Add Album", message: "Choose an option",
+                                            preferredStyle: .actionSheet)
+
+        let createNewAction = UIAlertAction(title: "Create new", style: .default) { (_) in
+            let alert = UIAlertController(title: "New Album", message: "Enter a name for this album",
+                                          preferredStyle: .alert)
+            alert.addTextField { (textField) in
+                textField.placeholder = "Title"//Auth.auth().currentUser?.uid
+            }
+            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak alert] (_) in
+                let albumName = alert?.textFields![0].text
+                //self.allUserAlbums.addNewAlbum(newAlbumName: albumName!)
+                if let albumName = albumName {
+                    self.albumViewModel.addNewAlbum(albumName: albumName) { (_) in
+                        print("Album succesfully added - View should now update")
+                        self.reloadAlbums { (success) in
+                            if success {
+                                self.collectionView.collectionViewLayout.invalidateLayout()
+                                self.collectionView.reloadData()
+                            }
                         }
                     }
                 }
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+
+        let existingAlbumAction = UIAlertAction(title: "Existing Album", style: .default) { (_) in
+            let alert = UIAlertController(title: "Existing Album", message: "Paste or type the album ID",
+                                          preferredStyle: .alert)
+            alert.addTextField { (textField) in
+                textField.placeholder = "Example: xHDJjdhhdy33b39KKJhdgwv"
             }
-        }))
-        self.present(alert, animated: true, completion: nil)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak alert](_) in
+                let existingAlbumID = alert?.textFields![0].text
+                if let existingAlbumID = existingAlbumID {
+                    // Call function in viewModel to add Existing Album
+                    // Reload albums
+                    // MARK: Revise updating single album to collection view
+                    print(existingAlbumID)
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        let scanQRCode = UIAlertAction(title: "Scan QR Code", style: .default) { (_) in
+            // Open Camera to scan QR
+            // UIImage Picker Will not work
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+
+        }
+
+        actionSheet.addAction(createNewAction)
+        actionSheet.addAction(existingAlbumAction)
+        actionSheet.addAction(scanQRCode)
+        actionSheet.addAction(cancelAction)
+        self.present(actionSheet, animated: true, completion: nil)
+
     }
 
     @objc func logoutTapped() {
@@ -135,52 +180,19 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
         cell.imageView.tag = indexPath.row
         cell.imageView.addGestureRecognizer(tapGestureRecognizer)
 
-        //let image = dummyAlbum[indexPath.item]
-        //let image = albumViewModel.getThumbnail(index: indexPath.item)//images[indexPath.item]
         print("try to load albums")
-        let image = albums[indexPath.item].thumbnail//userAlbums[indexPath.item][0]
-        //let image = UIImage(named: "placeholder")!
+        let image = albums[indexPath.item].thumbnail
         cell.imageView.image = image
         return cell
     }
 
     @IBAction func tap(_ sender: AnyObject) {
         print("ViewController tap() Clicked Item: \(sender.view.tag)")
-//        selectedAlbumIndex = sender.view.tag
-//        selectedImageView.image = images[sender.view.tag]
         self.selectedIndex = sender.view.tag
-
-        // MARK: SEGUE
-//        let singleAlbum = (storyboard?.instantiateViewController(identifier:
-        //"SingleAlbumView"))! as SingleAlbumViewController
-//        singleAlbum.imagePathReferences = albums[selectedIndex].imagePaths
-//        present(singleAlbum, animated: true, completion: nil)
-        // MARK: Using Notification Centre
-//        let name = Notification.Name(rawValue: "didSelectAlbum")
-//        let images = albums[selectedIndex].images
-//        NotificationCenter.default.post(name: name, object: nil, userInfo: ["images": images])
-        // MARK: Using Protocol - issue: albumSelectedDelegate is not initialised
-//        let images: [UIImage] = albums[selectedIndex].images
-//        let singleView = (storyboard?.instantiateViewController(identifier: "SingleAlbumView"))!
-//            as SingleAlbumViewController
-//        //albumSelectedDelegate = singleView
-//        if selectedIndex == 0 {
-//            performSegue(withIdentifier: "loadAlbum", sender: self)
-//        } else {
-//            dismiss(animated: true, completion: nil)
-//            albumSelectedDelegate.didSelectAlbum(albumImages: images)
-//        }
         performSegue(withIdentifier: "loadAlbum", sender: self)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        //swiftlint:disable all
-//        let singleAlbumViewController = segue.destination as! SingleAlbumViewController
-//        //swiftlint:enable all
-//        singleAlbumViewController.imagePathReferences = self.albums[self.selectedIndex].imagePaths
-//        singleAlbumViewController.currentAlbumID = self.albums[self.selectedIndex].albumID
-//        print(self.albums[selectedIndex].albumID)
-
         // MARK: OBJECTIVE C
 
         //swiftlint:disable all
