@@ -24,7 +24,7 @@ class PhotoAlbumViewController: ViewController {
     // MARK: Properties
     var currentUser: camPod.User?
     var albums = [SingleAlbum]()
-    var albumSelectedDelegate: albumSelectionProtocol!
+    //var albumSelectedDelegate: albumSelectionProtocol!
     var selectedIndex = 0
 
     //var userAlbum = [UIImage]()
@@ -151,7 +151,8 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
         self.selectedIndex = sender.view.tag
 
         // MARK: SEGUE
-//        let singleAlbum = (storyboard?.instantiateViewController(identifier: "SingleAlbumView"))! as SingleAlbumViewController
+//        let singleAlbum = (storyboard?.instantiateViewController(identifier:
+        //"SingleAlbumView"))! as SingleAlbumViewController
 //        singleAlbum.imagePathReferences = albums[selectedIndex].imagePaths
 //        present(singleAlbum, animated: true, completion: nil)
         // MARK: Using Notification Centre

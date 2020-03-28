@@ -22,7 +22,7 @@ class SingleAlbumViewController: ViewController, UIImagePickerControllerDelegate
     let cameraBehaveViewModel = CameraBehaviourViewModel()
 
     var currentAlbumImages = [UIImage]()
-    
+
     var currentAlbumID: String = ""
     var imagePathReferences = [String]()
 
@@ -34,7 +34,8 @@ class SingleAlbumViewController: ViewController, UIImagePickerControllerDelegate
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera,
                                                             target: self, action: #selector(cameraTapped))
-//        let albumView = (storyboard?.instantiateViewController(identifier: "PhotoAlbumView"))! as PhotoAlbumViewController
+//        let albumView = (storyboard?.instantiateViewController(identifier:
+        //"PhotoAlbumView"))! as PhotoAlbumViewController
 //        albumView.albumSelectedDelegate = self
 //        present(albumView, animated: true, completion: nil)
 //        createObservers()
@@ -54,9 +55,10 @@ class SingleAlbumViewController: ViewController, UIImagePickerControllerDelegate
 
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        if let takenPhoto = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            cameraBehaveViewModel.saveTakenImage(image: takenPhoto, albumID: currentAlbumID, imagePaths: imagePathReferences)
-        }
+//        if let takenPhoto = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//            //cameraBehaveViewModel.saveTakenImage(image: takenPhoto,
+        //albumID: currentAlbumID,imagePaths: imagePathReferences)
+//        }
         picker.dismiss(animated: true, completion: nil)
     }
 
