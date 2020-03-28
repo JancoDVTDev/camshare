@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WkH-NO-3X2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WkH-NO-3X2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -455,7 +455,7 @@
         <!--My Albums-->
         <scene sceneID="amG-Fb-SIz">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="E9x-85-z3l" customClass="PhotoAlbumViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoAlbumView" modalPresentationStyle="fullScreen" id="E9x-85-z3l" customClass="PhotoAlbumViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4rh-yf-bje">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -550,7 +550,7 @@
         <!--Single Album-->
         <scene sceneID="7Mr-bQ-bDW">
             <objects>
-                <viewController id="q5y-a5-OTE" customClass="SingleAlbumViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SingleAlbumView" id="q5y-a5-OTE" customClass="SingleAlbumObjCViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EXb-Fq-anp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -629,7 +629,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Single Album" id="Coh-Lx-5Mt"/>
                     <connections>
-                        <outlet property="myCollectionView" destination="47N-6H-H1U" id="xn4-aK-TyM"/>
+                        <outlet property="myCollectionView" destination="47N-6H-H1U" id="Fet-wb-VIr"/>
                         <segue destination="J5F-La-Zu0" kind="show" identifier="loadPhoto" id="xok-Vr-xQo"/>
                     </connections>
                 </viewController>
@@ -883,13 +883,13 @@
             <point key="canvasLocation" x="-288.40579710144931" y="1162.5"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="9p4-8K-lfN"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="CamShare_Cobined" width="2970" height="3438"/>
         <image name="camSHARE - DVT" width="1500" height="1500"/>
         <image name="camSHARE_Name - DVT" width="1500" height="500"/>
         <image name="placeholder" width="300" height="300"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="9p4-8K-lfN"/>
-    </inferredMetricsTieBreakers>
 </document>

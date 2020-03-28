@@ -9,6 +9,10 @@
 import UIKit
 import camPod
 
+protocol singleAlbumViewDidLoad {
+    func recieveImagesFromAlbum() -> [UIImage]
+}
+
 var selectedImageIndex: Int = 0
 
 class SingleAlbumViewController: ViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -17,10 +21,24 @@ class SingleAlbumViewController: ViewController, UIImagePickerControllerDelegate
     let albumViewModel = AlbumViewModel()
     let cameraBehaveViewModel = CameraBehaviourViewModel()
 
+    var currentAlbumImages = [UIImage]()
+    
+    var currentAlbumID: String = ""
+    var imagePathReferences = [String]()
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera,
                                                             target: self, action: #selector(cameraTapped))
+//        let albumView = (storyboard?.instantiateViewController(identifier: "PhotoAlbumView"))! as PhotoAlbumViewController
+//        albumView.albumSelectedDelegate = self
+//        present(albumView, animated: true, completion: nil)
+//        createObservers()
+//        myCollectionView.reloadData()
     }
 
     @objc func cameraTapped() {
@@ -37,10 +55,24 @@ class SingleAlbumViewController: ViewController, UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let takenPhoto = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            cameraBehaveViewModel.saveTakenImage(image: takenPhoto, albumPath: "", albumName: "")
-
+            cameraBehaveViewModel.saveTakenImage(image: takenPhoto, albumID: currentAlbumID, imagePaths: imagePathReferences)
         }
         picker.dismiss(animated: true, completion: nil)
+    }
+
+    func createObservers() {
+        let name = Notification.Name(rawValue: "didSelectAlbum")
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(loadImages(notification:)),
+                                               name: name, object: nil)
+    }
+
+    @objc func loadImages(notification: NSNotification) {
+        print("@OBJ C Function Ran")
+        if let images = notification.userInfo!["images"] as? [UIImage] {
+            currentAlbumImages = images
+        }
+        myCollectionView.reloadData()
     }
 
 }
@@ -63,7 +95,7 @@ extension SingleAlbumViewController: UICollectionViewDelegateFlowLayout {
 
 extension SingleAlbumViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return albumViewModel.getAlbumSize(index: selectedAlbumIndex)
+        return imagePathReferences.count//albumViewModel.getAlbumSize(index: selectedAlbumIndex)
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -76,8 +108,8 @@ extension SingleAlbumViewController: UICollectionViewDataSource {
         cell.imageView.isUserInteractionEnabled = true
         cell.imageView.tag = indexPath.row
         cell.imageView.addGestureRecognizer(tapGestureRecognizer)
-        let image = albumViewModel.getSingleImage(selectedAlbum: selectedAlbumIndex, index: indexPath.item)
-        cell.imageView.image = image
+        //let image = currentAlbumImages[indexPath.item]//albumViewModel.getSingleImage(selectedAlbum: selectedAlbumIndex, index: indexPath.item)
+        //cell.imageView.image = image
         return cell
     }
 
@@ -85,5 +117,12 @@ extension SingleAlbumViewController: UICollectionViewDataSource {
         selectedImageIndex = sender.view.tag
         performSegue(withIdentifier: "loadPhoto", sender: self)
     }
+}
 
+extension SingleAlbumViewController: albumSelectionProtocol {
+    func didSelectAlbum(albumImages: [UIImage]) {
+        currentAlbumImages = albumImages
+        print(currentAlbumImages)
+        self.myCollectionView.reloadData()
+    }
 }
