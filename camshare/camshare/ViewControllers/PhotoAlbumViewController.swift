@@ -61,7 +61,7 @@ class PhotoAlbumViewController: ViewController {
                 for albumID in user.albumIDs {
                     count += 1
                     self.albumViewModel.getAlbumNew(albumID: albumID) { (album) in
-                        self.albums.append(album)
+                        self.albums.append(album) // MARK: Revise that album images does not download
                         print("Number of albums \(self.albums.count)")
                         print(self.albums)
                         if (user.albumIDs.count) == count {
