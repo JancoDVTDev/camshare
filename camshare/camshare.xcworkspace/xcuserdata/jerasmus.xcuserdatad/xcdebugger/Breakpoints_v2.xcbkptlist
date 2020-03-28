@@ -3,4 +3,370 @@
    uuid = "EE56C27E-8BF1-4F73-B703-6500476887B1"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7AE3331F-20D1-4253-AA4F-250FEC4967BA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "camshare/ViewControllers/SingleAlbumViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "didSelectAlbum(albumImages:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3455C737-3099-4633-B28F-73B8528F793A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "camshare/ViewControllers/SingleAlbumViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "SingleAlbumViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "3455C737-3099-4633-B28F-73B8528F793A - 23304015209eb675"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "camshare.SingleAlbumViewController.imagePathReferences.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "camshare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jerasmus/Desktop/iOSDev/camshare/camshare/camshare/ViewControllers/SingleAlbumViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "3455C737-3099-4633-B28F-73B8528F793A - 3178fcd3fdf2201"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "camshare.SingleAlbumViewController.imagePathReferences.setter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "camshare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jerasmus/Desktop/iOSDev/camshare/camshare/camshare/ViewControllers/SingleAlbumViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "3455C737-3099-4633-B28F-73B8528F793A - 5542d38ed4b44370"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "camshare.SingleAlbumViewController.imagePathReferences.modify : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "camshare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jerasmus/Desktop/iOSDev/camshare/camshare/camshare/ViewControllers/SingleAlbumViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "3455C737-3099-4633-B28F-73B8528F793A - e12bbc31b47ac064"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "camshare.SingleAlbumViewController.imagePathReferences.modify : Swift.Array&lt;Swift.String&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "camshare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jerasmus/Desktop/iOSDev/camshare/camshare/camshare/ViewControllers/SingleAlbumViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "3455C737-3099-4633-B28F-73B8528F793A - 24527e08560ae918"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "camshare.SingleAlbumViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; camshare.SingleAlbumViewController"
+                  moduleName = "camshare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jerasmus/Desktop/iOSDev/camshare/camshare/camshare/ViewControllers/SingleAlbumViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "764">
+               </Location>
+               <Location
+                  uuid = "3455C737-3099-4633-B28F-73B8528F793A - 3c0f86ac58f5f256"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "camshare.SingleAlbumViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;camshare.SingleAlbumViewController&gt;"
+                  moduleName = "camshare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jerasmus/Desktop/iOSDev/camshare/camshare/camshare/ViewControllers/SingleAlbumViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "712">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3DB21A48-6E8F-4719-973F-E6388D8AD209"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "camshare/ViewControllers/SingleAlbumViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "906EE7A8-262E-4229-B5F4-EAABE81A4C9A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "camshare/ViewControllers/SingleAlbumViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F4F9231-03C7-4D8D-B1A8-737FEAEFB4CC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../camshareFramework/camPod/camPod/Classes/SingleAlbumFeature/SingleAlbumObjCViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7211A244-CE69-429C-AC0C-AB727CA8D9D8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../camshareFramework/camPod/camPod/Classes/SingleAlbumFeature/SingleAlbumObjCViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "940D37C6-8DDA-4231-85E6-69C42063B77C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../camshareFramework/camPod/camPod/Classes/SingleAlbumFeature/SingleAlbumObjCViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4F6F361D-54A3-4FD1-AF74-6317F70C44C4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../camshareFramework/camPod/camPod/Classes/SingleAlbumFeature/ViewModel/SingleAlbumObjCViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "-downloadImagesFromFirebaseStorage:::"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98344173-4E72-4111-A89B-80AE18CE1BEF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../camshareFramework/camPod/camPod/Classes/SingleAlbumFeature/ViewModel/SingleAlbumObjCViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "-downloadSingleImage:::"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F21E0803-90C0-4AA8-BC7B-502239F93DE2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../camshareFramework/camPod/camPod/Classes/SingleAlbumFeature/ViewModel/SingleAlbumObjCViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "-downloadImagesFromFirebaseStorage:::"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B394008F-1BA8-4844-BA9D-44329C021F43"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../camshareFramework/camPod/camPod/Classes/SingleAlbumFeature/ViewModel/SingleAlbumObjCViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "-downloadSingleImage:::"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3667DFF8-5DF6-4C4F-934C-E1C9E675E377"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../camshareFramework/camPod/camPod/Classes/SingleAlbumFeature/ViewModel/SingleAlbumObjCViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-downloadSingleImage:::"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E857AE7-18B1-4CC8-8BC3-A0ADACF9D033"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../camshareFramework/camPod/camPod/Classes/SingleAlbumFeature/ViewModel/SingleAlbumObjCViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "-downloadSingleImage:::"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8E857AE7-18B1-4CC8-8BC3-A0ADACF9D033 - 70ca5029f3216a3c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SingleAlbumObjCViewModel downloadSingleImage:::]"
+                  moduleName = "camshare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jerasmus/Desktop/camshareFramework/camPod/camPod/Classes/SingleAlbumFeature/ViewModel/SingleAlbumObjCViewModel.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "336">
+               </Location>
+               <Location
+                  uuid = "8E857AE7-18B1-4CC8-8BC3-A0ADACF9D033 - e278bb7f868c9e0b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__50-[SingleAlbumObjCViewModel downloadSingleImage:::]_block_invoke"
+                  moduleName = "camshare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jerasmus/Desktop/camshareFramework/camPod/camPod/Classes/SingleAlbumFeature/ViewModel/SingleAlbumObjCViewModel.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6F34150D-7B6A-4875-B024-3F21F3AD318B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../camshareFramework/camPod/camPod/Classes/SingleAlbumFeature/ViewModel/SingleAlbumObjCViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-downloadSingleImage:::"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1EFB90C8-BF45-48F2-8E59-5E99F1AD14C6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../camshareFramework/camPod/camPod/Classes/SingleAlbumFeature/SingleAlbumObjCViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "-collectionView:numberOfItemsInSection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -11,6 +11,9 @@ import camPod
 import FirebaseAuth
 
 var selectedAlbumIndex: Int = 0
+public protocol albumSelectionProtocol {
+    func didSelectAlbum(albumImages: [UIImage])
+}
 
 class PhotoAlbumViewController: ViewController {
 
@@ -21,11 +24,12 @@ class PhotoAlbumViewController: ViewController {
     // MARK: Properties
     var currentUser: camPod.User?
     var albums = [SingleAlbum]()
+    //var albumSelectedDelegate: albumSelectionProtocol!
+    var selectedIndex = 0
 
     //var userAlbum = [UIImage]()
     var userAlbums = [[UIImage]]()
     var isNewUser = true
-    var dummyAlbum = [UIImage(named: "placeholder"), UIImage(named: "placeholder")]
 
     var albumViewModel = AlbumViewModel()
     let allUserAlbums = ShowingAllUserAlbumsViewModel()
@@ -40,7 +44,6 @@ class PhotoAlbumViewController: ViewController {
         target: self, action: #selector(searchTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self, action: #selector(addTapped))
-
         reloadAlbums { (success) in
             if success {
                 self.collectionView.reloadData()
@@ -58,9 +61,9 @@ class PhotoAlbumViewController: ViewController {
                 for albumID in user.albumIDs {
                     count += 1
                     self.albumViewModel.getAlbumNew(albumID: albumID) { (album) in
-                        self.userAlbums.append(album)
-                        print("Number of albums \(self.userAlbums.count)")
-                        print(self.userAlbums)
+                        self.albums.append(album) // MARK: Revise that album images does not download
+                        print("Number of albums \(self.albums.count)")
+                        print(self.albums)
                         if (user.albumIDs.count) == count {
                             completion(true)
                         }
@@ -118,7 +121,7 @@ extension PhotoAlbumViewController: UICollectionViewDelegateFlowLayout {
 // MARK: DATASOURCE
 extension PhotoAlbumViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return userAlbums.count//albumViewModel.getCount()//userAlbums.count// For implementation: userAlbumNAmes.count
+        return albums.count//albumViewModel.getCount()//userAlbums.count// For implementation: userAlbumNAmes.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -128,22 +131,63 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
         //swiftlint:enable all
         let tapGestureRecognizer = UITapGestureRecognizer(target: self,
                                                           action: #selector(PhotoAlbumViewController.tap(_:)))
-            cell.imageView.isUserInteractionEnabled = true
-            cell.imageView.tag = indexPath.row
-            cell.imageView.addGestureRecognizer(tapGestureRecognizer)
+        cell.imageView.isUserInteractionEnabled = true
+        cell.imageView.tag = indexPath.row
+        cell.imageView.addGestureRecognizer(tapGestureRecognizer)
 
         //let image = dummyAlbum[indexPath.item]
         //let image = albumViewModel.getThumbnail(index: indexPath.item)//images[indexPath.item]
         print("try to load albums")
-        let image = userAlbums[indexPath.item][0]
-            cell.imageView.image = image
-            return cell
-        }
+        let image = albums[indexPath.item].thumbnail//userAlbums[indexPath.item][0]
+        //let image = UIImage(named: "placeholder")!
+        cell.imageView.image = image
+        return cell
+    }
 
-        @IBAction func tap(_ sender: AnyObject) {
-            print("ViewController tap() Clicked Item: \(sender.view.tag)")
-            selectedAlbumIndex = sender.view.tag
-            performSegue(withIdentifier: "loadAlbum", sender: self)
-//            selectedImageView.image = images[sender.view.tag]
-        }
+    @IBAction func tap(_ sender: AnyObject) {
+        print("ViewController tap() Clicked Item: \(sender.view.tag)")
+//        selectedAlbumIndex = sender.view.tag
+//        selectedImageView.image = images[sender.view.tag]
+        self.selectedIndex = sender.view.tag
+
+        // MARK: SEGUE
+//        let singleAlbum = (storyboard?.instantiateViewController(identifier:
+        //"SingleAlbumView"))! as SingleAlbumViewController
+//        singleAlbum.imagePathReferences = albums[selectedIndex].imagePaths
+//        present(singleAlbum, animated: true, completion: nil)
+        // MARK: Using Notification Centre
+//        let name = Notification.Name(rawValue: "didSelectAlbum")
+//        let images = albums[selectedIndex].images
+//        NotificationCenter.default.post(name: name, object: nil, userInfo: ["images": images])
+        // MARK: Using Protocol - issue: albumSelectedDelegate is not initialised
+//        let images: [UIImage] = albums[selectedIndex].images
+//        let singleView = (storyboard?.instantiateViewController(identifier: "SingleAlbumView"))!
+//            as SingleAlbumViewController
+//        //albumSelectedDelegate = singleView
+//        if selectedIndex == 0 {
+//            performSegue(withIdentifier: "loadAlbum", sender: self)
+//        } else {
+//            dismiss(animated: true, completion: nil)
+//            albumSelectedDelegate.didSelectAlbum(albumImages: images)
+//        }
+        performSegue(withIdentifier: "loadAlbum", sender: self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        //swiftlint:disable all
+//        let singleAlbumViewController = segue.destination as! SingleAlbumViewController
+//        //swiftlint:enable all
+//        singleAlbumViewController.imagePathReferences = self.albums[self.selectedIndex].imagePaths
+//        singleAlbumViewController.currentAlbumID = self.albums[self.selectedIndex].albumID
+//        print(self.albums[selectedIndex].albumID)
+
+        // MARK: OBJECTIVE C
+
+        //swiftlint:disable all
+        let singleAlbumViewControllerObjC = segue.destination as! SingleAlbumObjCViewController
+        singleAlbumViewControllerObjC.albumID = self.albums[self.selectedIndex].albumID
+        singleAlbumViewControllerObjC.imagePathReferences = self.albums[selectedIndex].imagePaths
+        singleAlbumViewControllerObjC.albumName = self.albums[selectedIndex].name
+        //swiftlint:enable all
+    }
 }

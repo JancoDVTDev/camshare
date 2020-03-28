@@ -49,6 +49,62 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6184C226242E9C0000417CEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6184C1A6242E9BFF00417CEF /* _Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 38197A4B5DA2500D1CAA1C7F591446D3;
+			remoteInfo = camPod;
+		};
+		6184C228242E9C0000417CEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6184C1A6242E9BFF00417CEF /* _Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9C51B2A6BB066F83CF69F3ED4D7F2669;
+			remoteInfo = "Pods-camPod_Example";
+		};
+		6184C22A242E9C0000417CEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6184C1A6242E9BFF00417CEF /* _Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 44DE27196D8B87C58C71F70E4C61F8AA;
+			remoteInfo = "Pods-camPod_Tests";
+		};
+		6184C22E242E9C0000417CEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6184C213242E9C0000417CEF /* camPod.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 607FACD01AFB9204008FA782;
+			remoteInfo = camPod_Example;
+		};
+		6184C230242E9C0000417CEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6184C213242E9C0000417CEF /* camPod.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 607FACE51AFB9204008FA782;
+			remoteInfo = camPod_Tests;
+		};
+		6184C235242E9C0000417CEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6184C1EF242E9C0000417CEF /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 38197A4B5DA2500D1CAA1C7F591446D3;
+			remoteInfo = camPod;
+		};
+		6184C237242E9C0000417CEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6184C1EF242E9C0000417CEF /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9C51B2A6BB066F83CF69F3ED4D7F2669;
+			remoteInfo = "Pods-camPod_Example";
+		};
+		6184C239242E9C0000417CEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6184C1EF242E9C0000417CEF /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 44DE27196D8B87C58C71F70E4C61F8AA;
+			remoteInfo = "Pods-camPod_Tests";
+		};
 		61F601CD23ED1DAB008323F1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 61F601AE23ED1DA9008323F1 /* Project object */;
@@ -90,6 +146,90 @@
 		6176C60B24090623008A8269 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		6176C60F24091359008A8269 /* SingleAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAlbumViewController.swift; sourceTree = "<group>"; };
 		6181543D23F55D8900FCFD60 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		6184C1A6242E9BFF00417CEF /* _Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = _Pods.xcodeproj; sourceTree = "<group>"; };
+		6184C1A9242E9BFF00417CEF /* codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codecov.yml; sourceTree = "<group>"; };
+		6184C1AB242E9BFF00417CEF /* ObjcHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjcHelper.m; sourceTree = "<group>"; };
+		6184C1AE242E9BFF00417CEF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6184C1AF242E9BFF00417CEF /* UserSignUpLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpLoginViewModel.swift; sourceTree = "<group>"; };
+		6184C1B0242E9BFF00417CEF /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		6184C1B2242E9BFF00417CEF /* CameraBehaviour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraBehaviour.swift; sourceTree = "<group>"; };
+		6184C1B4242E9BFF00417CEF /* ObjcHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjcHelper.m; sourceTree = "<group>"; };
+		6184C1B5242E9BFF00417CEF /* ObjCHelperProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCHelperProtocol.h; sourceTree = "<group>"; };
+		6184C1B6242E9BFF00417CEF /* ObjcHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjcHelper.h; sourceTree = "<group>"; };
+		6184C1B7242E9BFF00417CEF /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		6184C1B9242E9BFF00417CEF /* CameraBehaviourViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraBehaviourViewModel.swift; sourceTree = "<group>"; };
+		6184C1BB242E9BFF00417CEF /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		6184C1BC242E9BFF00417CEF /* ReplaceMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
+		6184C1BF242E9BFF00417CEF /* SingleAlbumObjCViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleAlbumObjCViewModel.m; sourceTree = "<group>"; };
+		6184C1C0242E9BFF00417CEF /* SingleAlbumObjCViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleAlbumObjCViewModel.h; sourceTree = "<group>"; };
+		6184C1C1242E9BFF00417CEF /* SingleAlbumObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleAlbumObjCViewController.m; sourceTree = "<group>"; };
+		6184C1C3242E9BFF00417CEF /* PhotoCellCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCellCollectionViewCell.m; sourceTree = "<group>"; };
+		6184C1C4242E9BFF00417CEF /* PhotoCellCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoCellCollectionViewCell.h; sourceTree = "<group>"; };
+		6184C1C7242E9BFF00417CEF /* SingleAlbumModelObjc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleAlbumModelObjc.m; sourceTree = "<group>"; };
+		6184C1C8242E9BFF00417CEF /* SingleAlbumModelObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleAlbumModelObjc.h; sourceTree = "<group>"; };
+		6184C1CA242E9BFF00417CEF /* SingleAlbumObjCView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleAlbumObjCView.h; sourceTree = "<group>"; };
+		6184C1CB242E9BFF00417CEF /* SingleAlbumObjCView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleAlbumObjCView.m; sourceTree = "<group>"; };
+		6184C1CC242E9BFF00417CEF /* SingleAlbumObjCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleAlbumObjCViewController.h; sourceTree = "<group>"; };
+		6184C1CE242E9BFF00417CEF /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
+		6184C1CF242E9BFF00417CEF /* SingleAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAlbum.swift; sourceTree = "<group>"; };
+		6184C1D0242E9BFF00417CEF /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
+		6184C1D2242E9BFF00417CEF /* ShowingAllUserAlbumsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingAllUserAlbumsViewModel.swift; sourceTree = "<group>"; };
+		6184C1D5242E9BFF00417CEF /* Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		6184C1D6242E9BFF00417CEF /* Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		6184C1D7242E9BFF00417CEF /* ObjcHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjcHelper.h; sourceTree = "<group>"; };
+		6184C1D9242E9BFF00417CEF /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		6184C1DB242E9BFF00417CEF /* CameraBehaviour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraBehaviour.swift; sourceTree = "<group>"; };
+		6184C1DC242E9BFF00417CEF /* camshareUITests.xctest.coverage.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = camshareUITests.xctest.coverage.txt; sourceTree = "<group>"; };
+		6184C1DD242E9BFF00417CEF /* XCTAutomationSupport.framework.coverage.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = XCTAutomationSupport.framework.coverage.txt; sourceTree = "<group>"; };
+		6184C1DE242E9BFF00417CEF /* camshareUITests-Runner.app.coverage.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "camshareUITests-Runner.app.coverage.txt"; sourceTree = "<group>"; };
+		6184C1DF242E9BFF00417CEF /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		6184C1E0242E9BFF00417CEF /* camPod.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = camPod.podspec; sourceTree = "<group>"; };
+		6184C1E3242E9C0000417CEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6184C1E5242E9C0000417CEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		6184C1E7242E9C0000417CEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6184C1E8242E9C0000417CEF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6184C1E9242E9C0000417CEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6184C1EA242E9C0000417CEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6184C1EC242E9C0000417CEF /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		6184C1ED242E9C0000417CEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6184C1EF242E9C0000417CEF /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Pods.xcodeproj; sourceTree = "<group>"; };
+		6184C1F4242E9C0000417CEF /* camPod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = camPod.xcconfig; sourceTree = "<group>"; };
+		6184C1F5242E9C0000417CEF /* camPod-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "camPod-Info.plist"; sourceTree = "<group>"; };
+		6184C1F6242E9C0000417CEF /* camPod-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "camPod-dummy.m"; sourceTree = "<group>"; };
+		6184C1F7242E9C0000417CEF /* camPod.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = camPod.modulemap; sourceTree = "<group>"; };
+		6184C1F8242E9C0000417CEF /* camPod-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "camPod-prefix.pch"; sourceTree = "<group>"; };
+		6184C1F9242E9C0000417CEF /* camPod-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "camPod-umbrella.h"; sourceTree = "<group>"; };
+		6184C1FB242E9C0000417CEF /* Pods-camPod_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Pods-camPod_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6184C1FC242E9C0000417CEF /* Pods-camPod_Tests-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pods-camPod_Tests-umbrella.h"; sourceTree = "<group>"; };
+		6184C1FD242E9C0000417CEF /* Pods-camPod_Tests-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Pods-camPod_Tests-dummy.m"; sourceTree = "<group>"; };
+		6184C1FE242E9C0000417CEF /* Pods-camPod_Tests-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-camPod_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		6184C1FF242E9C0000417CEF /* Pods-camPod_Tests.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-camPod_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		6184C200242E9C0000417CEF /* Pods-camPod_Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-camPod_Tests-Info.plist"; sourceTree = "<group>"; };
+		6184C201242E9C0000417CEF /* Pods-camPod_Tests.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-camPod_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		6184C202242E9C0000417CEF /* Pods-camPod_Tests.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = "Pods-camPod_Tests.modulemap"; sourceTree = "<group>"; };
+		6184C204242E9C0000417CEF /* Pods-camPod_Example.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = "Pods-camPod_Example.modulemap"; sourceTree = "<group>"; };
+		6184C205242E9C0000417CEF /* Pods-camPod_Example-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-camPod_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		6184C206242E9C0000417CEF /* Pods-camPod_Example-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pods-camPod_Example-umbrella.h"; sourceTree = "<group>"; };
+		6184C207242E9C0000417CEF /* Pods-camPod_Example.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-camPod_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		6184C208242E9C0000417CEF /* Pods-camPod_Example-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Pods-camPod_Example-dummy.m"; sourceTree = "<group>"; };
+		6184C209242E9C0000417CEF /* Pods-camPod_Example-frameworks.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "Pods-camPod_Example-frameworks.sh"; sourceTree = "<group>"; };
+		6184C20A242E9C0000417CEF /* Pods-camPod_Example-acknowledgements.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Pods-camPod_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6184C20B242E9C0000417CEF /* Pods-camPod_Example.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-camPod_Example.release.xcconfig"; sourceTree = "<group>"; };
+		6184C20C242E9C0000417CEF /* Pods-camPod_Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-camPod_Example-Info.plist"; sourceTree = "<group>"; };
+		6184C20D242E9C0000417CEF /* Manifest.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Manifest.lock; sourceTree = "<group>"; };
+		6184C20F242E9C0000417CEF /* camPod.podspec.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = camPod.podspec.json; sourceTree = "<group>"; };
+		6184C211242E9C0000417CEF /* camPod.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = camPod.xcworkspace; sourceTree = "<group>"; };
+		6184C212242E9C0000417CEF /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		6184C213242E9C0000417CEF /* camPod.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = camPod.xcodeproj; sourceTree = "<group>"; };
+		6184C216242E9C0000417CEF /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
+		6184C217242E9C0000417CEF /* camshareTests.xctest.coverage.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = camshareTests.xctest.coverage.txt; sourceTree = "<group>"; };
+		6184C218242E9C0000417CEF /* camshare.app.coverage.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = camshare.app.coverage.txt; sourceTree = "<group>"; };
+		6184C21A242E9C0000417CEF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6184C21B242E9C0000417CEF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		6184C21D242E9C0000417CEF /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		6184C21E242E9C0000417CEF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6184C221242E9C0000417CEF /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
+		6184C222242E9C0000417CEF /* XCTest.framework.coverage.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = XCTest.framework.coverage.txt; sourceTree = "<group>"; };
 		61B90B3123FE468B00FB4AC4 /* ShowtimeResultOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowtimeResultOptions.swift; sourceTree = "<group>"; };
 		61F1FB6F23FBE10400A30934 /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
 		61F1FB7123FBE34100A30934 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +331,391 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		6184C1A5242E9BFF00417CEF /* camPod */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1A6242E9BFF00417CEF /* _Pods.xcodeproj */,
+				6184C1A9242E9BFF00417CEF /* codecov.yml */,
+				6184C1AA242E9BFF00417CEF /* camPod */,
+				6184C1DA242E9BFF00417CEF /* ModelViews */,
+				6184C1DC242E9BFF00417CEF /* camshareUITests.xctest.coverage.txt */,
+				6184C1DD242E9BFF00417CEF /* XCTAutomationSupport.framework.coverage.txt */,
+				6184C1DE242E9BFF00417CEF /* camshareUITests-Runner.app.coverage.txt */,
+				6184C1DF242E9BFF00417CEF /* LICENSE */,
+				6184C1E0242E9BFF00417CEF /* camPod.podspec */,
+				6184C1E1242E9BFF00417CEF /* Example */,
+				6184C217242E9C0000417CEF /* camshareTests.xctest.coverage.txt */,
+				6184C218242E9C0000417CEF /* camshare.app.coverage.txt */,
+				6184C219242E9C0000417CEF /* Models */,
+				6184C21A242E9C0000417CEF /* README.md */,
+				6184C21B242E9C0000417CEF /* .gitignore */,
+				6184C21C242E9C0000417CEF /* Model */,
+				6184C21F242E9C0000417CEF /* SingleAlbumDisplay */,
+				6184C220242E9C0000417CEF /* Views */,
+				6184C221242E9C0000417CEF /* .travis.yml */,
+				6184C222242E9C0000417CEF /* XCTest.framework.coverage.txt */,
+			);
+			name = camPod;
+			path = ../../../../camshareFramework/camPod;
+			sourceTree = "<group>";
+		};
+		6184C1A7242E9BFF00417CEF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6184C227242E9C0000417CEF /* camPod.framework */,
+				6184C229242E9C0000417CEF /* Pods_camPod_Example.framework */,
+				6184C22B242E9C0000417CEF /* Pods_camPod_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6184C1AA242E9BFF00417CEF /* camPod */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1AB242E9BFF00417CEF /* ObjcHelper.m */,
+				6184C1AC242E9BFF00417CEF /* Classes */,
+				6184C1D7242E9BFF00417CEF /* ObjcHelper.h */,
+				6184C1D8242E9BFF00417CEF /* Assets */,
+			);
+			path = camPod;
+			sourceTree = "<group>";
+		};
+		6184C1AC242E9BFF00417CEF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1AD242E9BFF00417CEF /* SignUpLogin */,
+				6184C1B1242E9BFF00417CEF /* ModelViews */,
+				6184C1B3242E9BFF00417CEF /* ObjectiveCHelperFunctions */,
+				6184C1B7242E9BFF00417CEF /* .gitkeep */,
+				6184C1B8242E9BFF00417CEF /* CameraBehaviour */,
+				6184C1BA242E9BFF00417CEF /* Models */,
+				6184C1BC242E9BFF00417CEF /* ReplaceMe.swift */,
+				6184C1BD242E9BFF00417CEF /* SingleAlbumFeature */,
+				6184C1CD242E9BFF00417CEF /* Albums */,
+				6184C1D3242E9BFF00417CEF /* ObjectiveC */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		6184C1AD242E9BFF00417CEF /* SignUpLogin */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1AE242E9BFF00417CEF /* User.swift */,
+				6184C1AF242E9BFF00417CEF /* UserSignUpLoginViewModel.swift */,
+				6184C1B0242E9BFF00417CEF /* UserModel.swift */,
+			);
+			path = SignUpLogin;
+			sourceTree = "<group>";
+		};
+		6184C1B1242E9BFF00417CEF /* ModelViews */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1B2242E9BFF00417CEF /* CameraBehaviour.swift */,
+			);
+			path = ModelViews;
+			sourceTree = "<group>";
+		};
+		6184C1B3242E9BFF00417CEF /* ObjectiveCHelperFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1B4242E9BFF00417CEF /* ObjcHelper.m */,
+				6184C1B5242E9BFF00417CEF /* ObjCHelperProtocol.h */,
+				6184C1B6242E9BFF00417CEF /* ObjcHelper.h */,
+			);
+			path = ObjectiveCHelperFunctions;
+			sourceTree = "<group>";
+		};
+		6184C1B8242E9BFF00417CEF /* CameraBehaviour */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1B9242E9BFF00417CEF /* CameraBehaviourViewModel.swift */,
+			);
+			path = CameraBehaviour;
+			sourceTree = "<group>";
+		};
+		6184C1BA242E9BFF00417CEF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1BB242E9BFF00417CEF /* Album.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6184C1BD242E9BFF00417CEF /* SingleAlbumFeature */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1BE242E9BFF00417CEF /* ViewModel */,
+				6184C1C1242E9BFF00417CEF /* SingleAlbumObjCViewController.m */,
+				6184C1C2242E9BFF00417CEF /* PhotoCell */,
+				6184C1C5242E9BFF00417CEF /* Protocol */,
+				6184C1C6242E9BFF00417CEF /* Model */,
+				6184C1C9242E9BFF00417CEF /* View */,
+				6184C1CC242E9BFF00417CEF /* SingleAlbumObjCViewController.h */,
+			);
+			path = SingleAlbumFeature;
+			sourceTree = "<group>";
+		};
+		6184C1BE242E9BFF00417CEF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1BF242E9BFF00417CEF /* SingleAlbumObjCViewModel.m */,
+				6184C1C0242E9BFF00417CEF /* SingleAlbumObjCViewModel.h */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6184C1C2242E9BFF00417CEF /* PhotoCell */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1C3242E9BFF00417CEF /* PhotoCellCollectionViewCell.m */,
+				6184C1C4242E9BFF00417CEF /* PhotoCellCollectionViewCell.h */,
+			);
+			path = PhotoCell;
+			sourceTree = "<group>";
+		};
+		6184C1C5242E9BFF00417CEF /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		6184C1C6242E9BFF00417CEF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1C7242E9BFF00417CEF /* SingleAlbumModelObjc.m */,
+				6184C1C8242E9BFF00417CEF /* SingleAlbumModelObjc.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6184C1C9242E9BFF00417CEF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1CA242E9BFF00417CEF /* SingleAlbumObjCView.h */,
+				6184C1CB242E9BFF00417CEF /* SingleAlbumObjCView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6184C1CD242E9BFF00417CEF /* Albums */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1CE242E9BFF00417CEF /* AlbumViewModel.swift */,
+				6184C1CF242E9BFF00417CEF /* SingleAlbum.swift */,
+				6184C1D0242E9BFF00417CEF /* AlbumModel.swift */,
+				6184C1D1242E9BFF00417CEF /* New Group */,
+				6184C1D2242E9BFF00417CEF /* ShowingAllUserAlbumsViewModel.swift */,
+			);
+			path = Albums;
+			sourceTree = "<group>";
+		};
+		6184C1D1242E9BFF00417CEF /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		6184C1D3242E9BFF00417CEF /* ObjectiveC */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1D4242E9BFF00417CEF /* HelperFunctions */,
+			);
+			path = ObjectiveC;
+			sourceTree = "<group>";
+		};
+		6184C1D4242E9BFF00417CEF /* HelperFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1D5242E9BFF00417CEF /* Helper.h */,
+				6184C1D6242E9BFF00417CEF /* Helper.m */,
+			);
+			path = HelperFunctions;
+			sourceTree = "<group>";
+		};
+		6184C1D8242E9BFF00417CEF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1D9242E9BFF00417CEF /* .gitkeep */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		6184C1DA242E9BFF00417CEF /* ModelViews */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1DB242E9BFF00417CEF /* CameraBehaviour.swift */,
+			);
+			path = ModelViews;
+			sourceTree = "<group>";
+		};
+		6184C1E1242E9BFF00417CEF /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1E2242E9C0000417CEF /* camPod */,
+				6184C1EB242E9C0000417CEF /* Tests */,
+				6184C1EE242E9C0000417CEF /* Pods */,
+				6184C211242E9C0000417CEF /* camPod.xcworkspace */,
+				6184C212242E9C0000417CEF /* Podfile */,
+				6184C213242E9C0000417CEF /* camPod.xcodeproj */,
+				6184C216242E9C0000417CEF /* Podfile.lock */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		6184C1E2242E9C0000417CEF /* camPod */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1E3242E9C0000417CEF /* ViewController.swift */,
+				6184C1E4242E9C0000417CEF /* LaunchScreen.xib */,
+				6184C1E6242E9C0000417CEF /* Main.storyboard */,
+				6184C1E8242E9C0000417CEF /* Images.xcassets */,
+				6184C1E9242E9C0000417CEF /* AppDelegate.swift */,
+				6184C1EA242E9C0000417CEF /* Info.plist */,
+			);
+			path = camPod;
+			sourceTree = "<group>";
+		};
+		6184C1EB242E9C0000417CEF /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1EC242E9C0000417CEF /* Tests.swift */,
+				6184C1ED242E9C0000417CEF /* Info.plist */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		6184C1EE242E9C0000417CEF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1EF242E9C0000417CEF /* Pods.xcodeproj */,
+				6184C1F2242E9C0000417CEF /* Target Support Files */,
+				6184C20D242E9C0000417CEF /* Manifest.lock */,
+				6184C20E242E9C0000417CEF /* Local Podspecs */,
+				6184C210242E9C0000417CEF /* Headers */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6184C1F0242E9C0000417CEF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6184C236242E9C0000417CEF /* camPod.framework */,
+				6184C238242E9C0000417CEF /* Pods_camPod_Example.framework */,
+				6184C23A242E9C0000417CEF /* Pods_camPod_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6184C1F2242E9C0000417CEF /* Target Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1F3242E9C0000417CEF /* camPod */,
+				6184C1FA242E9C0000417CEF /* Pods-camPod_Tests */,
+				6184C203242E9C0000417CEF /* Pods-camPod_Example */,
+			);
+			path = "Target Support Files";
+			sourceTree = "<group>";
+		};
+		6184C1F3242E9C0000417CEF /* camPod */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1F4242E9C0000417CEF /* camPod.xcconfig */,
+				6184C1F5242E9C0000417CEF /* camPod-Info.plist */,
+				6184C1F6242E9C0000417CEF /* camPod-dummy.m */,
+				6184C1F7242E9C0000417CEF /* camPod.modulemap */,
+				6184C1F8242E9C0000417CEF /* camPod-prefix.pch */,
+				6184C1F9242E9C0000417CEF /* camPod-umbrella.h */,
+			);
+			path = camPod;
+			sourceTree = "<group>";
+		};
+		6184C1FA242E9C0000417CEF /* Pods-camPod_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6184C1FB242E9C0000417CEF /* Pods-camPod_Tests-acknowledgements.markdown */,
+				6184C1FC242E9C0000417CEF /* Pods-camPod_Tests-umbrella.h */,
+				6184C1FD242E9C0000417CEF /* Pods-camPod_Tests-dummy.m */,
+				6184C1FE242E9C0000417CEF /* Pods-camPod_Tests-acknowledgements.plist */,
+				6184C1FF242E9C0000417CEF /* Pods-camPod_Tests.debug.xcconfig */,
+				6184C200242E9C0000417CEF /* Pods-camPod_Tests-Info.plist */,
+				6184C201242E9C0000417CEF /* Pods-camPod_Tests.release.xcconfig */,
+				6184C202242E9C0000417CEF /* Pods-camPod_Tests.modulemap */,
+			);
+			path = "Pods-camPod_Tests";
+			sourceTree = "<group>";
+		};
+		6184C203242E9C0000417CEF /* Pods-camPod_Example */ = {
+			isa = PBXGroup;
+			children = (
+				6184C204242E9C0000417CEF /* Pods-camPod_Example.modulemap */,
+				6184C205242E9C0000417CEF /* Pods-camPod_Example-acknowledgements.plist */,
+				6184C206242E9C0000417CEF /* Pods-camPod_Example-umbrella.h */,
+				6184C207242E9C0000417CEF /* Pods-camPod_Example.debug.xcconfig */,
+				6184C208242E9C0000417CEF /* Pods-camPod_Example-dummy.m */,
+				6184C209242E9C0000417CEF /* Pods-camPod_Example-frameworks.sh */,
+				6184C20A242E9C0000417CEF /* Pods-camPod_Example-acknowledgements.markdown */,
+				6184C20B242E9C0000417CEF /* Pods-camPod_Example.release.xcconfig */,
+				6184C20C242E9C0000417CEF /* Pods-camPod_Example-Info.plist */,
+			);
+			path = "Pods-camPod_Example";
+			sourceTree = "<group>";
+		};
+		6184C20E242E9C0000417CEF /* Local Podspecs */ = {
+			isa = PBXGroup;
+			children = (
+				6184C20F242E9C0000417CEF /* camPod.podspec.json */,
+			);
+			path = "Local Podspecs";
+			sourceTree = "<group>";
+		};
+		6184C210242E9C0000417CEF /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		6184C214242E9C0000417CEF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6184C22F242E9C0000417CEF /* camPod_Example.app */,
+				6184C231242E9C0000417CEF /* camPod_Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6184C219242E9C0000417CEF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6184C21C242E9C0000417CEF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6184C21D242E9C0000417CEF /* Album.swift */,
+				6184C21E242E9C0000417CEF /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6184C21F242E9C0000417CEF /* SingleAlbumDisplay */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SingleAlbumDisplay;
+			sourceTree = "<group>";
+		};
+		6184C220242E9C0000417CEF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		61B90B3323FE4B2700FB4AC4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,8 +772,8 @@
 				61FD8D5023FD2175006841EF /* Utilities.swift */,
 				61F601C223ED1DAB008323F1 /* Assets.xcassets */,
 				61F601C423ED1DAB008323F1 /* LaunchScreen.storyboard */,
-				61F1FB7523FBFD0900A30934 /* GoogleService-Info.plist */,
 				61F601C723ED1DAB008323F1 /* Info.plist */,
+				61F1FB7523FBFD0900A30934 /* GoogleService-Info.plist */,
 			);
 			path = camshare;
 			sourceTree = "<group>";
@@ -257,6 +782,7 @@
 			isa = PBXGroup;
 			children = (
 				61F601D023ED1DAB008323F1 /* camshareTests.swift */,
+				6184C1A5242E9BFF00417CEF /* camPod */,
 				61F601D223ED1DAB008323F1 /* Info.plist */,
 				61335EE524161D75004B6303 /* UserModelMock.swift */,
 				61335EE9241620CA004B6303 /* SignUpLoginViewModelTests.swift */,
@@ -383,6 +909,20 @@
 			mainGroup = 61F601AD23ED1DA9008323F1;
 			productRefGroup = 61F601B723ED1DA9008323F1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6184C1A7242E9BFF00417CEF /* Products */;
+					ProjectRef = 6184C1A6242E9BFF00417CEF /* _Pods.xcodeproj */;
+				},
+				{
+					ProductGroup = 6184C214242E9C0000417CEF /* Products */;
+					ProjectRef = 6184C213242E9C0000417CEF /* camPod.xcodeproj */;
+				},
+				{
+					ProductGroup = 6184C1F0242E9C0000417CEF /* Products */;
+					ProjectRef = 6184C1EF242E9C0000417CEF /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				61F601B523ED1DA9008323F1 /* camshare */,
@@ -391,6 +931,65 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6184C227242E9C0000417CEF /* camPod.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = camPod.framework;
+			remoteRef = 6184C226242E9C0000417CEF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6184C229242E9C0000417CEF /* Pods_camPod_Example.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_camPod_Example.framework;
+			remoteRef = 6184C228242E9C0000417CEF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6184C22B242E9C0000417CEF /* Pods_camPod_Tests.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_camPod_Tests.framework;
+			remoteRef = 6184C22A242E9C0000417CEF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6184C22F242E9C0000417CEF /* camPod_Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = camPod_Example.app;
+			remoteRef = 6184C22E242E9C0000417CEF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6184C231242E9C0000417CEF /* camPod_Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = camPod_Tests.xctest;
+			remoteRef = 6184C230242E9C0000417CEF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6184C236242E9C0000417CEF /* camPod.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = camPod.framework;
+			remoteRef = 6184C235242E9C0000417CEF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6184C238242E9C0000417CEF /* Pods_camPod_Example.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_camPod_Example.framework;
+			remoteRef = 6184C237242E9C0000417CEF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6184C23A242E9C0000417CEF /* Pods_camPod_Tests.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_camPod_Tests.framework;
+			remoteRef = 6184C239242E9C0000417CEF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		61F601B423ED1DA9008323F1 /* Resources */ = {
@@ -575,6 +1174,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		6184C1E4242E9C0000417CEF /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6184C1E5242E9C0000417CEF /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		6184C1E6242E9C0000417CEF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6184C1E7242E9C0000417CEF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		61F601BF23ED1DA9008323F1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
