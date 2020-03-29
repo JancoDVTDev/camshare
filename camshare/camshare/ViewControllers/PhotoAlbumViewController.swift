@@ -9,13 +9,14 @@
 import UIKit
 import camPod
 import FirebaseAuth
+import AVFoundation
 
 var selectedAlbumIndex: Int = 0
 public protocol albumSelectionProtocol {
     func didSelectAlbum(albumImages: [UIImage])
 }
 
-class PhotoAlbumViewController: ViewController {
+class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     // MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
@@ -24,8 +25,9 @@ class PhotoAlbumViewController: ViewController {
     // MARK: Properties
     var currentUser: camPod.User?
     var albums = [SingleAlbum]()
-    //var albumSelectedDelegate: albumSelectionProtocol!
     var selectedIndex = 0
+    var captureSession: AVCaptureSession!
+    var previewLayer: AVCaptureVideoPreviewLayer!
 
     //var userAlbum = [UIImage]()
     var userAlbums = [[UIImage]]()
@@ -85,18 +87,16 @@ class PhotoAlbumViewController: ViewController {
             alert.addTextField { (textField) in
                 textField.placeholder = "Title"//Auth.auth().currentUser?.uid
             }
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
             alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak alert] (_) in
                 let albumName = alert?.textFields![0].text
                 //self.allUserAlbums.addNewAlbum(newAlbumName: albumName!)
                 if let albumName = albumName {
-                    self.albumViewModel.addNewAlbum(albumName: albumName) { (_) in
-                        print("Album succesfully added - View should now update")
-                        self.reloadAlbums { (success) in
-                            if success {
-                                self.collectionView.collectionViewLayout.invalidateLayout()
-                                self.collectionView.reloadData()
-                            }
-                        }
+                    self.albumViewModel.addNewAlbum(albumName: albumName) { (newAlbumAdded) in
+                        self.albums.append(newAlbumAdded)
+                        self.collectionView.reloadData()
                     }
                 }
             }))
@@ -123,10 +123,9 @@ class PhotoAlbumViewController: ViewController {
             }))
             self.present(alert, animated: true, completion: nil)
         }
-        
+
         let scanQRCode = UIAlertAction(title: "Scan QR Code", style: .default) { (_) in
-            // Open Camera to scan QR
-            // UIImage Picker Will not work
+            self.captureQRCode()
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
@@ -134,8 +133,8 @@ class PhotoAlbumViewController: ViewController {
         }
 
         actionSheet.addAction(createNewAction)
-        actionSheet.addAction(existingAlbumAction)
         actionSheet.addAction(scanQRCode)
+        actionSheet.addAction(existingAlbumAction)
         actionSheet.addAction(cancelAction)
         self.present(actionSheet, animated: true, completion: nil)
 
@@ -147,6 +146,78 @@ class PhotoAlbumViewController: ViewController {
 
     @objc func searchTapped() {
         performSegue(withIdentifier: "Search", sender: self)
+    }
+
+    func captureQRCode() {
+        captureSession = AVCaptureSession()
+
+        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
+        let videoInput: AVCaptureDeviceInput
+
+        do {
+            videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
+            captureSession.addInput(videoInput)
+        } catch {
+            return
+        }
+
+        let metadataOutput = AVCaptureMetadataOutput()
+        captureSession.addOutput(metadataOutput)
+
+        metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+        metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417, .qr]
+
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.frame = view.layer.bounds
+        previewLayer.videoGravity = .resizeAspectFill
+        view.layer.addSublayer(previewLayer)
+
+        captureSession.startRunning()
+    }
+
+    func failed() {
+        let alert = UIAlertController(title: "Scanning not supported", message: "Device Error", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+        captureSession = nil
+    }
+
+    func metadataOutput(_ output: AVCaptureMetadataOutput,
+                        didOutput metadataObjects: [AVMetadataObject],
+                        from connection: AVCaptureConnection) {
+        captureSession.stopRunning()
+
+        if let metadataObject = metadataObjects.first {
+            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
+            guard let stringValue = readableObject.stringValue else { return }
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            found(code: stringValue)
+            captureSession.stopRunning()
+            previewLayer.removeFromSuperlayer()
+        }
+
+        dismiss(animated: true)
+    }
+
+    func found(code: String) {
+        //Add to user.albumID
+        let newAlbumID = code
+        currentUser?.albumIDs.append(newAlbumID)
+        //save user new albumID
+        albumViewModel.updateUserAlbumIDs(newAlbumIDs: currentUser!.albumIDs)
+        //get album from album from firebase
+        albumViewModel.getExistingAlbumFromFirebase(albumID: newAlbumID) { (existingAlbum) in
+            self.albums.append(existingAlbum)
+            self.collectionView.reloadData()
+        }
+    }
+
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
 }
 // MARK: Flow layout delegate
@@ -196,10 +267,15 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
         // MARK: OBJECTIVE C
 
         //swiftlint:disable all
-        let singleAlbumViewControllerObjC = segue.destination as! SingleAlbumObjCViewController
-        singleAlbumViewControllerObjC.albumID = self.albums[self.selectedIndex].albumID
-        singleAlbumViewControllerObjC.imagePathReferences = self.albums[selectedIndex].imagePaths
-        singleAlbumViewControllerObjC.albumName = self.albums[selectedIndex].name
+        if segue.identifier == "loadAlbum" {
+            let singleAlbumViewControllerObjC = segue.destination as! SingleAlbumObjCViewController
+            singleAlbumViewControllerObjC.albumID = self.albums[self.selectedIndex].albumID
+            singleAlbumViewControllerObjC.imagePathReferences = self.albums[selectedIndex].imagePaths
+            singleAlbumViewControllerObjC.albumName = self.albums[selectedIndex].name
+        } else {
+            print("Other segue runs")
+        }
+        
         //swiftlint:enable all
     }
 }
