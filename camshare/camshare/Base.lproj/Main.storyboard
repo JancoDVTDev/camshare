@@ -759,7 +759,7 @@
             </objects>
             <point key="canvasLocation" x="3374" y="1927"/>
         </scene>
-        <!--Code Generator ObjC View Controller-->
+        <!--QR Code-->
         <scene sceneID="cTR-Pd-K3T">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="drR-Cz-5kU" customClass="QRCodeGeneratorObjCViewController" sceneMemberID="viewController">
@@ -767,23 +767,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MBO-59-Vf7">
-                                <rect key="frame" x="107" y="348" width="200" height="200"/>
-                                <color key="backgroundColor" red="0.53529834747314453" green="0.79589015245437622" blue="0.91267204284667969" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="7uL-gm-WwK"/>
-                                    <constraint firstAttribute="height" constant="200" id="iZp-Ea-gJN"/>
-                                </constraints>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="he7-Bv-j34">
+                                <rect key="frame" x="57" y="271.5" width="300" height="353"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MBO-59-Vf7">
+                                        <rect key="frame" x="50" y="0.0" width="200" height="200"/>
+                                        <color key="backgroundColor" red="0.53529834747314453" green="0.79589015245437622" blue="0.91267204284667969" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="7uL-gm-WwK"/>
+                                            <constraint firstAttribute="height" constant="200" id="iZp-Ea-gJN"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="pfU-4S-Yhu">
+                                        <rect key="frame" x="0.0" y="230" width="300" height="123"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="How To Add Album" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asS-5A-Yzu">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="37"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="1) Tap the + icon in Albums 2) Select &quot;Scan QR Code&quot; 3) Hover over this QR code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nub-OX-1Kl">
+                                                <rect key="frame" x="0.0" y="40" width="300" height="83"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="J5a-jS-r67"/>
+                                            <constraint firstAttribute="height" constant="123" id="SVb-Aw-oRY"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="MBO-59-Vf7" firstAttribute="centerX" secondItem="8Qt-h2-DFp" secondAttribute="centerX" id="Z3W-aO-pGx"/>
-                            <constraint firstItem="MBO-59-Vf7" firstAttribute="centerY" secondItem="8Qt-h2-DFp" secondAttribute="centerY" id="zvH-Zv-BjB"/>
+                            <constraint firstItem="he7-Bv-j34" firstAttribute="centerY" secondItem="8Qt-h2-DFp" secondAttribute="centerY" id="1xv-Xp-TdQ"/>
+                            <constraint firstItem="he7-Bv-j34" firstAttribute="centerX" secondItem="8Qt-h2-DFp" secondAttribute="centerX" id="A2g-fD-d52"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OlJ-o3-4lj"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1Wm-Zh-akd"/>
+                    <navigationItem key="navigationItem" title="QR Code" id="1Wm-Zh-akd"/>
                     <connections>
                         <outlet property="QRCodeImageView" destination="MBO-59-Vf7" id="Huv-U2-cQe"/>
                     </connections>
