@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginButtonTapped(_ sender: Any) {
         // Validate Text Fields
-
+        Analytics.logEvent("login_pressed", parameters: nil)
         // Create clean versions of textFields
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
