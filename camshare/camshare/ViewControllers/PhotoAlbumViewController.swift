@@ -28,6 +28,7 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
     var selectedIndex = 0
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    let trackAnalytics = TrackFirebaseAnalytics()
 
     //var userAlbum = [UIImage]()
     var userAlbums = [[UIImage]]()
@@ -75,27 +76,31 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         }
     }
 
+    //swiftlint:disable all
     @objc func addTapped() {
-        // Action Sheet: Create New OR Add Existing OR Scan QR Code
-
+        //swiftlint:enable all
+        trackAnalytics.log(name: NameConstants.addAlbum, parameters: nil)
         let actionSheet = UIAlertController(title: "Add Album", message: "Choose an option",
                                             preferredStyle: .actionSheet)
-
         let createNewAction = UIAlertAction(title: "Create new", style: .default) { (_) in
             let alert = UIAlertController(title: "New Album", message: "Enter a name for this album",
                                           preferredStyle: .alert)
+            self.trackAnalytics.log(name: NameConstants.createNewAlbum, parameters: nil)
             alert.addTextField { (textField) in
                 textField.placeholder = "Title"//Auth.auth().currentUser?.uid
             }
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+                self.trackAnalytics.log(name: NameConstants.cancelCreateNew, parameters: nil)
                 alert.dismiss(animated: true, completion: nil)
             }))
             alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak alert] (_) in
+                self.trackAnalytics.log(name: NameConstants.saveCreateNew, parameters: nil)
                 let albumName = alert?.textFields![0].text
                 //self.allUserAlbums.addNewAlbum(newAlbumName: albumName!)
                 if let albumName = albumName {
                     self.albumViewModel.addNewAlbum(albumName: albumName) { (newAlbumAdded) in
                         self.albums.append(newAlbumAdded)
+                        self.trackAnalytics.log(name: NameConstants.albumCreated, parameters: nil)
                         self.collectionView.reloadData()
                     }
                 }
@@ -104,32 +109,40 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         }
 
         let existingAlbumAction = UIAlertAction(title: "Existing Album", style: .default) { (_) in
+            self.trackAnalytics.log(name: NameConstants.existingAlbum, parameters: nil)
             let alert = UIAlertController(title: "Existing Album", message: "Paste or type the album ID",
                                           preferredStyle: .alert)
             alert.addTextField { (textField) in
                 textField.placeholder = "Example: xHDJjdhhdy33b39KKJhdgwv"
             }
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+                self.trackAnalytics.log(name: NameConstants.cancelExisting, parameters: nil)
                 alert.dismiss(animated: true, completion: nil)
             }))
             alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak alert](_) in
+                self.trackAnalytics.log(name: NameConstants.saveExisting, parameters: nil)
                 let existingAlbumID = alert?.textFields![0].text
                 if let existingAlbumID = existingAlbumID {
-                    // Call function in viewModel to add Existing Album
-                    // Reload albums
-                    // MARK: Revise updating single album to collection view
-                    print(existingAlbumID)
+                    let newAlbumID = existingAlbumID
+                    self.currentUser?.albumIDs.append(newAlbumID)
+                    self.albumViewModel.updateUserAlbumIDs(newAlbumIDs: self.currentUser!.albumIDs)
+                    self.albumViewModel.getExistingAlbumFromFirebase(albumID: newAlbumID) { (existingAlbum) in
+                        self.albums.append(existingAlbum)
+                        self.collectionView.reloadData()
+                        self.trackAnalytics.log(name: NameConstants.albumAddedID, parameters: nil)
+                    }
                 }
             }))
             self.present(alert, animated: true, completion: nil)
         }
 
         let scanQRCode = UIAlertAction(title: "Scan QR Code", style: .default) { (_) in
+            self.trackAnalytics.log(name: NameConstants.scanQRCode, parameters: nil)
             self.captureQRCode()
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
-
+            self.trackAnalytics.log(name: NameConstants.cancelAdd, parameters: nil)
         }
 
         actionSheet.addAction(createNewAction)
@@ -137,7 +150,6 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         actionSheet.addAction(existingAlbumAction)
         actionSheet.addAction(cancelAction)
         self.present(actionSheet, animated: true, completion: nil)
-
     }
 
     @objc func logoutTapped() {
@@ -173,6 +185,7 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         view.layer.addSublayer(previewLayer)
 
         captureSession.startRunning()
+        trackAnalytics.log(name: NameConstants.scanQRCode, parameters: nil)
     }
 
     func failed() {
@@ -209,6 +222,7 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         albumViewModel.getExistingAlbumFromFirebase(albumID: newAlbumID) { (existingAlbum) in
             self.albums.append(existingAlbum)
             self.collectionView.reloadData()
+            self.trackAnalytics.log(name: NameConstants.albumAddedQR, parameters: nil)
         }
     }
 
@@ -264,8 +278,7 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // MARK: OBJECTIVE C
-
+        // MARK: OBJECTIVE C Controller
         //swiftlint:disable all
         if segue.identifier == "loadAlbum" {
             let singleAlbumViewControllerObjC = segue.destination as! SingleAlbumObjCViewController
@@ -275,7 +288,6 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
         } else {
             print("Other segue runs")
         }
-        
         //swiftlint:enable all
     }
 }
