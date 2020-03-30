@@ -29,6 +29,9 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     let trackAnalytics = TrackFirebaseAnalytics()
+    var isEditingAlbums: Bool = false
+    var isCellSelected: Bool = false
+    var selectedIndexForEditing = 0
 
     //var userAlbum = [UIImage]()
     var userAlbums = [[UIImage]]()
@@ -41,12 +44,12 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         super.viewDidLoad()
         //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style:
         //.plain, target: self, action: #selector(addTapped))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop,
-                                                            target: self, action: #selector(logoutTapped))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
-        target: self, action: #selector(searchTapped))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
-                                                            target: self, action: #selector(addTapped))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop,
+//                                                            target: self, action: #selector(logoutTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+        target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
+                                                            target: self, action: #selector(editTapped))
         reloadAlbums { (success) in
             if success {
                 self.collectionView.reloadData()
@@ -152,7 +155,14 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         self.present(actionSheet, animated: true, completion: nil)
     }
 
+    @objc func editTapped() {
+        self.collectionView.allowsSelection = true
+        isEditingAlbums = true
+        collectionView.reloadData()
+    }
+
     @objc func logoutTapped() {
+        //Auth.auth().signOut()
         performSegue(withIdentifier: "Logout", sender: self)
     }
 
@@ -233,6 +243,27 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
+
+    public func presentDeleteActionSheet() {
+        let alert = UIAlertController(title: "Edit Album", message: "Choose an option", preferredStyle: .actionSheet)
+
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
+            print("Being Deleted: \(self.currentUser?.albumIDs[self.selectedIndexForEditing])")
+            self.albumViewModel.deleteAlbum(albumIDs: self.currentUser!.albumIDs,
+                                            selectedAlbumIndex: self.selectedIndexForEditing) { (updatedAlbumIDs) in
+                self.currentUser?.albumIDs = updatedAlbumIDs
+                self.albums.remove(at: self.selectedIndexForEditing)
+                self.collectionView.reloadData()
+            }
+        }))
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(_) in
+            self.isEditingAlbums = false
+            self.isCellSelected = false
+            self.collectionView.reloadData()
+        }))
+        present(alert, animated: true)
+    }
 }
 // MARK: Flow layout delegate
 
@@ -261,14 +292,42 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
         //swiftlint:enable all
         let tapGestureRecognizer = UITapGestureRecognizer(target: self,
                                                           action: #selector(PhotoAlbumViewController.tap(_:)))
+
+        let editTapGesture = UITapGestureRecognizer(target: self,
+                                                    action: #selector(PhotoAlbumViewController.selectToEdit(_:)))
         cell.imageView.isUserInteractionEnabled = true
         cell.imageView.tag = indexPath.row
-        cell.imageView.addGestureRecognizer(tapGestureRecognizer)
+        if isEditingAlbums {
+            cell.imageView.addGestureRecognizer(editTapGesture)
+            if self.isCellSelected {
+                if cell.imageView.tag == selectedIndexForEditing {
+                    cell.imageView.alpha = 1
+                    print("Interrupt To Delete")
+                    self.isCellSelected = false
+                    self.presentDeleteActionSheet()
+                }
+            }
+
+            if (isEditingAlbums) && !(isCellSelected) {
+                cell.imageView.alpha = 0.5
+            }
+        } else {
+            cell.imageView.alpha = 1
+            cell.imageView.addGestureRecognizer(tapGestureRecognizer)
+        }
 
         print("try to load albums")
         let image = albums[indexPath.item].thumbnail
         cell.imageView.image = image
+        cell.albumNameLabel.text = albums[indexPath.item].name
         return cell
+    }
+
+    @IBAction func selectToEdit(_ sender: AnyObject) {
+        selectedIndexForEditing = sender.view.tag
+        isCellSelected = true
+        collectionView.reloadData()
+        print("Finished loading - Present popup")
     }
 
     @IBAction func tap(_ sender: AnyObject) {
