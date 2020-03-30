@@ -477,12 +477,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="278" height="232"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Holiday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1P-lW-6Ds">
-                                                    <rect key="frame" x="106" y="104" width="66.5" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JAy-sp-vxU">
                                                     <rect key="frame" x="-11" y="-34" width="300" height="300"/>
                                                     <subviews>
@@ -495,12 +489,24 @@
                                                         <constraint firstAttribute="height" constant="300" id="IDV-zr-kLH"/>
                                                     </constraints>
                                                 </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Raa-Et-m1D">
+                                                    <rect key="frame" x="-11" y="192" width="300" height="40"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="300" id="T04-a6-G08"/>
+                                                        <constraint firstAttribute="height" constant="40" id="U6U-0k-3rP"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="eQN-GF-XWg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Raa-Et-m1D" firstAttribute="centerX" secondItem="7cR-JV-iFY" secondAttribute="centerX" id="3lY-hV-dLZ"/>
                                                 <constraint firstItem="JAy-sp-vxU" firstAttribute="centerY" secondItem="7cR-JV-iFY" secondAttribute="centerY" id="Ejd-fs-Jec"/>
-                                                <constraint firstItem="c1P-lW-6Ds" firstAttribute="centerY" secondItem="7cR-JV-iFY" secondAttribute="centerY" id="Zwa-sf-v7r"/>
+                                                <constraint firstAttribute="bottom" secondItem="Raa-Et-m1D" secondAttribute="bottom" id="Ghq-bV-kla"/>
                                                 <constraint firstItem="JAy-sp-vxU" firstAttribute="centerX" secondItem="7cR-JV-iFY" secondAttribute="centerX" id="xNd-6L-vl0"/>
-                                                <constraint firstItem="c1P-lW-6Ds" firstAttribute="centerX" secondItem="7cR-JV-iFY" secondAttribute="centerX" id="zfx-KU-v1W"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="278" height="232"/>
@@ -510,6 +516,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="albumNameLabel" destination="Raa-Et-m1D" id="VN7-om-hAM"/>
                                             <outlet property="imageView" destination="UI3-b0-50A" id="6DY-yq-maw"/>
                                         </connections>
                                     </collectionViewCell>
@@ -557,7 +564,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="47N-6H-H1U">
-                                <rect key="frame" x="0.0" y="140" width="414" height="683"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="779"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="2" minimumInteritemSpacing="2" id="j8Q-sl-kKu">
                                     <size key="itemSize" width="240" height="240"/>
@@ -650,7 +657,7 @@
             <objects>
                 <tableViewController id="3ku-18-xAu" customClass="ShowtimeTableViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="90T-Yq-yIj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="212-4d-6KO">
@@ -782,13 +789,13 @@
                                         <rect key="frame" x="0.0" y="230" width="300" height="123"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="How To Add Album" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asS-5A-Yzu">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="37"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="41"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="1) Tap the + icon in Albums 2) Select &quot;Scan QR Code&quot; 3) Hover over this QR code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nub-OX-1Kl">
-                                                <rect key="frame" x="0.0" y="40" width="300" height="83"/>
+                                                <rect key="frame" x="0.0" y="44" width="300" height="79"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
