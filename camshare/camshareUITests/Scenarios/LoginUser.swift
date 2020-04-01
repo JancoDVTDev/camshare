@@ -29,7 +29,7 @@ class LoginUser: camshareTestCase {
         app.buttons["Login"].tap()
         sleep(3)
         
-        XCTAssert(app.navigationBars["My Albums"].buttons["Add"].exists)
+        XCTAssert(app.navigationBars["My Albums"].exists)
     }
 
     func testGivenUserLoginWhenCredentialsAreIncorrectEmailThenLoginUnsuccesful() {
