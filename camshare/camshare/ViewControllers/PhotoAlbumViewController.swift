@@ -85,7 +85,7 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         trackAnalytics.log(name: NameConstants.addAlbum, parameters: nil)
         let actionSheet = UIAlertController(title: "Add Album", message: "Choose an option",
                                             preferredStyle: .actionSheet)
-        let createNewAction = UIAlertAction(title: "Create new", style: .default) { (_) in
+        let createNewAction = UIAlertAction(title: "Create New", style: .default) { (_) in
             let alert = UIAlertController(title: "New Album", message: "Enter a name for this album",
                                           preferredStyle: .alert)
             self.trackAnalytics.log(name: NameConstants.createNewAlbum, parameters: nil)
@@ -116,7 +116,7 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
             let alert = UIAlertController(title: "Existing Album", message: "Paste or type the album ID",
                                           preferredStyle: .alert)
             alert.addTextField { (textField) in
-                textField.placeholder = "Example: xHDJjdhhdy33b39KKJhdgwv"
+                textField.placeholder = "Album ID"
             }
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
                 self.trackAnalytics.log(name: NameConstants.cancelExisting, parameters: nil)
