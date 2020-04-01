@@ -8,7 +8,7 @@
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "YES"
+            buildForRunning = "NO"
             buildForProfiling = "YES"
             buildForArchiving = "NO"
             buildForAnalyzing = "YES">
@@ -17,6 +17,34 @@
                BlueprintIdentifier = "61F601CB23ED1DAB008323F1"
                BuildableName = "camshareTests.xctest"
                BlueprintName = "camshareTests"
+               ReferencedContainer = "container:camshare.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "61F601B523ED1DA9008323F1"
+               BuildableName = "camshare.app"
+               BlueprintName = "camshare"
+               ReferencedContainer = "container:camshare.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "61F601D623ED1DAB008323F1"
+               BuildableName = "camshareUITests.xctest"
+               BlueprintName = "camshareUITests"
                ReferencedContainer = "container:camshare.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

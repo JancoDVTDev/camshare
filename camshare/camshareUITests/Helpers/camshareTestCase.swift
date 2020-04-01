@@ -24,7 +24,7 @@ class camshareTestCase: XCTestCase {
 
     func completeUserLoginInDetails() {
         //Without Helper Functions
-        
+
         sleep(1)
         application.textFields["Email"].tap()
 
