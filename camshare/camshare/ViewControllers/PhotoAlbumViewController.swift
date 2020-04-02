@@ -242,6 +242,7 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
+        //ChangeGIT
     }
 
     public func presentDeleteActionSheet() {
