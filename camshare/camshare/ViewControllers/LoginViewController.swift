@@ -26,7 +26,17 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         errorLabel.alpha = 0
         customizeButtons()
+
+        let button = UIButton(type: .roundedRect)
+        button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
+        button.setTitle("Crash", for: [])
+        button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
+        view.addSubview(button)
         // Do any additional setup after loading the view.
+    }
+
+    @IBAction func crashButtonTapped(_ sender: AnyObject) {
+        Crashlytics.sharedInstance().crash()
     }
 
     @IBAction func loginButtonTapped(_ sender: Any) {
@@ -42,8 +52,10 @@ class LoginViewController: UIViewController {
             if success {
                 self.transitionToHome()
             } else {
-                self.errorLabel.text = error
-                self.errorLabel.alpha = 1
+                DispatchQueue.main.async { // Correct
+                    self.errorLabel.text = error
+                    self.errorLabel.alpha = 1
+                }
             }
         }
     }

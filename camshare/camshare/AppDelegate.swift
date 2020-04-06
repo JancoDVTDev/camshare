@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        Fabric.sharedSDK().debug = true
         return true
     }
 
