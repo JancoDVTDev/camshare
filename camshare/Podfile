@@ -11,6 +11,10 @@ target 'camshare' do
 	#pod 'camPod', :path => '/Users/jerasmus/Desktop/camshareFramework/camPod'
 	pod 'camPod', :git => 'https://github.com/JancoDVTDev/camPod.git'
 
+	pod 'Fabric', '~> 1.10.2'
+	pod 'Crashlytics', '~> 3.14.0'
+	pod 'Firebase/Performance'
+
   target 'camshareTests' do
     inherit! :search_paths
     # Pods for testing
