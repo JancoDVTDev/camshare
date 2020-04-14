@@ -74,9 +74,11 @@ class LoginViewController: UIViewController {
     }
 
     func transitionToHome() {
-        let photoAlbumViewController = storyboard?.instantiateViewController(identifier:
-            Constants.Storyboard.homeViewController) as? UINavigationController
-        view.window?.rootViewController = photoAlbumViewController
-        view.window?.makeKeyAndVisible()
+        DispatchQueue.main.async {
+            let photoAlbumViewController = self.storyboard?.instantiateViewController(identifier:
+                Constants.Storyboard.homeViewController) as? UINavigationController
+            self.view.window?.rootViewController = photoAlbumViewController
+            self.view.window?.makeKeyAndVisible()
+        }
     }
 }

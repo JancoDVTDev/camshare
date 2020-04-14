@@ -280,11 +280,11 @@
             <objects>
                 <viewController id="ydl-Du-Uuj" customClass="StartUpViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PY7-km-ZW2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Vzc-xs-K7g">
-                                <rect key="frame" x="40" y="627.5" width="334" height="140.5"/>
+                                <rect key="frame" x="40" y="681.5" width="334" height="140.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pvl-OV-lCk">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -317,7 +317,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CamShare_Cobined" translatesAutoresizingMaskIntoConstraints="NO" id="hOy-lF-rxV">
-                                <rect key="frame" x="100" y="40" width="214" height="300"/>
+                                <rect key="frame" x="100" y="84" width="214" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hOy-lF-rxV" secondAttribute="height" multiplier="107:147" constant="-4.3673469387755119" id="GSH-T0-t6M"/>
                                 </constraints>
@@ -646,11 +646,12 @@
                         <outlet property="toolBar" destination="Kzv-aw-8i6" id="l7X-Sr-ldJ"/>
                         <segue destination="J5F-La-Zu0" kind="show" identifier="loadPhoto" id="xok-Vr-xQo"/>
                         <segue destination="drR-Cz-5kU" kind="show" identifier="goToQRCode" id="lO4-4q-XdH"/>
+                        <segue destination="G3Q-Hu-Pld" kind="show" identifier="tipsAndTricks" id="lZC-1V-v5r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tN4-vN-N1k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4250.7246376811599" y="1162.5"/>
+            <point key="canvasLocation" x="4609" y="1163"/>
         </scene>
         <!--Showtime Table View Controller-->
         <scene sceneID="Ipq-oF-wex">
@@ -856,7 +857,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VSU-nu-kdO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5149" y="1163"/>
+            <point key="canvasLocation" x="5874" y="1163"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Ih-hl-NKK">
@@ -971,9 +972,25 @@
             </objects>
             <point key="canvasLocation" x="-288.40579710144931" y="1162.5"/>
         </scene>
+        <!--Tips and Tricks-->
+        <scene sceneID="zZb-aG-U7p">
+            <objects>
+                <viewController title="Tips and Tricks" modalPresentationStyle="fullScreen" id="G3Q-Hu-Pld" customClass="TipsAndTricsViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zf8-fu-HPA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="rc4-d5-rsx"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Tips and Tricks" id="wxl-CT-KWE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Xs-DI-a7H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5026.0869565217399" y="1926.5625"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9p4-8K-lfN"/>
+        <segue reference="LvX-L6-UMt"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="CamShare_Cobined" width="2970" height="3438"/>
