@@ -20,7 +20,15 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
 
     // MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var activityLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+
+    // MARK: New Properties MVP and Protocols
+    var albumsCollectionViewSource = [SingleAlbum]()
+    var userAlbumIDs = [String]()
+
+    let albumViewModel = AlbumViewModel()
 
     // MARK: Properties
     var currentUser: camPod.User?
@@ -33,50 +41,27 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
     var isCellSelected: Bool = false
     var selectedIndexForEditing = 0
 
-    //var userAlbum = [UIImage]()
     var userAlbums = [[UIImage]]()
     var isNewUser = true
 
-    var albumViewModel = AlbumViewModel()
+    var albumViewModelOLD = AlbumViewModelOLD()
     let allUserAlbums = ShowingAllUserAlbumsViewModel()
     var userAlbumNames = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style:
-        //.plain, target: self, action: #selector(addTapped))
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop,
-//                                                            target: self, action: #selector(logoutTapped))
+
+        activityIndicator.startAnimating()
+        collectionView.isHidden = true
+
+        albumViewModel.view = self
+        albumViewModel.repo = AlbumDataSource()
+
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
         target: self, action: #selector(addTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
                                                             target: self, action: #selector(editTapped))
-        reloadAlbums { (success) in
-            if success {
-                self.collectionView.reloadData()
-            }
-        }
-    }
 
-    func reloadAlbums(_ completion: @escaping (_ success: Bool) -> Void) {
-        var count = 0
-        albumViewModel.getUserData { (_, isNewUser, user) in
-            self.currentUser = user
-            print("Current user signed in: \(Auth.auth().currentUser?.uid ?? "")")
-            print("Details: \(user.albumIDs) user new \(isNewUser)")
-            if !(isNewUser) {
-                for albumID in user.albumIDs {
-                    count += 1
-                    self.albumViewModel.getAlbumNew(albumID: albumID) { (album) in
-                        self.albums.append(album) // MARK: Revise that album images does not download
-                        print("Number of albums \(self.albums.count)")
-                        print(self.albums)
-                        if (user.albumIDs.count) == count {
-                            completion(true)
-                        }
-                    }
-                }
-            }
-        }
+        albumViewModel.loadAlbums()
     }
 
     //swiftlint:disable all
@@ -90,7 +75,7 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
                                           preferredStyle: .alert)
             self.trackAnalytics.log(name: NameConstants.createNewAlbum, parameters: nil)
             alert.addTextField { (textField) in
-                textField.placeholder = "Title"//Auth.auth().currentUser?.uid
+                textField.placeholder = "Title"
             }
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
                 self.trackAnalytics.log(name: NameConstants.cancelCreateNew, parameters: nil)
@@ -101,11 +86,9 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
                 let albumName = alert?.textFields![0].text
                 //self.allUserAlbums.addNewAlbum(newAlbumName: albumName!)
                 if let albumName = albumName {
-                    self.albumViewModel.addNewAlbum(albumName: albumName) { (newAlbumAdded) in
-                        self.albums.append(newAlbumAdded)
-                        self.trackAnalytics.log(name: NameConstants.albumCreated, parameters: nil)
-                        self.collectionView.reloadData()
-                    }
+                    self.albumViewModel.createNewAlbum(albumName: albumName,
+                                                       albumIDs: self.userAlbumIDs,
+                                                       currentAlbums: self.albumsCollectionViewSource)
                 }
             }))
             self.present(alert, animated: true, completion: nil)
@@ -126,14 +109,8 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
                 self.trackAnalytics.log(name: NameConstants.saveExisting, parameters: nil)
                 let existingAlbumID = alert?.textFields![0].text
                 if let existingAlbumID = existingAlbumID {
-                    let newAlbumID = existingAlbumID
-                    self.currentUser?.albumIDs.append(newAlbumID)
-                    self.albumViewModel.updateUserAlbumIDs(newAlbumIDs: self.currentUser!.albumIDs)
-                    self.albumViewModel.getExistingAlbumFromFirebase(albumID: newAlbumID) { (existingAlbum) in
-                        self.albums.append(existingAlbum)
-                        self.collectionView.reloadData()
-                        self.trackAnalytics.log(name: NameConstants.albumAddedID, parameters: nil)
-                    }
+                    self.albumViewModel.addExisting(albumID: existingAlbumID, albumIDs: self.userAlbumIDs,
+                                                    currentAlbums: self.albumsCollectionViewSource)
                 }
             }))
             self.present(alert, animated: true, completion: nil)
@@ -225,15 +202,8 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
     func found(code: String) {
         //Add to user.albumID
         let newAlbumID = code
-        currentUser?.albumIDs.append(newAlbumID)
-        //save user new albumID
-        albumViewModel.updateUserAlbumIDs(newAlbumIDs: currentUser!.albumIDs)
-        //get album from album from firebase
-        albumViewModel.getExistingAlbumFromFirebase(albumID: newAlbumID) { (existingAlbum) in
-            self.albums.append(existingAlbum)
-            self.collectionView.reloadData()
-            self.trackAnalytics.log(name: NameConstants.albumAddedQR, parameters: nil)
-        }
+        self.albumViewModel.addExisting(albumID: newAlbumID, albumIDs: self.userAlbumIDs,
+                                        currentAlbums: albumsCollectionViewSource)
     }
 
     override var prefersStatusBarHidden: Bool {
@@ -249,8 +219,8 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         let alert = UIAlertController(title: "Edit Album", message: "Choose an option", preferredStyle: .actionSheet)
 
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
-            print("Being Deleted: \(self.currentUser?.albumIDs[self.selectedIndexForEditing])")
-            self.albumViewModel.deleteAlbum(albumIDs: self.currentUser!.albumIDs,
+            print("Being Deleted: \(String(describing: self.currentUser?.albumIDs[self.selectedIndexForEditing]))")
+            self.albumViewModelOLD.deleteAlbum(albumIDs: self.currentUser!.albumIDs,
                                             selectedAlbumIndex: self.selectedIndexForEditing) { (updatedAlbumIDs) in
                 self.currentUser?.albumIDs = updatedAlbumIDs
                 self.albums.remove(at: self.selectedIndexForEditing)
@@ -283,7 +253,7 @@ extension PhotoAlbumViewController: UICollectionViewDelegateFlowLayout {
 // MARK: DATASOURCE
 extension PhotoAlbumViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return albums.count//albumViewModel.getCount()//userAlbums.count// For implementation: userAlbumNAmes.count
+        return albumsCollectionViewSource.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -318,9 +288,9 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
         }
 
         print("try to load albums")
-        let image = albums[indexPath.item].thumbnail
+        let image = albumsCollectionViewSource[indexPath.item].thumbnail
         cell.imageView.image = image
-        cell.albumNameLabel.text = albums[indexPath.item].name
+        cell.albumNameLabel.text = albumsCollectionViewSource[indexPath.item].name
         return cell
     }
 
@@ -341,13 +311,48 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
         // MARK: OBJECTIVE C Controller
         //swiftlint:disable all
         if segue.identifier == "loadAlbum" {
-            let singleAlbumViewControllerObjC = segue.destination as! SingleAlbumObjCViewController
-            singleAlbumViewControllerObjC.albumID = self.albums[self.selectedIndex].albumID
-            singleAlbumViewControllerObjC.imagePathReferences = self.albums[selectedIndex].imagePaths
-            singleAlbumViewControllerObjC.albumName = self.albums[selectedIndex].name
+            let photosViewController = segue.destination as! PhotosViewController
+            photosViewController.albumID = self.albumsCollectionViewSource[self.selectedIndex].albumID
+            photosViewController.userImagePaths = self.albumsCollectionViewSource[self.selectedIndex].imagePaths
+            photosViewController.albumName = self.albumsCollectionViewSource[self.selectedIndex].name
+//            let singleAlbumViewControllerObjC = segue.destination as! SingleAlbumObjCViewController
+//            singleAlbumViewControllerObjC.albumID = self.albums[self.selectedIndex].albumID
+//            singleAlbumViewControllerObjC.imagePathReferences = self.albums[selectedIndex].imagePaths
+//            singleAlbumViewControllerObjC.albumName = self.albums[selectedIndex].name
         } else {
             print("Other segue runs")
         }
         //swiftlint:enable all
+    }
+}
+extension PhotoAlbumViewController: AlbumViewProtocol {
+    func updateAlbumCollectionViewSource(singleAlbums: [SingleAlbum]) {
+        albumsCollectionViewSource = singleAlbums
+    }
+
+    func updateUserAlbumIDs(albumIDs: [String]) {
+        userAlbumIDs = albumIDs
+    }
+
+    func setAlbumCollectionViewSource(singleAlbums: [SingleAlbum]) {
+        albumsCollectionViewSource = singleAlbums
+    }
+
+    func didFinishLoading() {
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+        activityLabel.alpha = 0
+        collectionView.reloadData()
+        collectionView.isHidden = false
+    }
+
+    func displayError(error: String) {
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func updateAlbumCollectionView() {
+        collectionView.reloadData()
     }
 }

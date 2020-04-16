@@ -16,23 +16,18 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet var acitivityIndicator: UIActivityIndicatorView!
 
     //let loginViewModel = UserSignUpLoginViewModel()
-    lazy var userViewModel: UserSignUpLoginViewModel = {
-        return UserSignUpLoginViewModel(repo: UserModel())
-    }()
+    let loginViewModel = LoginViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginViewModel.view = self // inject property
+        loginViewModel.repo = LoginDataSource() // inject property
         errorLabel.alpha = 0
+        acitivityIndicator.isHidden = true
         customizeButtons()
-
-        let button = UIButton(type: .roundedRect)
-        button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
-        button.setTitle("Crash", for: [])
-        button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
-        view.addSubview(button)
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func crashButtonTapped(_ sender: AnyObject) {
@@ -46,18 +41,9 @@ class LoginViewController: UIViewController {
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        // MARK: NEW Model Login
-        // MARK: Revise - no need to send back user, user is fetched somwhere else
-        userViewModel.login(with: email, and: password) { (success, error, _) in //user is sent back from closure
-            if success {
-                self.transitionToHome()
-            } else {
-                DispatchQueue.main.async { // Correct
-                    self.errorLabel.text = error
-                    self.errorLabel.alpha = 1
-                }
-            }
-        }
+        acitivityIndicator.startAnimating()
+        acitivityIndicator.isHidden = false
+        loginViewModel.login(email: email, password: password)
     }
 
     func styleButton(button: UIButton?, colorOne: UIColor, colorTwo: UIColor) {
@@ -80,5 +66,23 @@ class LoginViewController: UIViewController {
             self.view.window?.rootViewController = photoAlbumViewController
             self.view.window?.makeKeyAndVisible()
         }
+    }
+}
+extension LoginViewController: LoginViewProtocol {
+    func readyForNavigation() {
+        acitivityIndicator.stopAnimating()
+        acitivityIndicator.isHidden = true
+    }
+
+    func navigateToAlbumsScreen() {
+        print("Navigate Now")
+        transitionToHome()
+    }
+
+    func displayError(error: String) {
+        errorLabel.text = error
+        errorLabel.alpha = 1
+        acitivityIndicator.stopAnimating()
+        acitivityIndicator.isHidden = true
     }
 }
