@@ -43,7 +43,7 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
     }
-    
+
     @objc func statusChanged(_ sender: UISegmentedControl!) {
         let viewModel = TipsAndTricsViewModel()
         let status = sender.selectedSegmentIndex
@@ -53,7 +53,6 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
                                     self.tipsAndTricksContent[sender.tag] = model
                                     self.tableView.reloadData()
             }
-            print("Cell: \(sender.tag) \(ControlStatus.updatestatusnew)")
         }
 
         if status == 1 {
@@ -62,7 +61,6 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
                                     self.tipsAndTricksContent[sender.tag] = model
                                     self.tableView.reloadData()
             }
-            print("Cell: \(sender.tag) \(ControlStatus.updatestatustried)")
         }
     }
 
@@ -77,17 +75,12 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
     //swiftlint:disable all
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tipsAndTricsCell", for: indexPath) as! TipsAndTricsTableViewCell
-        
+    //swiftlint:enable all
         cell.headingLabel.text = tipsAndTricksContent[indexPath.item].heading
         cell.bodyTextView.text = tipsAndTricksContent[indexPath.item].body
         cell.statusSegmentControl.tag = indexPath.row
         cell.statusSegmentControl.addTarget(self, action: #selector(statusChanged), for: .valueChanged)
         return cell
     }
-    //swiftlint:enable all
-}
-
-public enum ControlStatus: String {
-    case updatestatustried
-    case updatestatusnew
+    
 }

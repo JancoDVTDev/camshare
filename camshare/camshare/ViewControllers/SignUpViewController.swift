@@ -19,64 +19,34 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet var acitivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var facebookSignUp: UIButton!
     @IBOutlet weak var gmailSignUp: UIButton!
 
-    //let userViewModel = UserSignUpLoginViewModel()
-
-    lazy var viewModel: UserSignUpLoginViewModel = {
-        return UserSignUpLoginViewModel(repo: UserModel())
-    }()
+    let signUpViewModel = SignUpViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.alpha = 0
         customizeButtons()
-        // Do any additional setup after loading the view.
+        acitivityIndicator.isHidden = true
+
+        signUpViewModel.repo = SignUpDataSource()
+        signUpViewModel.view = self
     }
 
     @IBAction func signUpButtonTapped(_ sender: Any) {
-        //Validate Fields
-        let error = validateFields()
+        //Create cleaned versions of the data
+        let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        if error != nil {
-            showError(error!)
-        } else {
-            //Create cleaned versions of the data
-            let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-
-            viewModel.signUp(firstName: firstName, lastName: lastName,
-                             email: email, password: password) { (success, user) in
-                                if success {
-                                    self.transitionToHome()
-                                    print("User sucesfully signed Up")
-                                    print(user as Any)
-                                }
-            }
+        let validPassword = signUpViewModel.validateFields(firstName: firstName, lastName: lastName,
+                                                           email: email, password: password)
+        if validPassword {
+            signUpViewModel.signUp(firstName: firstName, lastName: lastName, email: email, password: password)
         }
-    }
-
-    func validateFields() -> String? {
-        // if everything is good return nil, else return error message for errorlabel
-        if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)  == "" ||
-            lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)  == "" ||
-            emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            return "Please fill in all fields"
-        }
-
-        let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        if  Utilities.isPasswordValid(cleanedPassword) == false {
-            return "Please make sure your password is at least 8 characters"
-        }
-        return nil
-    }
-    func showError(_ message: String) {
-        errorLabel.text = message
-        errorLabel.alpha = 1
     }
 
     func transitionToHome() {
@@ -100,5 +70,24 @@ class SignUpViewController: UIViewController {
         styleButton(button: facebookSignUp, colorOne: Colors.csFacebook,
                     colorTwo: Colors.csLighFacebook)
         styleButton(button: gmailSignUp, colorOne: Colors.csGoogle, colorTwo: Colors.csLightGoogle)
+    }
+}
+extension SignUpViewController: SignUpViewProtocol {
+    func readyForNavigation() {
+        acitivityIndicator.stopAnimating()
+        acitivityIndicator.isHidden = true
+        errorLabel.alpha = 0
+    }
+
+    func navigateToAlbumsScreen() {
+        print("Signed UP Nav to Albums")
+        transitionToHome()
+    }
+
+    func displayError(error: String) {
+        acitivityIndicator.stopAnimating()
+        acitivityIndicator.isHidden = true
+        errorLabel.text = error
+        errorLabel.alpha = 1
     }
 }
