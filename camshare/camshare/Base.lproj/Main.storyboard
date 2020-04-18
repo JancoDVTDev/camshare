@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WkH-NO-3X2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G3Q-Hu-Pld">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -693,7 +693,7 @@
             <objects>
                 <tableViewController id="3ku-18-xAu" customClass="ShowtimeTableViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="90T-Yq-yIj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="212-4d-6KO">
@@ -1018,10 +1018,34 @@
                     <view key="view" contentMode="scaleToFill" id="Zf8-fu-HPA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Aeg-1n-8ZW">
+                                <rect key="frame" x="8" y="140" width="398" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ozt-6x-vjX"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Cards"/>
+                                    <segment title="Videos"/>
+                                </segments>
+                            </segmentedControl>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="R3G-E5-jkS">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="rc4-d5-rsx" firstAttribute="trailing" secondItem="Aeg-1n-8ZW" secondAttribute="trailing" constant="8" id="1iT-Cl-27s"/>
+                            <constraint firstItem="Aeg-1n-8ZW" firstAttribute="top" secondItem="rc4-d5-rsx" secondAttribute="top" id="Pil-5W-TQ2"/>
+                            <constraint firstItem="Aeg-1n-8ZW" firstAttribute="leading" secondItem="rc4-d5-rsx" secondAttribute="leading" constant="8" id="fFZ-uI-Sna"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rc4-d5-rsx"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tips and Tricks" id="wxl-CT-KWE"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="R3G-E5-jkS" id="pWk-ET-zdx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Xs-DI-a7H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
