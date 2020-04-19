@@ -102,7 +102,7 @@ class LoginUser: camshareTestCase {
         app.secureTextFields["Password"].tap()
         app.secureTextFields["Password"].typeText("P@ssword")
         app.buttons["Login"].tap()
-        sleep(3)
+        sleep(4)
 
         XCTAssert(app.staticTexts["The password is invalid or the user does not have a password."].exists)
     }
