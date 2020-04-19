@@ -43,7 +43,7 @@ class LoginUser: camshareTestCase {
         app.secureTextFields["Password"].typeText("Pass1234!")
         app.buttons["Login"].tap()
         sleep(3)
-        
+
         XCTAssert(app.staticTexts["The email address is badly formatted."].exists)
     }
 
