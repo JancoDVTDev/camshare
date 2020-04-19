@@ -18,51 +18,55 @@ class CreateNewAlbum: camshareTestCase {
     }
 
     func testGivenUserTapsPlusIconThenActionSheetAppears() {
-//        app.launch()
-//        loginUser()
-//        sleep(2)
-//        app.navigationBars["My Albums"].buttons["Add"].tap()
-//        sleep(1)
-//
-//        XCTAssert(app.sheets["Add Album"].exists)
+        app.launch()
+        loginUser()
+        sleep(2)
+        app.navigationBars["My Albums"].buttons["Add"].tap()
+        snapshot("MyAlbums")
+        sleep(1)
+        snapshot("MyAlbums_AddSheet")
+
+        XCTAssert(app.sheets["Add Album"].exists)
     }
     
     func testGivenUserTapsCreateNewThenAlertSheetAppears() {
-//        app.launch()
-//        loginUser()
-//        sleep(3)
-//        addTapped()
-//        sleep(1)
-//        app.sheets["Add Album"].scrollViews.otherElements.buttons["Create New"].tap()
-//        sleep(1)
-//        app.alerts["New Album"].scrollViews.otherElements.textFields["Title"].tap()
-//        let randomInt = Int.random(in: 100...900)
-//        let title = "TST" + String(randomInt)
-//        app.alerts["New Album"].scrollViews.otherElements.textFields["Title"].typeText(title)
-//        // MARK: WRITE: DATABASE WILL BE USED
-//        app.alerts["New Album"].scrollViews.otherElements.buttons["Save"].tap()
-//        sleep(2)
-//        let addedAlbumPre = app.collectionViews.cells.otherElements.containing(.staticText, identifier: title)
-//        let addedAlbum = addedAlbumPre.children(matching: .other).element.children(matching: .image).element
+        app.launch()
+        loginUser()
+        sleep(4)
+        addTapped()
+        sleep(1)
+        app.sheets["Add Album"].scrollViews.otherElements.buttons["Create New"].tap()
+        sleep(1)
+        app.alerts["New Album"].scrollViews.otherElements.textFields["Title"].tap()
+        let randomInt = Int.random(in: 100...900)
+        let title = "TST" + String(randomInt)
+        app.alerts["New Album"].scrollViews.otherElements.textFields["Title"].typeText(title)
+        // MARK: WRITE: DATABASE WILL BE USED
+        //app.alerts["New Album"].scrollViews.otherElements.buttons["Save"].tap()
+        sleep(2)
+        let addedAlbumPre = app.collectionViews.cells.otherElements.containing(.staticText, identifier: title)
+        let addedAlbum = addedAlbumPre.children(matching: .other).element.children(matching: .image).element
+        snapshot("MyAlbums_AddCreateNewAlert")
 
-//        XCTAssert(app.alerts["New Album"].scrollViews.otherElements.textFields["Title"].exists)
+        XCTAssert(app.alerts["New Album"].scrollViews.otherElements.textFields["Title"].exists)
     }
 
     func testGivenUserTapsExistingAlbumThenAlertSheetAppears() {
-//        app.launch()
-//        loginUser()
-//        sleep(3)
-//        addTapped()
-//        sleep(1)
-//        app.sheets["Add Album"].scrollViews.otherElements.buttons["Existing Album"].tap()
-//        sleep(1)
-//        app.alerts["Existing Album"].scrollViews.otherElements.textFields["Album ID"].tap()
-//        // MARK: WRITE: DATABASE WILL BE USED
-//        //Paste a real ID
-//        app.alerts["Existing Album"].scrollViews.otherElements.textFields["Album ID"].
-        //typeText("AlbumID must be typed")
-//
-//        XCTAssert(app.alerts["Existing Album"].scrollViews.otherElements.textFields["Album ID"].exists)
+        app.launch()
+        loginUser()
+        sleep(3)
+        addTapped()
+        sleep(1)
+        app.sheets["Add Album"].scrollViews.otherElements.buttons["Existing Album"].tap()
+        sleep(1)
+        app.alerts["Existing Album"].scrollViews.otherElements.textFields["Album ID"].tap()
+        // MARK: WRITE: DATABASE WILL BE USED
+        //Paste a real ID
+        app.alerts["Existing Album"].scrollViews.otherElements
+            .textFields["Album ID"].typeText("AlbumID must be typed")
+        snapshot("MyAlbums_AddExisting")
+
+        XCTAssert(app.alerts["Existing Album"].scrollViews.otherElements.textFields["Album ID"].exists)
     }
 
     func testRecord() {

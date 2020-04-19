@@ -24,6 +24,7 @@
 		6176C60C24090623008A8269 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6176C60B24090623008A8269 /* AlbumCell.swift */; };
 		6181543E23F55D8900FCFD60 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6181543D23F55D8900FCFD60 /* PhotoCell.swift */; };
 		619082B12434CD0100416C34 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 619082B02434CD0100416C34 /* GoogleService-Info.plist */; };
+		61A8373C244CC88F00C7802D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A83733244CC88F00C7802D /* SnapshotHelper.swift */; };
 		61B90B3223FE468B00FB4AC4 /* ShowtimeResultOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B90B3123FE468B00FB4AC4 /* ShowtimeResultOptions.swift */; };
 		61BA5123243CB88000E1BACC /* TipsAndTricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA5122243CB88000E1BACC /* TipsAndTricsViewController.swift */; };
 		61BA5128243CB8CB00E1BACC /* TipsAndTricsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA5126243CB8CB00E1BACC /* TipsAndTricsTableViewCell.swift */; };
@@ -230,6 +231,7 @@
 		6184C221242E9C0000417CEF /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
 		6184C222242E9C0000417CEF /* XCTest.framework.coverage.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = XCTest.framework.coverage.txt; sourceTree = "<group>"; };
 		619082B02434CD0100416C34 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		61A83733244CC88F00C7802D /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		61B90B3123FE468B00FB4AC4 /* ShowtimeResultOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowtimeResultOptions.swift; sourceTree = "<group>"; };
 		61BA5122243CB88000E1BACC /* TipsAndTricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsAndTricsViewController.swift; sourceTree = "<group>"; };
 		61BA5126243CB8CB00E1BACC /* TipsAndTricsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsAndTricsTableViewCell.swift; sourceTree = "<group>"; };
@@ -773,6 +775,7 @@
 				61FD8D4F23FD2175006841EF /* Constants.swift */,
 				61F601E923ED1E7C008323F1 /* ColorConstraints.swift */,
 				61FD8D5023FD2175006841EF /* Utilities.swift */,
+				61A83733244CC88F00C7802D /* SnapshotHelper.swift */,
 				61F601C223ED1DAB008323F1 /* Assets.xcassets */,
 				61F601C423ED1DAB008323F1 /* LaunchScreen.storyboard */,
 				61F601C723ED1DAB008323F1 /* Info.plist */,
@@ -1173,6 +1176,7 @@
 			files = (
 				613783E9241F4F3F0061FD36 /* SignUpUser.swift in Sources */,
 				61F601DC23ED1DAB008323F1 /* camshareUITests.swift in Sources */,
+				61A8373C244CC88F00C7802D /* SnapshotHelper.swift in Sources */,
 				613783E7241F4A4C0061FD36 /* LoginUser.swift in Sources */,
 				613783E2241F44710061FD36 /* camshareTestEnvironment.swift in Sources */,
 				613783EB241F5D600061FD36 /* CreateNewAlbum.swift in Sources */,

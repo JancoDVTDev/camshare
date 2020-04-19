@@ -14,12 +14,13 @@ class LoginUser: camshareTestCase {
 
     override func setUp() {
         app = XCUIApplication()
+        setupSnapshot(app)
         continueAfterFailure = false
     }
 
     func testGivenUserLoginWhenCredentialsAreCorrectThenLoginSuccesful() {
         app.launch()
-
+        snapshot("Login")
         app.buttons["Login"].tap()
         sleep(1)
         app.textFields["Email"].tap()
@@ -28,7 +29,7 @@ class LoginUser: camshareTestCase {
         app.secureTextFields["Password"].typeText("Pass1234!")
         app.buttons["Login"].tap()
         sleep(3)
-
+        snapshot("Login_Suceeded")
         XCTAssert(app.navigationBars["My Albums"].exists)
     }
 
@@ -43,7 +44,7 @@ class LoginUser: camshareTestCase {
         app.secureTextFields["Password"].typeText("Pass1234!")
         app.buttons["Login"].tap()
         sleep(3)
-
+        snapshot("Login_EmailWrong")
         XCTAssert(app.staticTexts["The email address is badly formatted."].exists)
     }
 
@@ -58,7 +59,7 @@ class LoginUser: camshareTestCase {
         app.secureTextFields["Password"].typeText("Pass")
         app.buttons["Login"].tap()
         sleep(3)
-
+        snapshot("Login_PasswordFailed")
         XCTAssert(app.staticTexts["The password is invalid or the user does not have a password."].exists)
     }
 
