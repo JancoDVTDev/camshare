@@ -8,8 +8,15 @@
 
 import UIKit
 import camPod
+import WebKit
 
 class TipsAndTricsTableViewCell: UITableViewCell {
+
+    // https://www.youtube.com/watch?v=-syN8aFZz0w
+    // https://www.appcoda.com/youtube-api-ios-tutorial/
+    // https://www.youtube.com/watch?v=RmHqOSrkZnk
+    
+    @IBOutlet var webkitView: WKWebView!
     @IBOutlet var cellView: UIView!
     @IBOutlet var headingLabel: UILabel!
     @IBOutlet var bodyTextView: UITextView!
@@ -29,6 +36,8 @@ class TipsAndTricsTableViewCell: UITableViewCell {
     var didTapCell = false
     override func awakeFromNib() {
         super.awakeFromNib()
+        webkitView.isHidden = true
+        
         // Initialization code
         cellView.layer.cornerRadius = 4
         cellView.layer.shadowColor = UIColor.darkGray.cgColor

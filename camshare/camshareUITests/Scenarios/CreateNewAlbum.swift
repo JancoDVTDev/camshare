@@ -73,7 +73,7 @@ class CreateNewAlbum: camshareTestCase {
         app.buttons["Login"].tap()
         sleep(1)
         app.textFields["Email"].tap()
-        app.textFields["Email"].typeText("urtt@test.com")
+        app.textFields["Email"].typeText("esne@test.com")
         app.secureTextFields["Password"].tap()
         app.secureTextFields["Password"].typeText("Pass1234!")
         app.buttons["Login"].tap()

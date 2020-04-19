@@ -15,45 +15,42 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var tipsTricsTableView: UITableView!
     var tableView: UITableView!
     var tipsAndTricksContent = [TipsAndTricksModel]()
+    var youtubeTipsCodeKeys = [String]()
+    var youtubeTipsSource = [YoutubeTipsModel]()
     var selectedSegment = 0
 
     var tipsAndTricksViewModel = TipsAndTricsViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
 
         tipsAndTricksViewModel.view = self
         tipsAndTricksViewModel.getRepo = camshareAPIGet()
+        tipsAndTricksViewModel.youtubeRepo = YoutubeDataAPI()
+
+        if self.traitCollection.userInterfaceStyle == .light {
+            self.navigationController?.navigationBar.backgroundColor = UIColor.white
+        } else {
+            self.navigationController?.navigationBar.backgroundColor = UIColor.black
+        }
 
         configureTableView()
 
         tipsAndTricksViewModel.loadTipsAndTricks()
-
-//        let viewModel = TipsAndTricsViewModel()
-//        viewModel.getTipsTricks(request: "tipsandtricks") { (result) in
-//            self.tipsAndTricksContent = result
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
-//        }
     }
 
     @IBAction func segmentedControlValueChanged(segment: UISegmentedControl) {
         if segment.selectedSegmentIndex == 0 {
-            // Cards
-            print("Cards")
             selectedSegment = 0
             tableView.reloadData()
         }
 
         if segment.selectedSegmentIndex == 1 {
-            // Videos
-            print("Videos")
             selectedSegment = 1
-            tableView.reloadData()
+            tipsAndTricksViewModel.fetchVideosFromYoutube()
         }
     }
 
@@ -62,7 +59,15 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tipsAndTricksContent.count
+        var count = 0
+        if selectedSegment == 0 {
+            count = tipsAndTricksContent.count
+        }
+
+        if selectedSegment == 1 {
+            count = youtubeTipsSource.count
+        }
+        return count
     }
 
     //swiftlint:disable all
@@ -71,25 +76,30 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
     //swiftlint:enable all
 
         if selectedSegment == 0 {
+            cell.webkitView.isHidden = true
             cell.cellView.isHidden = false
             cell.headingLabel.text = tipsAndTricksContent[indexPath.item].heading
             cell.bodyTextView.text = tipsAndTricksContent[indexPath.item].body
 
             let currentRatingTap = UITapGestureRecognizer(target: self, action: #selector(currentRatingTapped(_:)))
             cell.currentRatingImageView.isUserInteractionEnabled = true
-            cell.currentRatingImageView.tag = indexPath.row
+            cell.currentRatingImageView.tag = indexPath.item
             cell.currentRatingImageView.addGestureRecognizer(currentRatingTap)
         }
 
         if selectedSegment == 1 {
-            cell.cellView.isHidden = true
+            cell.cellView.isHidden = false
+            cell.webkitView.isHidden = false
+
+//            let url = URL(string: "https://youtube.com/embed/\(youtubeTipsCodeKeys[indexPath.item])")
+            let url = URL(string: "https://youtube.com/embed/\(self.youtubeTipsSource[indexPath.item].videoId)")
+            cell.webkitView.load(URLRequest(url: url!))
         }
 
         return cell
     }
 
     @IBAction func currentRatingTapped(_ sender: AnyObject) {
-        print("Tap Gesture for Cell Works: tapped - \(sender.view.tag)")
         let indexPath = NSIndexPath(row: sender.view.tag, section: 0)
         if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
             //swiftlint:disable all
@@ -187,7 +197,13 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
         segemtedControl.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         segemtedControl.selectedSegmentTintColor = UIColor(red: 24/255, green: 172/255, blue: 251/255, alpha: 1)
         segemtedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
-        tableView = UITableView(frame: view.bounds, style: .plain)
+
+        let context = (navigationController?.navigationBar.bounds.size.height)!
+        tableView = UITableView(frame: CGRect(x: view.bounds.origin.x,
+                                              y: view.bounds.origin.y + context,
+                                              width: view.bounds.size.width,
+                                              height: view.bounds.size.height + context),
+                                style: .plain)
         view.addSubview(tableView)
         let celNib = UINib(nibName: "TipsAndTricsTableViewCell", bundle: nil)
         tableView.register(celNib, forCellReuseIdentifier: "tipsAndTricsCell")
@@ -197,7 +213,7 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
 
         // Contraints
         var layoutGuide: UILayoutGuide!
-        layoutGuide = view.safeAreaLayoutGuide
+        layoutGuide = view.layoutMarginsGuide
 
         tableView.leadingAnchor.constraint(equalTo: layoutGuide.leadingAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: segemtedControl.bottomAnchor).isActive = true
@@ -210,6 +226,14 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
     }
 }
 extension TipsAndTricsViewController: TipsAndTricksViewType {
+    func updateTableViewYoutubeSource(youtubeTipsModels: [YoutubeTipsModel]) {
+        youtubeTipsSource = youtubeTipsModels
+    }
+
+    func updateTableViewVideosSource(videoCodes: [String]) {
+        youtubeTipsCodeKeys = videoCodes
+    }
+
     public func updateTableViewCardsSource(content: [TipsAndTricksModel]) {
         tipsAndTricksContent = content
     }
@@ -219,13 +243,16 @@ extension TipsAndTricsViewController: TipsAndTricksViewType {
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
             self.tableView.isHidden = false
+            self.tableView.reloadData()
         }
     }
 
     public func displayError(error: String) {
-        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
     public func reloadTableView() {
