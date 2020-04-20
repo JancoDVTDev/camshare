@@ -280,11 +280,11 @@
             <objects>
                 <viewController id="ydl-Du-Uuj" customClass="StartUpViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PY7-km-ZW2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Vzc-xs-K7g">
-                                <rect key="frame" x="40" y="681.5" width="334" height="140.5"/>
+                                <rect key="frame" x="40" y="627.5" width="334" height="140.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pvl-OV-lCk">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -317,7 +317,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CamShare_Cobined" translatesAutoresizingMaskIntoConstraints="NO" id="hOy-lF-rxV">
-                                <rect key="frame" x="100" y="84" width="214" height="300"/>
+                                <rect key="frame" x="100" y="40" width="214" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hOy-lF-rxV" secondAttribute="height" multiplier="107:147" constant="-4.3673469387755119" id="GSH-T0-t6M"/>
                                 </constraints>
@@ -547,7 +547,7 @@
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="rI0-nY-ZFZ">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
                                     </activityIndicatorView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2w4-ft-py6">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetching Your Albums" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2w4-ft-py6">
                                         <rect key="frame" x="0.0" y="26" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
@@ -594,7 +594,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="47N-6H-H1U">
-                                <rect key="frame" x="0.0" y="140" width="414" height="683"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="779"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="2" minimumInteritemSpacing="2" id="j8Q-sl-kKu">
                                     <size key="itemSize" width="240" height="240"/>
@@ -647,9 +647,17 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="rFQ-ns-V0D">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
                             </activityIndicatorView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kzv-aw-8i6">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="E3n-ha-edB">
+                                <rect key="frame" x="0.0" y="816" width="414" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="Zax-W0-5hm"/>
+                                </constraints>
+                            </progressView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzv-aw-8i6">
                                 <rect key="frame" x="0.0" y="818" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Ice-2G-1ss"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem image="square.and.arrow.up" catalog="system" width="221" id="GC6-OS-tij">
                                         <connections>
@@ -666,10 +674,16 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Kzv-aw-8i6" firstAttribute="leading" secondItem="9Cn-IM-FOy" secondAttribute="leading" id="0UD-BU-yXQ"/>
+                            <constraint firstItem="Kzv-aw-8i6" firstAttribute="top" secondItem="E3n-ha-edB" secondAttribute="bottom" id="1pq-hh-WLS"/>
                             <constraint firstItem="47N-6H-H1U" firstAttribute="bottom" secondItem="9Cn-IM-FOy" secondAttribute="bottom" constant="-39" id="29B-ZL-XKX"/>
                             <constraint firstItem="47N-6H-H1U" firstAttribute="leading" secondItem="9Cn-IM-FOy" secondAttribute="leading" id="3Mb-v9-HEs"/>
                             <constraint firstItem="rFQ-ns-V0D" firstAttribute="centerY" secondItem="EXb-Fq-anp" secondAttribute="centerY" id="9tf-6C-tOJ"/>
+                            <constraint firstItem="Kzv-aw-8i6" firstAttribute="bottom" secondItem="9Cn-IM-FOy" secondAttribute="bottom" id="AMb-e8-E7I"/>
                             <constraint firstItem="47N-6H-H1U" firstAttribute="trailing" secondItem="9Cn-IM-FOy" secondAttribute="trailing" id="Fs5-iA-7BU"/>
+                            <constraint firstItem="Kzv-aw-8i6" firstAttribute="trailing" secondItem="9Cn-IM-FOy" secondAttribute="trailing" id="H79-rm-PeD"/>
+                            <constraint firstItem="E3n-ha-edB" firstAttribute="leading" secondItem="EXb-Fq-anp" secondAttribute="leading" id="JCE-rZ-Y1Y"/>
+                            <constraint firstAttribute="trailing" secondItem="E3n-ha-edB" secondAttribute="trailing" id="dgr-tY-dXG"/>
                             <constraint firstItem="rFQ-ns-V0D" firstAttribute="centerX" secondItem="EXb-Fq-anp" secondAttribute="centerX" id="erI-Zd-LFg"/>
                             <constraint firstItem="47N-6H-H1U" firstAttribute="top" secondItem="9Cn-IM-FOy" secondAttribute="top" id="h93-yR-l7O"/>
                         </constraints>
@@ -679,6 +693,7 @@
                     <connections>
                         <outlet property="activityLoader" destination="rFQ-ns-V0D" id="hSK-Dc-clr"/>
                         <outlet property="collectionView" destination="47N-6H-H1U" id="GBt-wu-3He"/>
+                        <outlet property="progressView" destination="E3n-ha-edB" id="Tcn-cd-ntj"/>
                         <segue destination="J5F-La-Zu0" kind="show" identifier="displayImage" id="xok-Vr-xQo"/>
                         <segue destination="drR-Cz-5kU" kind="show" identifier="goToQRCode" id="lO4-4q-XdH"/>
                         <segue destination="G3Q-Hu-Pld" kind="show" identifier="loadTipsAndTricks" id="lZC-1V-v5r"/>
@@ -693,7 +708,7 @@
             <objects>
                 <tableViewController id="3ku-18-xAu" customClass="ShowtimeTableViewController" customModule="camshare" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="90T-Yq-yIj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="212-4d-6KO">
@@ -1038,7 +1053,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LvX-L6-UMt"/>
+        <segue reference="9p4-8K-lfN"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="CamShare_Cobined" width="2970" height="3438"/>
