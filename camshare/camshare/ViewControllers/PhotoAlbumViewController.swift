@@ -120,7 +120,7 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
             self.trackAnalytics.log(name: NameConstants.scanQRCode, parameters: nil)
             self.captureQRCode()
         }
-        
+
         let signOut = UIAlertAction(title: "Sign Out", style: .destructive) { (_) in
             do {
                 try Auth.auth().signOut()
