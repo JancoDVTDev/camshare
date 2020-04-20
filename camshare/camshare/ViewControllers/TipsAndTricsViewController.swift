@@ -91,7 +91,6 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
             cell.cellView.isHidden = false
             cell.webkitView.isHidden = false
 
-//            let url = URL(string: "https://youtube.com/embed/\(youtubeTipsCodeKeys[indexPath.item])")
             let url = URL(string: "https://youtube.com/embed/\(self.youtubeTipsSource[indexPath.item].videoId)")
             cell.webkitView.load(URLRequest(url: url!))
         }

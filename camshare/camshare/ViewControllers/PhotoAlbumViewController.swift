@@ -120,6 +120,15 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
             self.trackAnalytics.log(name: NameConstants.scanQRCode, parameters: nil)
             self.captureQRCode()
         }
+        
+        let signOut = UIAlertAction(title: "Sign Out", style: .destructive) { (_) in
+            do {
+                try Auth.auth().signOut()
+                exit(0)
+            } catch {
+                print("Error Signing out")
+            }
+        }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
             self.trackAnalytics.log(name: NameConstants.cancelAdd, parameters: nil)
@@ -128,6 +137,7 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         actionSheet.addAction(createNewAction)
         actionSheet.addAction(scanQRCode)
         actionSheet.addAction(existingAlbumAction)
+        actionSheet.addAction(signOut)
         actionSheet.addAction(cancelAction)
         self.present(actionSheet, animated: true, completion: nil)
     }
