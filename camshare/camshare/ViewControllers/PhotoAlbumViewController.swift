@@ -124,7 +124,6 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         let signOut = UIAlertAction(title: "Sign Out", style: .destructive) { (_) in
             do {
                 try Auth.auth().signOut()
-                exit(0)
             } catch {
                 print("Error Signing out")
             }
@@ -333,6 +332,12 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
             print("Other segue runs")
         }
         //swiftlint:enable all
+    }
+
+    func loadSavedImages(imagePaths: [String],
+                         _ completion: @escaping (_ cachedPhotoModels: [PhotoModel],
+        _ imagePathsToUpdate: [String]) -> Void) {
+
     }
 }
 extension PhotoAlbumViewController: AlbumViewProtocol {
