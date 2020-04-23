@@ -11,6 +11,8 @@ UIImage(named: "Image4"), UIImage(named: "Image5"), UIImage(named: "Image6"),
 UIImage(named: "Image7"), UIImage(named: "Image8"), UIImage(named: "Image9"),
 UIImage(named: "Image10"), UIImage(named: "Image11"), UIImage(named: "Image12")]
 
+var imageToBeEdited = UIImage()
+
 import UIKit
 import Firebase
 import CoreData
