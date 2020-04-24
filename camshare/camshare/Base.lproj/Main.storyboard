@@ -921,17 +921,17 @@
                                     <constraint firstAttribute="height" constant="388" id="fCH-CT-CLM"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ehg-oF-HsS">
-                                <rect key="frame" x="-42" y="575" width="498" height="187"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ehg-oF-HsS">
+                                <rect key="frame" x="-172" y="614" width="758" height="148"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzy-Fy-80I">
-                                        <rect key="frame" x="207" y="0.0" width="84.5" height="16"/>
+                                        <rect key="frame" x="337" y="0.0" width="84.5" height="16"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="U80-NY-5Y2">
-                                        <rect key="frame" x="84" y="41" width="330" height="50"/>
+                                        <rect key="frame" x="214" y="28" width="330" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEL-DN-cg9">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -953,7 +953,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="uhC-uA-xxZ"/>
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="sun.min.fill" catalog="system"/>
+                                                <state key="normal" image="person.crop.rectangle" catalog="system"/>
                                                 <connections>
                                                     <action selector="secondFilterButtonTapped:" destination="mgR-q1-Moi" eventType="touchUpInside" id="kMc-QX-XPI"/>
                                                 </connections>
@@ -966,7 +966,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="OAV-Et-cDZ"/>
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="smallcircle.fill.circle" catalog="system"/>
+                                                <state key="normal" image="square" catalog="system"/>
                                                 <connections>
                                                     <action selector="thirdFilterButtonTapped:" destination="mgR-q1-Moi" eventType="touchUpInside" id="70S-Wk-cfy"/>
                                                 </connections>
@@ -979,7 +979,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="Ffm-WO-HZp"/>
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="waveform.circle.fill" catalog="system"/>
+                                                <state key="normal" image="rectangle" catalog="system"/>
                                                 <connections>
                                                     <action selector="fourthFilterButtonTapped:" destination="mgR-q1-Moi" eventType="touchUpInside" id="qJ8-WS-W5E"/>
                                                 </connections>
@@ -1000,14 +1000,14 @@
                                         </subviews>
                                     </stackView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9Dl-L2-wsb">
-                                        <rect key="frame" x="10" y="116" width="478" height="31"/>
+                                        <rect key="frame" x="10" y="90" width="738" height="31"/>
                                         <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="sliderValueChanged:" destination="mgR-q1-Moi" eventType="valueChanged" id="svZ-IV-Ubc"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SliderValue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkF-5q-UmT">
-                                        <rect key="frame" x="215" y="171" width="68" height="16"/>
+                                        <rect key="frame" x="345" y="132" width="68" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1022,19 +1022,21 @@
                                 <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Canc" id="ncy-Qd-Usb"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="K21-fO-Ked"/>
-                                    <barButtonItem image="Adjust Icon" id="SDL-uh-PVK">
+                                    <barButtonItem title="Undo" id="u5c-mt-yhd">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="DTJ-Hr-Ry0"/>
+                                    <barButtonItem title="Item" id="SDL-uh-PVK">
                                         <connections>
                                             <action selector="manualEditingTapped:" destination="mgR-q1-Moi" id="Ghj-4m-bJM"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="Filters Icon" id="Wbv-wr-tpg">
+                                    <barButtonItem title="Item" id="Wbv-wr-tpg">
                                         <connections>
                                             <action selector="predefinedEditingTapped:" destination="mgR-q1-Moi" id="wod-gy-7H4"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="Crop Icon 2" id="aCW-t7-cdW">
+                                    <barButtonItem title="Item" id="aCW-t7-cdW">
                                         <connections>
                                             <action selector="cropEditingTapped:" destination="mgR-q1-Moi" id="Io2-yR-EiS"/>
                                         </connections>
@@ -1047,6 +1049,11 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <view hidden="YES" alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E8u-Ki-1nr">
+                                <rect key="frame" x="63" y="201" width="289" height="291"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -1064,6 +1071,7 @@
                         <outlet property="adjustButton" destination="SDL-uh-PVK" id="LxY-0j-FiR"/>
                         <outlet property="applyAmountSlider" destination="9Dl-L2-wsb" id="Yyk-9R-oex"/>
                         <outlet property="cropButton" destination="aCW-t7-cdW" id="rwZ-TZ-f8E"/>
+                        <outlet property="croppingViewUIView" destination="E8u-Ki-1nr" id="D1z-yI-lLA"/>
                         <outlet property="currentFilterLabel" destination="nzy-Fy-80I" id="764-IM-FqH"/>
                         <outlet property="fifthFilterButton" destination="eL4-Bf-ryx" id="bgb-zb-oNI"/>
                         <outlet property="filterButton" destination="Wbv-wr-tpg" id="j4k-Sr-Mdw"/>
@@ -1226,18 +1234,15 @@
         <segue reference="LvX-L6-UMt"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="Adjust Icon" width="28" height="28"/>
         <image name="CamShare_Cobined" width="2970" height="3438"/>
-        <image name="Crop Icon 2" width="28" height="28"/>
-        <image name="Filters Icon" width="28" height="28"/>
         <image name="camSHARE - DVT" width="1500" height="1500"/>
         <image name="camSHARE_Name - DVT" width="1500" height="500"/>
         <image name="circle.lefthalf.fill" catalog="system" width="128" height="121"/>
         <image name="lightbulb" catalog="system" width="113" height="128"/>
+        <image name="person.crop.rectangle" catalog="system" width="128" height="93"/>
         <image name="placeholder" width="510" height="388"/>
-        <image name="smallcircle.fill.circle" catalog="system" width="128" height="121"/>
+        <image name="rectangle" catalog="system" width="128" height="93"/>
+        <image name="square" catalog="system" width="128" height="114"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <image name="sun.min.fill" catalog="system" width="128" height="121"/>
-        <image name="waveform.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
