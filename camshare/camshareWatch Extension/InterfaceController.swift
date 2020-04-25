@@ -48,7 +48,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
         selectedQRCode = qrCodes[rowIndex]
         selectedAlbumName = albumNames[rowIndex]
-        let data = ["Name": selectedAlbumName, "QRCode": selectedQRCode] as [String : Any]
+        let data = ["Name": selectedAlbumName, "QRCode": selectedQRCode] as [String: Any]
         pushController(withName: "QRCodeScene", context: data)
     }
 

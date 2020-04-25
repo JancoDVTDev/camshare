@@ -431,4 +431,6 @@ extension PhotoAlbumViewController: AlbumViewProtocol {
         }
         return nil
     }
+//swiftlint:disable all
 }
+//swiftlint:enable all

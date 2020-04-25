@@ -10,5 +10,4 @@ import WatchKit
 
 class AlbumRowController: NSObject {
     @IBOutlet var albumName: WKInterfaceLabel!
-    
 }

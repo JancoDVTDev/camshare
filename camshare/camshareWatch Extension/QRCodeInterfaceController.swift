@@ -25,11 +25,6 @@ class QRCodeInterfaceController: WKInterfaceController {
             self.albumNameLabel.setText(albumName)
             self.QRCodeImageView.setImage(qrCodeImage)
         }
-        //swiftlint:enable all
-    }
-    
-    func setupImageView() {
-        
     }
 
     override func willActivate() {

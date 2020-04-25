@@ -1,7 +1,5 @@
 import Foundation
 import UIKit
-import CoreImage
-import CoreImage.CIFilterBuiltins
 
 public class Utilities {
 
@@ -44,9 +42,5 @@ public class Utilities {
         let passwordTest = NSPredicate(format:
             "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         return passwordTest.evaluate(with: password)
-    }
-    
-    public func generateQRCode(string: String) -> UIImage {
-        return UIImage()
     }
 }
