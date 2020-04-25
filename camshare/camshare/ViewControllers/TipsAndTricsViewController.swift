@@ -8,11 +8,14 @@
 
 import UIKit
 import camPod
+import WatchConnectivity
 
-class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, WCSessionDelegate {
 
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var tipsTricsTableView: UITableView!
+
+    var session: WCSession?
     var tableView: UITableView!
     var tipsAndTricksContent = [TipsAndTricksModel]()
     var youtubeTipsCodeKeys = [String]()
@@ -27,6 +30,10 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
 
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
+                                                            target: self,
+                                                            action: #selector(self.tapSendTipsToWatch(_:)))
+
         tipsAndTricksViewModel.view = self
         tipsAndTricksViewModel.getRepo = camshareAPIGet()
         tipsAndTricksViewModel.youtubeRepo = YoutubeDataAPI()
@@ -38,6 +45,7 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
         }
 
         configureTableView()
+        configureWatchKitSession()
 
         tipsAndTricksViewModel.loadTipsAndTricks()
     }
@@ -51,6 +59,13 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
         if segment.selectedSegmentIndex == 1 {
             selectedSegment = 1
             tipsAndTricksViewModel.fetchVideosFromYoutube()
+        }
+    }
+
+    @IBAction func tapSendTipsToWatch(_ sender: Any) {
+        if let validSession = self.session, validSession.isReachable {
+            let data: [String: String] = ["Contens": tipsAndTricksContent[0].heading]
+            validSession.sendMessage(data, replyHandler: nil, errorHandler: nil)
         }
     }
 
@@ -222,6 +237,35 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
         // Delegate and datasource injection
         tableView.delegate = self
         tableView.dataSource = self
+    }
+
+    // MARK: WatchKit Configuration
+    func configureWatchKitSession() {
+        if WCSession.isSupported() {
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
+        }
+    }
+
+    func sessionDidBecomeInactive(_ session: WCSession) {
+
+    }
+
+    func sessionDidDeactivate(_ session: WCSession) {
+
+    }
+
+    func session(_ session: WCSession,
+                 activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+
+    }
+
+    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+        print("recieved message: \(message)")
+        if let value = message["watch"] as? String {
+            print(value)
+        }
     }
 }
 extension TipsAndTricsViewController: TipsAndTricksViewType {

@@ -1,7 +1,9 @@
 import Foundation
 import UIKit
+import CoreImage
+import CoreImage.CIFilterBuiltins
 
-class Utilities {
+public class Utilities {
 
     static func styleTextField(_ textfield: UITextField) {
 
@@ -42,5 +44,9 @@ class Utilities {
         let passwordTest = NSPredicate(format:
             "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         return passwordTest.evaluate(with: password)
+    }
+    
+    public func generateQRCode(string: String) -> UIImage {
+        return UIImage()
     }
 }
