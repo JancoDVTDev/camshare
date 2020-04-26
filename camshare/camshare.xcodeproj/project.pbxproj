@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		610FF8022453698B00174EB4 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 610FF8002453698B00174EB4 /* Interface.storyboard */; };
+		610FF8042453698E00174EB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 610FF8032453698E00174EB4 /* Assets.xcassets */; };
+		610FF80B2453698E00174EB4 /* camshareWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 610FF80A2453698E00174EB4 /* camshareWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		610FF8102453698E00174EB4 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FF80F2453698E00174EB4 /* InterfaceController.swift */; };
+		610FF8122453698E00174EB4 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FF8112453698E00174EB4 /* ExtensionDelegate.swift */; };
+		610FF8142453698E00174EB4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FF8132453698E00174EB4 /* NotificationController.swift */; };
+		610FF8162453698F00174EB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 610FF8152453698F00174EB4 /* Assets.xcassets */; };
+		610FF81B2453698F00174EB4 /* camshareWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 610FF7FE2453698B00174EB4 /* camshareWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		610FF82D2453823A00174EB4 /* AlbumRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FF82C2453823A00174EB4 /* AlbumRowController.swift */; };
 		61335EE624161D75004B6303 /* UserModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61335EE524161D75004B6303 /* UserModelMock.swift */; };
 		61335EEA241620CA004B6303 /* SignUpLoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61335EE9241620CA004B6303 /* SignUpLoginViewModelTests.swift */; };
 		61335EEC241630BD004B6303 /* ShowingAllUserAlbumsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61335EEB241630BD004B6303 /* ShowingAllUserAlbumsViewModelTest.swift */; };
@@ -15,6 +24,8 @@
 		613783E7241F4A4C0061FD36 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613783E6241F4A4C0061FD36 /* LoginUser.swift */; };
 		613783E9241F4F3F0061FD36 /* SignUpUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613783E8241F4F3F0061FD36 /* SignUpUser.swift */; };
 		613783EB241F5D600061FD36 /* CreateNewAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613783EA241F5D600061FD36 /* CreateNewAlbum.swift */; };
+		61434EFD244ED2A70043BE52 /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61434EF3244ED2A70043BE52 /* Image+CoreDataProperties.swift */; };
+		61434EFE244ED2A70043BE52 /* Image+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61434EFC244ED2A70043BE52 /* Image+CoreDataClass.swift */; };
 		6165BDB323FE655A008C1D72 /* ShowtimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165BDB223FE655A008C1D72 /* ShowtimeTableViewController.swift */; };
 		6165BDB523FE668A008C1D72 /* ShowtimeResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165BDB423FE668A008C1D72 /* ShowtimeResultTableViewCell.swift */; };
 		6165BDB723FE6C7A008C1D72 /* ResultingClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165BDB623FE6C7A008C1D72 /* ResultingClass.swift */; };
@@ -24,11 +35,13 @@
 		6176C60C24090623008A8269 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6176C60B24090623008A8269 /* AlbumCell.swift */; };
 		6181543E23F55D8900FCFD60 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6181543D23F55D8900FCFD60 /* PhotoCell.swift */; };
 		619082B12434CD0100416C34 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 619082B02434CD0100416C34 /* GoogleService-Info.plist */; };
+		61A04B9A24542A8E006EB779 /* QRCodeInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A04B9924542A8E006EB779 /* QRCodeInterfaceController.swift */; };
 		61A8373C244CC88F00C7802D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A83733244CC88F00C7802D /* SnapshotHelper.swift */; };
 		61B90B3223FE468B00FB4AC4 /* ShowtimeResultOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B90B3123FE468B00FB4AC4 /* ShowtimeResultOptions.swift */; };
 		61BA5123243CB88000E1BACC /* TipsAndTricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA5122243CB88000E1BACC /* TipsAndTricsViewController.swift */; };
 		61BA5128243CB8CB00E1BACC /* TipsAndTricsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA5126243CB8CB00E1BACC /* TipsAndTricsTableViewCell.swift */; };
 		61BA5129243CB8CB00E1BACC /* TipsAndTricsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61BA5127243CB8CB00E1BACC /* TipsAndTricsTableViewCell.xib */; };
+		61F18362244ECE37006A9A9C /* SavedImages.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61F18360244ECE37006A9A9C /* SavedImages.xcdatamodeld */; };
 		61F1FB7023FBE10400A30934 /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F1FB6F23FBE10400A30934 /* StartUpViewController.swift */; };
 		61F1FB7223FBE34100A30934 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F1FB7123FBE34100A30934 /* SignUpViewController.swift */; };
 		61F1FB7423FBE34E00A30934 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F1FB7323FBE34E00A30934 /* LoginViewController.swift */; };
@@ -51,6 +64,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		610FF80C2453698E00174EB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61F601AE23ED1DA9008323F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 610FF8092453698E00174EB4;
+			remoteInfo = "camshareWatch Extension";
+		};
+		610FF8192453698F00174EB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61F601AE23ED1DA9008323F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 610FF7FD2453698B00174EB4;
+			remoteInfo = camshareWatch;
+		};
 		6184C226242E9C0000417CEF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6184C1A6242E9BFF00417CEF /* _Pods.xcodeproj */;
@@ -123,11 +150,48 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		610FF81C2453698F00174EB4 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				610FF81B2453698F00174EB4 /* camshareWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		610FF81F2453698F00174EB4 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				610FF80B2453698E00174EB4 /* camshareWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2386C04A0B85D62CE6F4397E /* libPods-camshareTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-camshareTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36271F32E106BBFA01C16091 /* Pods-camshareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camshareTests.release.xcconfig"; path = "Target Support Files/Pods-camshareTests/Pods-camshareTests.release.xcconfig"; sourceTree = "<group>"; };
 		4E2100AE65512A973ED2A321 /* libPods-camshare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-camshare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5457AD2442FE7FC1EC25D78D /* Pods-camshare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camshare.release.xcconfig"; path = "Target Support Files/Pods-camshare/Pods-camshare.release.xcconfig"; sourceTree = "<group>"; };
+		610FF7FE2453698B00174EB4 /* camshareWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = camshareWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		610FF8012453698B00174EB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		610FF8032453698E00174EB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		610FF8052453698E00174EB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		610FF80A2453698E00174EB4 /* camshareWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "camshareWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		610FF80F2453698E00174EB4 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		610FF8112453698E00174EB4 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		610FF8132453698E00174EB4 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		610FF8152453698F00174EB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		610FF8172453698F00174EB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		610FF8182453698F00174EB4 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		610FF82C2453823A00174EB4 /* AlbumRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRowController.swift; sourceTree = "<group>"; };
 		61335EE524161D75004B6303 /* UserModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelMock.swift; sourceTree = "<group>"; };
 		61335EE9241620CA004B6303 /* SignUpLoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLoginViewModelTests.swift; sourceTree = "<group>"; };
 		61335EEB241630BD004B6303 /* ShowingAllUserAlbumsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingAllUserAlbumsViewModelTest.swift; sourceTree = "<group>"; };
@@ -136,6 +200,8 @@
 		613783E6241F4A4C0061FD36 /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
 		613783E8241F4F3F0061FD36 /* SignUpUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUser.swift; sourceTree = "<group>"; };
 		613783EA241F5D600061FD36 /* CreateNewAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAlbum.swift; sourceTree = "<group>"; };
+		61434EF3244ED2A70043BE52 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		61434EFC244ED2A70043BE52 /* Image+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6158CEE8240E1D1D005B28CC /* libFirebaseAuth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseAuth.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6158CEEA240E1D24005B28CC /* libFirebaseCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6165BDB223FE655A008C1D72 /* ShowtimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowtimeTableViewController.swift; sourceTree = "<group>"; };
@@ -231,11 +297,13 @@
 		6184C221242E9C0000417CEF /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
 		6184C222242E9C0000417CEF /* XCTest.framework.coverage.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = XCTest.framework.coverage.txt; sourceTree = "<group>"; };
 		619082B02434CD0100416C34 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		61A04B9924542A8E006EB779 /* QRCodeInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeInterfaceController.swift; sourceTree = "<group>"; };
 		61A83733244CC88F00C7802D /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		61B90B3123FE468B00FB4AC4 /* ShowtimeResultOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowtimeResultOptions.swift; sourceTree = "<group>"; };
 		61BA5122243CB88000E1BACC /* TipsAndTricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsAndTricsViewController.swift; sourceTree = "<group>"; };
 		61BA5126243CB8CB00E1BACC /* TipsAndTricsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsAndTricsTableViewCell.swift; sourceTree = "<group>"; };
 		61BA5127243CB8CB00E1BACC /* TipsAndTricsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TipsAndTricsTableViewCell.xib; sourceTree = "<group>"; };
+		61F18361244ECE37006A9A9C /* SavedImages.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SavedImages.xcdatamodel; sourceTree = "<group>"; };
 		61F1FB6F23FBE10400A30934 /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
 		61F1FB7123FBE34100A30934 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		61F1FB7323FBE34E00A30934 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +334,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		610FF8072453698E00174EB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61F601B323ED1DA9008323F1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -305,6 +380,31 @@
 				2386C04A0B85D62CE6F4397E /* libPods-camshareTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		610FF7FF2453698B00174EB4 /* camshareWatch */ = {
+			isa = PBXGroup;
+			children = (
+				610FF8002453698B00174EB4 /* Interface.storyboard */,
+				610FF8032453698E00174EB4 /* Assets.xcassets */,
+				610FF8052453698E00174EB4 /* Info.plist */,
+			);
+			path = camshareWatch;
+			sourceTree = "<group>";
+		};
+		610FF80E2453698E00174EB4 /* camshareWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				610FF80F2453698E00174EB4 /* InterfaceController.swift */,
+				610FF82C2453823A00174EB4 /* AlbumRowController.swift */,
+				61A04B9924542A8E006EB779 /* QRCodeInterfaceController.swift */,
+				610FF8112453698E00174EB4 /* ExtensionDelegate.swift */,
+				610FF8132453698E00174EB4 /* NotificationController.swift */,
+				610FF8152453698F00174EB4 /* Assets.xcassets */,
+				610FF8172453698F00174EB4 /* Info.plist */,
+				610FF8182453698F00174EB4 /* PushNotificationPayload.apns */,
+			);
+			path = "camshareWatch Extension";
 			sourceTree = "<group>";
 		};
 		613783DE241F40740061FD36 /* Helpers */ = {
@@ -734,12 +834,24 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		61F18357244ECE1D006A9A9C /* Coredata */ = {
+			isa = PBXGroup;
+			children = (
+				61F18360244ECE37006A9A9C /* SavedImages.xcdatamodeld */,
+				61434EFC244ED2A70043BE52 /* Image+CoreDataClass.swift */,
+				61434EF3244ED2A70043BE52 /* Image+CoreDataProperties.swift */,
+			);
+			path = Coredata;
+			sourceTree = "<group>";
+		};
 		61F601AD23ED1DA9008323F1 = {
 			isa = PBXGroup;
 			children = (
 				61F601B823ED1DA9008323F1 /* camshare */,
 				61F601CF23ED1DAB008323F1 /* camshareTests */,
 				61F601DA23ED1DAB008323F1 /* camshareUITests */,
+				610FF7FF2453698B00174EB4 /* camshareWatch */,
+				610FF80E2453698E00174EB4 /* camshareWatch Extension */,
 				61F601B723ED1DA9008323F1 /* Products */,
 				EAC7155943D56AA88FE9670A /* Pods */,
 				143A4E9836D8D15FE6B176DE /* Frameworks */,
@@ -752,6 +864,8 @@
 				61F601B623ED1DA9008323F1 /* camshare.app */,
 				61F601CC23ED1DAB008323F1 /* camshareTests.xctest */,
 				61F601D723ED1DAB008323F1 /* camshareUITests.xctest */,
+				610FF7FE2453698B00174EB4 /* camshareWatch.app */,
+				610FF80A2453698E00174EB4 /* camshareWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -759,6 +873,7 @@
 		61F601B823ED1DA9008323F1 /* camshare */ = {
 			isa = PBXGroup;
 			children = (
+				61F18357244ECE1D006A9A9C /* Coredata */,
 				61B90B3323FE4B2700FB4AC4 /* ViewControllers */,
 				6181543C23F55D5100FCFD60 /* Views */,
 				61F601B923ED1DA9008323F1 /* AppDelegate.swift */,
@@ -824,6 +939,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		610FF7FD2453698B00174EB4 /* camshareWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 610FF82B2453698F00174EB4 /* Build configuration list for PBXNativeTarget "camshareWatch" */;
+			buildPhases = (
+				610FF7FC2453698B00174EB4 /* Resources */,
+				610FF81F2453698F00174EB4 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				610FF80D2453698E00174EB4 /* PBXTargetDependency */,
+			);
+			name = camshareWatch;
+			productName = camshareWatch;
+			productReference = 610FF7FE2453698B00174EB4 /* camshareWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		610FF8092453698E00174EB4 /* camshareWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 610FF82A2453698F00174EB4 /* Build configuration list for PBXNativeTarget "camshareWatch Extension" */;
+			buildPhases = (
+				610FF8062453698E00174EB4 /* Sources */,
+				610FF8072453698E00174EB4 /* Frameworks */,
+				610FF8082453698E00174EB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "camshareWatch Extension";
+			productName = "camshareWatch Extension";
+			productReference = 610FF80A2453698E00174EB4 /* camshareWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		61F601B523ED1DA9008323F1 /* camshare */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61F601E023ED1DAB008323F1 /* Build configuration list for PBXNativeTarget "camshare" */;
@@ -834,10 +983,12 @@
 				61F601B423ED1DA9008323F1 /* Resources */,
 				61DADB6023F3D8C5009E06E6 /* ShellScript */,
 				61A88A7E243AF5FE001E0711 /* ShellScript */,
+				610FF81C2453698F00174EB4 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				610FF81A2453698F00174EB4 /* PBXTargetDependency */,
 			);
 			name = camshare;
 			productName = camshare;
@@ -888,10 +1039,16 @@
 		61F601AE23ED1DA9008323F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = DVT;
 				TargetAttributes = {
+					610FF7FD2453698B00174EB4 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					610FF8092453698E00174EB4 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
 					61F601B523ED1DA9008323F1 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -935,6 +1092,8 @@
 				61F601B523ED1DA9008323F1 /* camshare */,
 				61F601CB23ED1DAB008323F1 /* camshareTests */,
 				61F601D623ED1DAB008323F1 /* camshareUITests */,
+				610FF7FD2453698B00174EB4 /* camshareWatch */,
+				610FF8092453698E00174EB4 /* camshareWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -999,6 +1158,23 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		610FF7FC2453698B00174EB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				610FF8042453698E00174EB4 /* Assets.xcassets in Resources */,
+				610FF8022453698B00174EB4 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		610FF8082453698E00174EB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				610FF8162453698F00174EB4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61F601B423ED1DA9008323F1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1131,6 +1307,18 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		610FF8062453698E00174EB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61A04B9A24542A8E006EB779 /* QRCodeInterfaceController.swift in Sources */,
+				610FF82D2453823A00174EB4 /* AlbumRowController.swift in Sources */,
+				610FF8142453698E00174EB4 /* NotificationController.swift in Sources */,
+				610FF8122453698E00174EB4 /* ExtensionDelegate.swift in Sources */,
+				610FF8102453698E00174EB4 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61F601B223ED1DA9008323F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1143,6 +1331,7 @@
 				6165BDB923FEA950008C1D72 /* MusicResult.swift in Sources */,
 				61F1FB7023FBE10400A30934 /* StartUpViewController.swift in Sources */,
 				61F601EA23ED1E7C008323F1 /* ColorConstraints.swift in Sources */,
+				61434EFD244ED2A70043BE52 /* Image+CoreDataProperties.swift in Sources */,
 				61F601EC23ED1EC5008323F1 /* UIViewExtentions.swift in Sources */,
 				61BA5123243CB88000E1BACC /* TipsAndTricsViewController.swift in Sources */,
 				6176C60C24090623008A8269 /* AlbumCell.swift in Sources */,
@@ -1152,6 +1341,8 @@
 				6181543E23F55D8900FCFD60 /* PhotoCell.swift in Sources */,
 				61F601BA23ED1DA9008323F1 /* AppDelegate.swift in Sources */,
 				6165BDB323FE655A008C1D72 /* ShowtimeTableViewController.swift in Sources */,
+				61F18362244ECE37006A9A9C /* SavedImages.xcdatamodeld in Sources */,
+				61434EFE244ED2A70043BE52 /* Image+CoreDataClass.swift in Sources */,
 				61F601BC23ED1DA9008323F1 /* SceneDelegate.swift in Sources */,
 				6165BDBB23FEACB0008C1D72 /* MusicRequest.swift in Sources */,
 				6165BDB523FE668A008C1D72 /* ShowtimeResultTableViewCell.swift in Sources */,
@@ -1187,6 +1378,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		610FF80D2453698E00174EB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 610FF8092453698E00174EB4 /* camshareWatch Extension */;
+			targetProxy = 610FF80C2453698E00174EB4 /* PBXContainerItemProxy */;
+		};
+		610FF81A2453698F00174EB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 610FF7FD2453698B00174EB4 /* camshareWatch */;
+			targetProxy = 610FF8192453698F00174EB4 /* PBXContainerItemProxy */;
+		};
 		61F601CE23ED1DAB008323F1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 61F601B523ED1DA9008323F1 /* camshare */;
@@ -1200,6 +1401,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		610FF8002453698B00174EB4 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				610FF8012453698B00174EB4 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		6184C1E4242E9C0000417CEF /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1235,6 +1444,98 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		610FF81D2453698F00174EB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = GLK7J5PP82;
+				IBSC_MODULE = camshareWatch_Extension;
+				INFOPLIST_FILE = camshareWatch/Info.plist;
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = za.co.dvt.camshare.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Debug;
+		};
+		610FF81E2453698F00174EB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = GLK7J5PP82;
+				IBSC_MODULE = camshareWatch_Extension;
+				INFOPLIST_FILE = camshareWatch/Info.plist;
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = za.co.dvt.camshare.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Release;
+		};
+		610FF8202453698F00174EB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = GLK7J5PP82;
+				INFOPLIST_FILE = "camshareWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = za.co.dvt.camshare.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Debug;
+		};
+		610FF8212453698F00174EB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = GLK7J5PP82;
+				INFOPLIST_FILE = "camshareWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = za.co.dvt.camshare.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Release;
+		};
 		61F601DE23ED1DAB008323F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1492,6 +1793,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		610FF82A2453698F00174EB4 /* Build configuration list for PBXNativeTarget "camshareWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				610FF8202453698F00174EB4 /* Debug */,
+				610FF8212453698F00174EB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		610FF82B2453698F00174EB4 /* Build configuration list for PBXNativeTarget "camshareWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				610FF81D2453698F00174EB4 /* Debug */,
+				610FF81E2453698F00174EB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		61F601B123ED1DA9008323F1 /* Build configuration list for PBXProject "camshare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1529,6 +1848,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		61F18360244ECE37006A9A9C /* SavedImages.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				61F18361244ECE37006A9A9C /* SavedImages.xcdatamodel */,
+			);
+			currentVersion = 61F18361244ECE37006A9A9C /* SavedImages.xcdatamodel */;
+			path = SavedImages.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 61F601AE23ED1DA9008323F1 /* Project object */;
 }

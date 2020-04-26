@@ -23,15 +23,53 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapOnView = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        self.view.addGestureRecognizer(tapOnView)
         loginViewModel.view = self // inject property
         loginViewModel.repo = LoginDataSource() // inject property
         errorLabel.alpha = 0
         acitivityIndicator.isHidden = true
         customizeButtons()
+        checkUserCurrentlyLoggedIn()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardsWillChange(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardsWillChange(notification:)),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardsWillChange(notification:)),
+                                               name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification,
+                                                  object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification,
+                                                  object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification,
+                                                  object: nil)
+    }
+
+    @objc func keyboardsWillChange(notification: Notification) {
+        print("Keyboard will show \(notification.name.rawValue)")
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey]
+            as? NSValue)?.cgRectValue else {return}
+
+        if notification.name == UIResponder.keyboardWillShowNotification ||
+            notification.name == UIResponder.keyboardWillChangeFrameNotification {
+            view.frame.origin.y = -keyboardRect.height + 200
+        } else {
+            view.frame.origin.y = 0
+        }
     }
 
     @IBAction func crashButtonTapped(_ sender: AnyObject) {
         Crashlytics.sharedInstance().crash()
+    }
+
+    func checkUserCurrentlyLoggedIn() {
+        if Auth.auth().currentUser?.uid != nil {
+            readyForNavigation()
+            navigateToAlbumsScreen()
+        }
     }
 
     @IBAction func loginButtonTapped(_ sender: Any) {
@@ -55,6 +93,11 @@ class LoginViewController: UIViewController {
         }
     }
 
+    @objc func dismissKeyboard() {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+
     func customizeButtons() {
         styleButton(button: loginButton, colorOne: Colors.csBlue, colorTwo: Colors.csLightBlue)
     }
@@ -75,7 +118,6 @@ extension LoginViewController: LoginViewProtocol {
     }
 
     func navigateToAlbumsScreen() {
-        print("Navigate Now")
         transitionToHome()
     }
 

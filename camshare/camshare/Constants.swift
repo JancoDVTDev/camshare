@@ -13,5 +13,6 @@ struct Constants {
     struct Storyboard {
         // static - access this without having to create instances of the structure
         static let homeViewController = "HomeVC"
+        static let startUpViewController = "StartUpVC"
     }
 }

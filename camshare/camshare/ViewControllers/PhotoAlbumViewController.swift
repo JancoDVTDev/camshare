@@ -10,13 +10,15 @@ import UIKit
 import camPod
 import FirebaseAuth
 import AVFoundation
+import CoreImage
+import WatchConnectivity
 
 var selectedAlbumIndex: Int = 0
 public protocol albumSelectionProtocol {
     func didSelectAlbum(albumImages: [UIImage])
 }
 
-class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDelegate {
+class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDelegate, WCSessionDelegate {
 
     // MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
@@ -27,6 +29,9 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
     // MARK: New Properties MVP and Protocols
     var albumsCollectionViewSource = [SingleAlbum]()
     var userAlbumIDs = [String]()
+    var session: WCSession?
+    var watchData = [String: String]()
+    var qrCodes = [Data]()
 
     let albumViewModel = AlbumViewModel()
 
@@ -60,8 +65,22 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         target: self, action: #selector(addTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
                                                             target: self, action: #selector(editTapped))
-
+        configureWatchKitSession()
         albumViewModel.loadAlbums()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        if isViewLoaded {
+            albumViewModel.loadAlbums()
+        }
+    }
+
+    func configureWatchKitSession() {
+        if WCSession.isSupported() {
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
+        }
     }
 
     //swiftlint:disable all
@@ -105,7 +124,7 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
                 self.trackAnalytics.log(name: NameConstants.cancelExisting, parameters: nil)
                 alert.dismiss(animated: true, completion: nil)
             }))
-            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak alert](_) in
+            alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak alert](_) in
                 self.trackAnalytics.log(name: NameConstants.saveExisting, parameters: nil)
                 let existingAlbumID = alert?.textFields![0].text
                 if let existingAlbumID = existingAlbumID {
@@ -124,10 +143,12 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         let signOut = UIAlertAction(title: "Sign Out", style: .destructive) { (_) in
             do {
                 try Auth.auth().signOut()
-                exit(0)
             } catch {
-                print("Error Signing out")
+                let alert = UIAlertController(title: "Error", message: "Cannot Sign Out", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
+            self.transitionToStartUp()
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
@@ -140,6 +161,15 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         actionSheet.addAction(signOut)
         actionSheet.addAction(cancelAction)
         self.present(actionSheet, animated: true, completion: nil)
+    }
+
+    func transitionToStartUp() {
+        DispatchQueue.main.async {
+            let startUpViewController = self.storyboard?.instantiateViewController(identifier:
+                Constants.Storyboard.startUpViewController)
+            self.view.window?.rootViewController = startUpViewController
+            self.view.window?.makeKeyAndVisible()
+        }
     }
 
     @objc func editTapped() {
@@ -245,6 +275,28 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         }))
         present(alert, animated: true)
     }
+
+    func sessionDidBecomeInactive(_ session: WCSession) {
+    }
+
+    func sessionDidDeactivate(_ session: WCSession) {
+    }
+
+    func session(_ session: WCSession,
+                 activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+    }
+
+    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+        // call refreshFunction
+    }
+
+    func populateWatchDataDictionary() {
+        for album in albumsCollectionViewSource {
+            guard let qrImage = generateQRCode(from: album.albumID) else {return}
+            qrCodes.append(qrImage.jpegData(compressionQuality: 1)!)
+            watchData[album.name] = album.dateCreated
+        }
+    }
 }
 // MARK: Flow layout delegate
 
@@ -334,6 +386,12 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
         }
         //swiftlint:enable all
     }
+
+    func loadSavedImages(imagePaths: [String],
+                         _ completion: @escaping (_ cachedPhotoModels: [PhotoModel],
+        _ imagePathsToUpdate: [String]) -> Void) {
+
+    }
 }
 extension PhotoAlbumViewController: AlbumViewProtocol {
     func updateAlbumCollectionViewSource(singleAlbums: [SingleAlbum]) {
@@ -346,6 +404,18 @@ extension PhotoAlbumViewController: AlbumViewProtocol {
 
     func setAlbumCollectionViewSource(singleAlbums: [SingleAlbum]) {
         albumsCollectionViewSource = singleAlbums
+        populateWatchDataDictionary()
+        if let validSession = self.session, validSession.isReachable {
+            let data = ["Albums": watchData]
+            validSession.sendMessage(data, replyHandler: nil, errorHandler: nil)
+        } else {
+            print("Session not working")
+        }
+
+        if let validSession = self.session, validSession.isReachable {
+            let data = ["ImageCodes": qrCodes]
+            validSession.sendMessage(data, replyHandler: nil, errorHandler: nil)
+        }
     }
 
     func didFinishLoading() {
@@ -365,4 +435,20 @@ extension PhotoAlbumViewController: AlbumViewProtocol {
     func updateAlbumCollectionView() {
         collectionView.reloadData()
     }
+
+    func generateQRCode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            let transform = CGAffineTransform(scaleX: 3, y: 3)
+
+            if let output = filter.outputImage?.transformed(by: transform) {
+                return UIImage(ciImage: output)
+            }
+        }
+        return nil
+    }
+//swiftlint:disable all
 }
+//swiftlint:enable all
