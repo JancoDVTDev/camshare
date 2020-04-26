@@ -24,19 +24,41 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var gmailSignUp: UIButton!
 
     let signUpViewModel = SignUpViewModel()
+    var textFieldsCollection = [UITextField]()
+    var originalY = CGFloat()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapOnView = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        self.view.addGestureRecognizer(tapOnView)
         errorLabel.alpha = 0
         customizeButtons()
         acitivityIndicator.isHidden = true
 
         signUpViewModel.repo = SignUpDataSource()
         signUpViewModel.view = self
+
+        textFieldsCollection = [firstNameTextField, lastNameTextField,
+                                emailTextField, passwordTextField]
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardsWillChange(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardsWillChange(notification:)),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardsWillChange(notification:)),
+                                               name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification,
+                                                  object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification,
+                                                  object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification,
+                                                  object: nil)
     }
 
     @IBAction func signUpButtonTapped(_ sender: Any) {
-        //Create cleaned versions of the data
         let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -54,6 +76,25 @@ class SignUpViewController: UIViewController {
             Constants.Storyboard.homeViewController) as? UINavigationController
         view.window?.rootViewController = photoAlbumViewController
         view.window?.makeKeyAndVisible()
+    }
+
+    @objc func dismissKeyboard() {
+        firstNameTextField.resignFirstResponder()
+        lastNameTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+
+    @objc func keyboardsWillChange(notification: Notification) {
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey]
+            as? NSValue)?.cgRectValue else {return}
+
+        if notification.name == UIResponder.keyboardWillShowNotification ||
+            notification.name == UIResponder.keyboardWillChangeFrameNotification {
+            view.frame.origin.y = -keyboardRect.height + 110
+        } else {
+            view.frame.origin.y = 0
+        }
     }
 
     func styleButton(button: UIButton?, colorOne: UIColor, colorTwo: UIColor) {
@@ -80,7 +121,6 @@ extension SignUpViewController: SignUpViewProtocol {
     }
 
     func navigateToAlbumsScreen() {
-        print("Signed UP Nav to Albums")
         transitionToHome()
     }
 

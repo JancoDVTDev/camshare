@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class StartUpViewController: UIViewController {
 
@@ -15,8 +16,24 @@ class StartUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        isUserLoggedIn()
         customizeButtons()
         // Do any additional setup after loading the view.
+    }
+
+    func isUserLoggedIn() {
+        if Auth.auth().currentUser?.uid != nil {
+            transitionToHome()
+        }
+    }
+
+    func transitionToHome() {
+        DispatchQueue.main.async {
+            let photoAlbumViewController = self.storyboard?.instantiateViewController(identifier:
+                Constants.Storyboard.homeViewController) as? UINavigationController
+            self.view.window?.rootViewController = photoAlbumViewController
+            self.view.window?.makeKeyAndVisible()
+        }
     }
 
     func styleButton(button: UIButton?, colorOne: UIColor, colorTwo: UIColor) {

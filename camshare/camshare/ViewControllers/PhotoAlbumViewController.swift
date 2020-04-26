@@ -69,6 +69,12 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         albumViewModel.loadAlbums()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        if isViewLoaded {
+            albumViewModel.loadAlbums()
+        }
+    }
+
     func configureWatchKitSession() {
         if WCSession.isSupported() {
             session = WCSession.default
@@ -118,7 +124,7 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
                 self.trackAnalytics.log(name: NameConstants.cancelExisting, parameters: nil)
                 alert.dismiss(animated: true, completion: nil)
             }))
-            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak alert](_) in
+            alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak alert](_) in
                 self.trackAnalytics.log(name: NameConstants.saveExisting, parameters: nil)
                 let existingAlbumID = alert?.textFields![0].text
                 if let existingAlbumID = existingAlbumID {
@@ -138,8 +144,11 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
             do {
                 try Auth.auth().signOut()
             } catch {
-                print("Error Signing out")
+                let alert = UIAlertController(title: "Error", message: "Cannot Sign Out", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
+            self.transitionToStartUp()
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
@@ -152,6 +161,15 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         actionSheet.addAction(signOut)
         actionSheet.addAction(cancelAction)
         self.present(actionSheet, animated: true, completion: nil)
+    }
+
+    func transitionToStartUp() {
+        DispatchQueue.main.async {
+            let startUpViewController = self.storyboard?.instantiateViewController(identifier:
+                Constants.Storyboard.startUpViewController)
+            self.view.window?.rootViewController = startUpViewController
+            self.view.window?.makeKeyAndVisible()
+        }
     }
 
     @objc func editTapped() {
