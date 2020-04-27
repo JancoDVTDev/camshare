@@ -17,9 +17,9 @@ var selectedAlbumIndex: Int = 0
 public protocol albumSelectionProtocol {
     func didSelectAlbum(albumImages: [UIImage])
 }
-
+//swiftlint:disable all
 class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDelegate, WCSessionDelegate {
-
+//swiftlint:enable all
     // MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -52,6 +52,43 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
     var albumViewModelOLD = AlbumViewModelOLD()
     let allUserAlbums = ShowingAllUserAlbumsViewModel()
     var userAlbumNames = [String]()
+
+    lazy var selectBarButtonItem: UIBarButtonItem = {
+        let barbuttonItem = UIBarButtonItem(title: "Select", style: .plain, target: self,
+                                            action: #selector(self.tappedSelectButton(_:)))
+        return barbuttonItem
+    }()
+
+    lazy var deleteBarButtonItem: UIBarButtonItem = {
+        let barbuttonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self,
+                                            action: #selector(self.tappedDeleteButton(_:)))
+        barbuttonItem.tintColor = .systemRed
+        return barbuttonItem
+    }()
+
+    var selectedIndexPathDictionary: [IndexPath: Bool] = [:]
+
+    var mode: CurrentMode = .view {
+        didSet {
+            switch mode {
+            case .view:
+                for (key, value) in selectedIndexPathDictionary where value {
+                    collectionView.deselectItem(at: key, animated: true)
+                }
+
+                selectedIndexPathDictionary.removeAll()
+
+                selectBarButtonItem.title = "Select"
+                navigationItem.rightBarButtonItems = [selectBarButtonItem]
+                collectionView.allowsMultipleSelection = false
+            case .select:
+                selectBarButtonItem.title = "Cancel"
+                navigationItem.rightBarButtonItems = [selectBarButtonItem, deleteBarButtonItem]
+                collectionView.allowsMultipleSelection = true
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,9 +99,9 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         albumViewModel.repo = AlbumDataSource()
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
-        target: self, action: #selector(addTapped))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
-                                                            target: self, action: #selector(editTapped))
+                                                           target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem = selectBarButtonItem
+
         configureWatchKitSession()
         albumViewModel.loadAlbums()
     }
@@ -81,6 +118,44 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
             session?.delegate = self
             session?.activate()
         }
+    }
+
+    @objc func tappedSelectButton(_ sender: AnyObject) {
+        mode = mode == .view ? .select: .view
+    }
+
+    @objc func tappedDeleteButton(_ sender: AnyObject) {
+        let alert = UIAlertController(title: "Delete Album ?",
+                                      message: "Does not effect other members of the album",
+                                      preferredStyle: .actionSheet)
+
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+            var deleteIndexPaths = [IndexPath]()
+            var deleteAlbumIDs = [String]()
+            for (key, value) in self.selectedIndexPathDictionary where value {
+                deleteIndexPaths.append(key)
+                deleteAlbumIDs.append(self.albumsCollectionViewSource[key.item].albumID)
+            }
+
+            for albumID in deleteAlbumIDs {
+                self.userAlbumIDs.removeAll { $0 == albumID } // send in the viewmodel function
+            }
+
+            for index in deleteIndexPaths.sorted(by: { $0.item > $1.item }) {
+                self.albumsCollectionViewSource.remove(at: index.item)
+            }
+
+            self.collectionView.deleteItems(at: deleteIndexPaths)
+
+            self.albumViewModel.deleteAlbums(updatedAlbumIDs: self.userAlbumIDs)
+            self.selectedIndexPathDictionary.removeAll()
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
 
     //swiftlint:disable all
@@ -235,7 +310,6 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
             captureSession.stopRunning()
             previewLayer.removeFromSuperlayer()
         }
-
         dismiss(animated: true)
     }
 
@@ -261,10 +335,10 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
             print("Being Deleted: \(String(describing: self.currentUser?.albumIDs[self.selectedIndexForEditing]))")
             self.albumViewModelOLD.deleteAlbum(albumIDs: self.currentUser!.albumIDs,
-                                            selectedAlbumIndex: self.selectedIndexForEditing) { (updatedAlbumIDs) in
-                self.currentUser?.albumIDs = updatedAlbumIDs
-                self.albums.remove(at: self.selectedIndexForEditing)
-                self.collectionView.reloadData()
+                                               selectedAlbumIndex: self.selectedIndexForEditing) { (updatedAlbumIDs) in
+                                                self.currentUser?.albumIDs = updatedAlbumIDs
+                                                self.albums.remove(at: self.selectedIndexForEditing)
+                                                self.collectionView.reloadData()
             }
         }))
 
@@ -323,37 +397,29 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
         //swiftlint:disable all
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCell", for: indexPath) as! AlbumCell
         //swiftlint:enable all
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self,
-                                                          action: #selector(PhotoAlbumViewController.tap(_:)))
-
-        let editTapGesture = UITapGestureRecognizer(target: self,
-                                                    action: #selector(PhotoAlbumViewController.selectToEdit(_:)))
         cell.imageView.isUserInteractionEnabled = true
         cell.imageView.tag = indexPath.row
-        if isEditingAlbums {
-            cell.imageView.addGestureRecognizer(editTapGesture)
-            if self.isCellSelected {
-                if cell.imageView.tag == selectedIndexForEditing {
-                    cell.imageView.alpha = 1
-                    print("Interrupt To Delete")
-                    self.isCellSelected = false
-                    self.presentDeleteActionSheet()
-                }
-            }
-
-            if (isEditingAlbums) && !(isCellSelected) {
-                cell.imageView.alpha = 0.5
-            }
-        } else {
-            cell.imageView.alpha = 1
-            cell.imageView.addGestureRecognizer(tapGestureRecognizer)
-        }
-
-        print("try to load albums")
         let image = albumsCollectionViewSource[indexPath.item].thumbnail
         cell.imageView.image = image
         cell.albumNameLabel.text = albumsCollectionViewSource[indexPath.item].name
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch mode {
+        case .view:
+            collectionView.deselectItem(at: indexPath, animated: true)
+            selectedIndex = indexPath.item
+            performSegue(withIdentifier: "loadAlbum", sender: self)
+        case .select:
+            selectedIndexPathDictionary[indexPath] = true
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if mode == .select {
+            selectedIndexPathDictionary[indexPath] = false
+        }
     }
 
     @IBAction func selectToEdit(_ sender: AnyObject) {
@@ -364,9 +430,8 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
     }
 
     @IBAction func tap(_ sender: AnyObject) {
-        print("ViewController tap() Clicked Item: \(sender.view.tag)")
-        self.selectedIndex = sender.view.tag
-        performSegue(withIdentifier: "loadAlbum", sender: self)
+        //        self.selectedIndex = sender.view.tag
+        //        performSegue(withIdentifier: "loadAlbum", sender: self)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -377,10 +442,6 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
             photosViewController.albumID = self.albumsCollectionViewSource[self.selectedIndex].albumID
             photosViewController.userImagePaths = self.albumsCollectionViewSource[self.selectedIndex].imagePaths
             photosViewController.albumName = self.albumsCollectionViewSource[self.selectedIndex].name
-//            let singleAlbumViewControllerObjC = segue.destination as! SingleAlbumObjCViewController
-//            singleAlbumViewControllerObjC.albumID = self.albums[self.selectedIndex].albumID
-//            singleAlbumViewControllerObjC.imagePathReferences = self.albums[selectedIndex].imagePaths
-//            singleAlbumViewControllerObjC.albumName = self.albums[selectedIndex].name
         } else {
             print("Other segue runs")
         }
@@ -449,6 +510,11 @@ extension PhotoAlbumViewController: AlbumViewProtocol {
         }
         return nil
     }
-//swiftlint:disable all
+
+}
+enum CurrentMode {
+    case view
+    case select
+    //swiftlint:disable all
 }
 //swiftlint:enable all

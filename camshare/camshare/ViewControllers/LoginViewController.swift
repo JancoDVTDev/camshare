@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
 
         if notification.name == UIResponder.keyboardWillShowNotification ||
             notification.name == UIResponder.keyboardWillChangeFrameNotification {
-            view.frame.origin.y = -keyboardRect.height + 200
+            view.frame.origin.y = -keyboardRect.height + 300
         } else {
             view.frame.origin.y = 0
         }
