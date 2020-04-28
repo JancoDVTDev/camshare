@@ -32,7 +32,11 @@
                                 </tableRow>
                             </items>
                         </table>
-                        <button width="1" alignment="left" title="Refresh" id="swq-LQ-KOe"/>
+                        <button width="1" alignment="left" title="Refresh" id="swq-LQ-KOe">
+                            <connections>
+                                <action selector="tappedRefreshButton" destination="AgC-eL-Hgc" id="R0v-HJ-wsL"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
                         <outlet property="albumsTable" destination="YuO-Sb-DNq" id="2OD-T9-BOH"/>
