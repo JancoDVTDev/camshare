@@ -66,6 +66,13 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         return barbuttonItem
     }()
 
+    lazy var profileBarButtonItem: UIBarButtonItem = {
+        let barbuttonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"),
+                                            style: .plain, target: self,
+                                            action: #selector(self.tappedProfileButton(_:)))
+        return barbuttonItem
+    }()
+
     var selectedIndexPathDictionary: [IndexPath: Bool] = [:]
 
     var mode: CurrentMode = .view {
@@ -79,11 +86,11 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
                 selectedIndexPathDictionary.removeAll()
 
                 selectBarButtonItem.title = "Select"
-                navigationItem.rightBarButtonItems = [selectBarButtonItem]
+                navigationItem.rightBarButtonItems = [profileBarButtonItem, selectBarButtonItem]
                 collectionView.allowsMultipleSelection = false
             case .select:
                 selectBarButtonItem.title = "Cancel"
-                navigationItem.rightBarButtonItems = [selectBarButtonItem, deleteBarButtonItem]
+                navigationItem.rightBarButtonItems = [deleteBarButtonItem, selectBarButtonItem]
                 collectionView.allowsMultipleSelection = true
             }
         }
@@ -100,7 +107,7 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                            target: self, action: #selector(addTapped))
-        navigationItem.rightBarButtonItem = selectBarButtonItem
+        navigationItem.rightBarButtonItems = [profileBarButtonItem, selectBarButtonItem]
 
         configureWatchKitSession()
         albumViewModel.loadAlbums()
@@ -118,6 +125,27 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
             session?.delegate = self
             session?.activate()
         }
+    }
+
+    @objc func tappedProfileButton(_ sender: AnyObject) {
+        let actionSheet = UIAlertController(title: "Confirm", message: nil, preferredStyle: .actionSheet)
+
+        let actionSignout = UIAlertAction(title: "Sign Out", style: .destructive) { (_) in
+            do {
+                try Auth.auth().signOut()
+            } catch {
+                let alert = UIAlertController(title: "Error", message: "Cannot Sign Out", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            self.transitionToStartUp()
+        }
+
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        actionSheet.addAction(actionSignout)
+        actionSheet.addAction(actionCancel)
+        present(actionSheet, animated: true, completion: nil)
     }
 
     @objc func tappedSelectButton(_ sender: AnyObject) {
@@ -215,17 +243,6 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
             self.captureQRCode()
         }
 
-        let signOut = UIAlertAction(title: "Sign Out", style: .destructive) { (_) in
-            do {
-                try Auth.auth().signOut()
-            } catch {
-                let alert = UIAlertController(title: "Error", message: "Cannot Sign Out", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
-            self.transitionToStartUp()
-        }
-
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
             self.trackAnalytics.log(name: NameConstants.cancelAdd, parameters: nil)
         }
@@ -233,7 +250,6 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
         actionSheet.addAction(createNewAction)
         actionSheet.addAction(scanQRCode)
         actionSheet.addAction(existingAlbumAction)
-        actionSheet.addAction(signOut)
         actionSheet.addAction(cancelAction)
         self.present(actionSheet, animated: true, completion: nil)
     }
@@ -361,7 +377,7 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
     }
 
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
-        // call refreshFunction
+
     }
 
     func populateWatchDataDictionary() {
@@ -427,11 +443,6 @@ extension PhotoAlbumViewController: UICollectionViewDataSource {
         isCellSelected = true
         collectionView.reloadData()
         print("Finished loading - Present popup")
-    }
-
-    @IBAction func tap(_ sender: AnyObject) {
-        //        self.selectedIndex = sender.view.tag
-        //        performSegue(withIdentifier: "loadAlbum", sender: self)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

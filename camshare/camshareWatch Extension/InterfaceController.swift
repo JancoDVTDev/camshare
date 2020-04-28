@@ -16,6 +16,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     @IBOutlet var albumsTable: WKInterfaceTable!
 
     let session = WCSession.default
+    var requestSession: WCSession?
     var tableGroupData = [String: String]()
     var albumNames = [String]()
     var qrCodes = [UIImage]()
@@ -28,6 +29,13 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
 
         session.delegate = self
         session.activate()
+    }
+
+    @IBAction func tappedRefreshButton() {
+        if let validSession = self.requestSession, validSession.isReachable {
+            let data = ["Request": "Update"]
+            validSession.sendMessage(data, replyHandler: nil, errorHandler: nil)
+        }
     }
 
     func loadTable() {
@@ -62,7 +70,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
 
     func session(_ session: WCSession,
                  activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-
     }
 
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
