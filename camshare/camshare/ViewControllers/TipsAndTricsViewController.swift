@@ -20,6 +20,8 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
     var tipsAndTricksContent = [TipsAndTricksModel]()
     var youtubeTipsCodeKeys = [String]()
     var youtubeTipsSource = [YoutubeTipsModel]()
+    var ratingsSource = [RatingModel]()
+    var ratingNumbers = [Any]()
     var selectedSegment = 0
 
     var tipsAndTricksViewModel = TipsAndTricsViewModel()
@@ -36,6 +38,7 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
 
         tipsAndTricksViewModel.view = self
         tipsAndTricksViewModel.getRepo = camshareAPIGet()
+        tipsAndTricksViewModel.postRepo = CamshareAPIPOST()
         tipsAndTricksViewModel.youtubeRepo = YoutubeDataAPI()
 
         if self.traitCollection.userInterfaceStyle == .light {
@@ -100,6 +103,19 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
             cell.currentRatingImageView.isUserInteractionEnabled = true
             cell.currentRatingImageView.tag = indexPath.item
             cell.currentRatingImageView.addGestureRecognizer(currentRatingTap)
+
+            switch ratingsSource[indexPath.item].overallRating {
+            case 1:
+                cell.currentRatingImageView.image = UIImage(named: "very bad")!
+            case 2:
+                cell.currentRatingImageView.image = UIImage(named: "bad")!
+            case 3:
+                cell.currentRatingImageView.image = UIImage(named: "okay")!
+            case 4:
+                cell.currentRatingImageView.image = UIImage(named: "good")!
+            default:
+                cell.currentRatingImageView.image = UIImage(named: "very good")!
+            }
         }
 
         if selectedSegment == 1 {
@@ -144,13 +160,17 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    }
+
     @IBAction func veryBadRatingTapped(_ sender: AnyObject) {
         let indexPath = NSIndexPath(row: sender.view.tag, section: 0)
         if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
             //swiftlint:disable all
             let currentCell = cell as! TipsAndTricsTableViewCell
             //swiftlint:enable all
-            currentCell.currentRatingImageView.image = UIImage(named: "very bad")
+            tipsAndTricksViewModel.postRepo?.postRating(ratingID: (indexPath.item + 1), rating: 1, { (_, _) in })
             currentCell.animateRatings()
             tableView.reloadData()
         }
@@ -162,7 +182,7 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
             //swiftlint:disable all
             let currentCell = cell as! TipsAndTricsTableViewCell
             //swiftlint:enable all
-            currentCell.currentRatingImageView.image = UIImage(named: "bad")
+            tipsAndTricksViewModel.postRepo?.postRating(ratingID: (indexPath.item + 1), rating: 2, { (_, _) in })
             currentCell.animateRatings()
             tableView.reloadData()
         }
@@ -174,7 +194,7 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
             //swiftlint:disable all
             let currentCell = cell as! TipsAndTricsTableViewCell
             //swiftlint:enable all
-            currentCell.currentRatingImageView.image = UIImage(named: "okay")
+            tipsAndTricksViewModel.postRepo?.postRating(ratingID: (indexPath.item + 1), rating: 3, { (_, _) in })
             currentCell.animateRatings()
             tableView.reloadData()
         }
@@ -186,7 +206,7 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
             //swiftlint:disable all
             let currentCell = cell as! TipsAndTricsTableViewCell
             //swiftlint:enable all
-            currentCell.currentRatingImageView.image = UIImage(named: "good")
+            tipsAndTricksViewModel.postRepo?.postRating(ratingID: (indexPath.item + 1), rating: 4, { (_, _) in })
             currentCell.animateRatings()
             tableView.reloadData()
         }
@@ -198,7 +218,7 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
             //swiftlint:disable all
             let currentCell = cell as! TipsAndTricsTableViewCell
             //swiftlint:enable all
-            currentCell.currentRatingImageView.image = UIImage(named: "very good")
+            tipsAndTricksViewModel.postRepo?.postRating(ratingID: (indexPath.item + 1), rating: 5, { (_, _) in })
             currentCell.animateRatings()
             tableView.reloadData()
         }
@@ -269,6 +289,11 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
     }
 }
 extension TipsAndTricsViewController: TipsAndTricksViewType {
+    func updateRatings(ratings: [RatingModel]) {
+        ratingsSource = ratings
+
+    }
+
     func updateTableViewYoutubeSource(youtubeTipsModels: [YoutubeTipsModel]) {
         youtubeTipsSource = youtubeTipsModels
     }
