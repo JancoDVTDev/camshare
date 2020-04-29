@@ -1,18 +1,16 @@
 # Camshare
 
 ## About
-Camshare is a mobile application developed for iOS devices. The purpose of the app is to give users a platform to make groups with their friends to share photos. Camshare is equipped with a camera that allows a user to add photos to a group by directly taking pictures with the built in camera.
+Camshare is a mobile application developed for iOS devices. The purpose of the app is to give users a platform to make albums on the app to share with their friends. Camshare is equipped with a camera that allows a user to add photos to a group by directly taking pictures with the built in camera.
 
-## Users and Accounts
-Users will be able to create new accounts using google firebase as the account provider OR sign up/sign in with their facebook or gmail accounts.
+## Users
+In order to keep the user's data in a save place they will have to create an account to use the app. Once an account is created theu won't have to sign in again.
 
-Each user will have the ability to create groups, ivite their friends or join another group by reading a QR code or accepting an ivitation link shared via Whatsapp email or any other messaging platform.
 
-**Expected Features:**
--  Camera that allows realtime editing.
--  Viewing Albums as a collection.
--  Allowing Camshare to create video presentations of an album with music backgrounds within the app.
--  Spotifi API to accomodate video presentations
+
+## Firstly - Create an album
+
+
 
 **Background Operations:**
 -  The github repository is added to Bitrise, this will allow the app to be build and tested by the bitrise build server.
@@ -24,5 +22,5 @@ Each user will have the ability to create groups, ivite their friends or join an
 ###### Badges
 
 [![Build Status](https://app.bitrise.io/app/f5ef16cbcd43fa3b/status.svg?token=l9zpYE6QPNcmWmfvOyNAAg)](https://app.bitrise.io/app/f5ef16cbcd43fa3b)
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/53d2304155fb4b9e87b254ce205bcade)](https://www.codacy.com/manual/JancoDVTDev/camshare?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JancoDVTDev/camshare&amp;utm_campaign=Badge_Grade)
+[![codecov](https://codecov.io/gh/JancoDVTDev/camshare/branch/master/graph/badge.svg)](https://codecov.io/gh/JancoDVTDev/camshare)
