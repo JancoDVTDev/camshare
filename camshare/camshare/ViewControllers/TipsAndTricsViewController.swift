@@ -32,10 +32,6 @@ class TipsAndTricsViewController: UIViewController, UITableViewDelegate, UITable
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
-                                                            target: self,
-                                                            action: #selector(self.tapSendTipsToWatch(_:)))
-
         tipsAndTricksViewModel.view = self
         tipsAndTricksViewModel.getRepo = camshareAPIGet()
         tipsAndTricksViewModel.postRepo = CamshareAPIPOST()

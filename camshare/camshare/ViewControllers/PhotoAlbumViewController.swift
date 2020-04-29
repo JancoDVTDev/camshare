@@ -18,7 +18,7 @@ public protocol albumSelectionProtocol {
     func didSelectAlbum(albumImages: [UIImage])
 }
 //swiftlint:disable all
-class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDelegate, WCSessionDelegate {
+class PhotoAlbumViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, WCSessionDelegate {
 //swiftlint:enable all
     // MARK: OUTLETS
     @IBOutlet weak var collectionView: UICollectionView!
@@ -36,7 +36,7 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
     let albumViewModel = AlbumViewModel()
 
     // MARK: Properties
-    var currentUser: camPod.User?
+    var currentUser: camPod.UserCampod?
     var albums = [SingleAlbum]()
     var selectedIndex = 0
     var captureSession: AVCaptureSession!
@@ -49,7 +49,7 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
     var userAlbums = [[UIImage]]()
     var isNewUser = true
 
-    var albumViewModelOLD = AlbumViewModelOLD()
+    //var albumViewModelOLD = AlbumViewModelOLD()
     let allUserAlbums = ShowingAllUserAlbumsViewModel()
     var userAlbumNames = [String]()
 
@@ -346,24 +346,24 @@ class PhotoAlbumViewController: ViewController, AVCaptureMetadataOutputObjectsDe
     }
 
     public func presentDeleteActionSheet() {
-        let alert = UIAlertController(title: "Edit Album", message: "Choose an option", preferredStyle: .actionSheet)
-
-        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
-            print("Being Deleted: \(String(describing: self.currentUser?.albumIDs[self.selectedIndexForEditing]))")
-            self.albumViewModelOLD.deleteAlbum(albumIDs: self.currentUser!.albumIDs,
-                                               selectedAlbumIndex: self.selectedIndexForEditing) { (updatedAlbumIDs) in
-                                                self.currentUser?.albumIDs = updatedAlbumIDs
-                                                self.albums.remove(at: self.selectedIndexForEditing)
-                                                self.collectionView.reloadData()
-            }
-        }))
-
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(_) in
-            self.isEditingAlbums = false
-            self.isCellSelected = false
-            self.collectionView.reloadData()
-        }))
-        present(alert, animated: true)
+//        let alert = UIAlertController(title: "Edit Album", message: "Choose an option", preferredStyle: .actionSheet)
+//
+//        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
+//            print("Being Deleted: \(String(describing: self.currentUser?.albumIDs[self.selectedIndexForEditing]))")
+//            self.albumViewModelOLD.deleteAlbum(albumIDs: self.currentUser!.albumIDs,
+//                                               selectedAlbumIndex: self.selectedIndexForEditing) { (updatedAlbumIDs) in
+//                                                self.currentUser?.albumIDs = updatedAlbumIDs
+//                                                self.albums.remove(at: self.selectedIndexForEditing)
+//                                                self.collectionView.reloadData()
+//            }
+//        }))
+//
+//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(_) in
+//            self.isEditingAlbums = false
+//            self.isCellSelected = false
+//            self.collectionView.reloadData()
+//        }))
+//        present(alert, animated: true)
     }
 
     func sessionDidBecomeInactive(_ session: WCSession) {

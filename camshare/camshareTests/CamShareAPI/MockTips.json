@@ -1,0 +1,15 @@
+{
+"tips": [
+    {
+        "tipID": 1,
+        "body": "Both the iPhone 11 and 11 Pro have new ultra-wide cameras on the back. The 12-megapixel (f/2.2) camera is equivalent to a 13mm DSLR lens and has a 120-degree field of view, which is capable of fitting A LOT more in a shot.",
+        "heading": "Go ultra wide",
+        "status": "New"
+    },
+    {
+        "tipID": 2,
+        "body": "The ultra-wide camera also works for panoramas. Ultra-wide panoramas are way more distorted than with the wide lens, but, hey, if you want to do it, you can.",
+        "heading": "Ultra-wide panoramas",
+        "status": "New"
+    }]
+]

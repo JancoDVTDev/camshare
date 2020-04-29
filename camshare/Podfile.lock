@@ -138,14 +138,30 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - OHHTTPStubs/Core (9.0.0)
+  - OHHTTPStubs/Default (9.0.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (9.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (9.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (9.0.0)
+  - OHHTTPStubs/Swift (9.0.0):
+    - OHHTTPStubs/Default
   - PromisesObjC (1.2.8)
   - Protobuf (3.11.4)
+  - Swinject (2.7.1)
 
 DEPENDENCIES:
   - camPod (from `/Users/jerasmus/Desktop/camshareFramework/camPod`)
   - Crashlytics (~> 3.14.0)
   - Fabric (~> 1.10.2)
   - Firebase/Performance
+  - OHHTTPStubs/Swift
+  - Swinject
 
 SPEC REPOS:
   trunk:
@@ -174,8 +190,10 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - OHHTTPStubs
     - PromisesObjC
     - Protobuf
+    - Swinject
 
 EXTERNAL SOURCES:
   camPod:
@@ -208,9 +226,11 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  OHHTTPStubs: cb29d2a9d09a828ecb93349a2b0c64f99e0db89f
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
 
-PODFILE CHECKSUM: 7bab9663aeda2ae4a2f3de9a3051d0a98f521a98
+PODFILE CHECKSUM: ed522c11cecf1d0a89b4ca7a591f54af7e5c75cd
 
 COCOAPODS: 1.9.0
