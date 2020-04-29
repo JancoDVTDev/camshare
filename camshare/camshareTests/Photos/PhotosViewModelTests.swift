@@ -12,7 +12,7 @@ import XCTest
 
 class PhotosViewModelTests: XCTestCase {
     override func setUp() {
-        
+
     }
 
     override class func tearDown() {

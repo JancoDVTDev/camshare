@@ -346,24 +346,7 @@ class PhotoAlbumViewController: UIViewController, AVCaptureMetadataOutputObjects
     }
 
     public func presentDeleteActionSheet() {
-//        let alert = UIAlertController(title: "Edit Album", message: "Choose an option", preferredStyle: .actionSheet)
-//
-//        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
-//            print("Being Deleted: \(String(describing: self.currentUser?.albumIDs[self.selectedIndexForEditing]))")
-//            self.albumViewModelOLD.deleteAlbum(albumIDs: self.currentUser!.albumIDs,
-//                                               selectedAlbumIndex: self.selectedIndexForEditing) { (updatedAlbumIDs) in
-//                                                self.currentUser?.albumIDs = updatedAlbumIDs
-//                                                self.albums.remove(at: self.selectedIndexForEditing)
-//                                                self.collectionView.reloadData()
-//            }
-//        }))
-//
-//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(_) in
-//            self.isEditingAlbums = false
-//            self.isCellSelected = false
-//            self.collectionView.reloadData()
-//        }))
-//        present(alert, animated: true)
+
     }
 
     func sessionDidBecomeInactive(_ session: WCSession) {
